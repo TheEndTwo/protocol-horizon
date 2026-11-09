@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="840" viewBox="0 0 1200 840">
+  <defs>
+    <linearGradient id="sky" x2="0" y2="1"><stop stop-color="#0b1c2b"/><stop offset=".62" stop-color="#1f3541"/><stop offset="1" stop-color="#594a43"/></linearGradient>
+    <linearGradient id="shaft" x2="0" y2="1"><stop stop-color="#232b31"/><stop offset=".38" stop-color="#101921"/><stop offset="1" stop-color="#080f17"/></linearGradient>
+    <linearGradient id="core" x2="0" y2="1"><stop stop-color="#f5c27b"/><stop offset=".22" stop-color="#cf6843"/><stop offset=".58" stop-color="#9d4a40"/><stop offset="1" stop-color="#493242"/></linearGradient>
+    <linearGradient id="steel" x2="1" y2="1"><stop stop-color="#aeb6b1"/><stop offset=".5" stop-color="#596971"/><stop offset="1" stop-color="#293943"/></linearGradient>
+  </defs>
+  <path fill="url(#sky)" d="M0 0h1200v840H0z"/>
+  <path fill="#22343c" d="m0 420 119-46 127 29 132-75 122 48 131-53 128 47 145-61 127 64 110-24 159 60v185H0z"/>
+  <path fill="#4c4b45" d="M0 482q184-46 338-5t331 2q181-41 343-2t188 1v97H0z"/>
+  <path fill="url(#shaft)" d="M283 489h645l-52 351H331z"/>
+  <path d="M375 522h460l-35 318H414z" fill="#121a23"/>
+  <path d="M494 538h207l-19 302H515z" fill="url(#core)" opacity=".94"/>
+  <path d="M546 563h104l-12 277h-80z" fill="#f0a668" opacity=".75"/>
+  <path d="m463 517 67-263h220l58 263" fill="none" stroke="url(#steel)" stroke-width="28" stroke-linejoin="round"/>
+  <path d="M492 506 601 187l112 319M550 343h111M528 412h158" fill="none" stroke="#9faeae" stroke-width="14"/>
+  <path d="M455 518h330M488 559h261M462 681h301" fill="none" stroke="#d0b578" stroke-opacity=".7" stroke-width="12"/>
+  <path d="M278 492h-86v211h86M922 492h90v211h-90" fill="none" stroke="url(#steel)" stroke-width="20"/>
+  <path d="M172 557h92v31h-92zM932 557h104v31H932zM161 628h108v30H161zM930 628h124v30H930z" fill="#7b9292"/>
+  <path d="M217 572h41M962 572h55M207 643h56M956 643h68" stroke="#d5e1db" stroke-opacity=".65" stroke-width="7"/>
+  <path d="M0 681q176-37 284 2l57 157H0zM925 685q152-42 275 0v155H904z" fill="#1c282f"/>
+  <path d="M0 706q147-27 285 5M918 710q151-36 282 0" fill="none" stroke="#d09552" stroke-opacity=".55" stroke-width="8"/>
+</svg>
