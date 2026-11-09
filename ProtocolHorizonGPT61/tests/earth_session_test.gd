@@ -1,0 +1,76 @@
+extends SceneTree
+
+var failures: PackedStringArray = []
+var state: Node
+var session: Node
+var saves: Node
+
+func _initialize() -> void:
+	_run.call_deferred()
+
+func check(condition: bool, message: String) -> void:
+	if not condition:
+		failures.append(message)
+
+func _isolated() -> bool:
+	var home := OS.get_environment("XDG_DATA_HOME").trim_suffix("/")
+	return OS.get_environment("HORIZON_TEST_ISOLATED") == "1" and not home.is_empty() and ProjectSettings.globalize_path(state.SAVE_PATH).begins_with(home + "/")
+
+func _run() -> void:
+	state = root.get_node("GameState")
+	session = root.get_node("GameSession")
+	saves = root.get_node("SaveService")
+	if not _isolated():
+		printerr("Use a disposable XDG_DATA_HOME and HORIZON_TEST_ISOLATED=1")
+		quit(2)
+		return
+	if "--reload" in OS.get_cmdline_user_args():
+		check(saves.has_profile(), "Profile was not restored")
+		check(session.prepare(), "Could not prepare restored game")
+		check(state.profile.get("route") == "earth", "Earth route was lost")
+		check(state.profile["game"].has("sites"), "Game state missing after restart")
+		check(state.profile["money_cents"] >= 0, "Money became negative")
+		_finish("separate process save/load")
+		return
+	check(not saves.has_profile(), "Session test requires clean user-data")
+	check(saves.new_game() == OK, "Could not create isolated profile")
+	check(session.prepare(), "Could not initialize earth models")
+	var profile_id: String = state.profile["profile_id"]
+	check(GameMath.unlocked(state.profile, "fe") and not GameMath.unlocked(state.profile,"pd"), "Starter unlock rules")
+	var initial_ore := int(state.profile["inventory"]["iron_ore"])
+	var tap: Dictionary = session.perform("economy", "tap", {"site":"fe", "precision":false})
+	check(tap.get("ok",false), "Zero-money free tap failed")
+	check(int(state.profile["inventory"]["iron_ore"]) > initial_ore, "Tap produced no real iron")
+	var sale: Dictionary = session.perform("economy", "sell", {"resource":"iron_ore", "amount":-1})
+	check(sale.get("ok",false) and state.profile["money_cents"] > 0, "Free iron sale failed")
+	var cents: int = state.profile["money_cents"]
+	var invalid: Dictionary = session.perform("economy", "queue", {"recipe":"not_a_recipe", "line":0,"count":1})
+	check(not invalid.get("ok",true) and state.profile["money_cents"] == cents, "Invalid transaction changed money")
+	check(session.navigate("mine", "fe") == OK, "Could not save current scene")
+	check(state.profile["game"]["ui"]["tab"] == "mine", "Saved subscene mismatch")
+	check(state.profile["profile_id"] == profile_id, "Gameplay replaced profile identity")
+	# A paused process gets one committed offline calculation, not a reward-on-view.
+	var before := state.profile.duplicate(true)
+	before["game"]["last_saved_ts"] = int(Time.get_unix_time_from_system()) - 120
+	check(saves.commit_profile(before) == OK, "Could not prepare offline fixture")
+	session._profile_id = ""
+	check(session.prepare(), "Offline processing failed")
+	var report: Dictionary = state.profile["game"].get("offline_report", {})
+	check(int(report.get("seconds",0)) >= 120, "Offline report not generated")
+	var after := state.profile.duplicate(true)
+	check(session.prepare(), "Second view failed")
+	check(state.profile["inventory"] == after["inventory"] and state.profile["money_cents"] == after["money_cents"], "Offline rewards duplicated")
+	session.dismiss_offline()
+	check(not state.profile["game"].has("offline_report"), "Report dismissal not saved")
+	check(session.flush() == OK, "Final persistence failed")
+	check(GameMath.valid_game(state.profile["game"]), "Game shape is invalid")
+	_finish("new game, free tap/sale, rollback, routes, one-time offline, persistence")
+
+func _finish(label: String) -> void:
+	if failures.is_empty():
+		print("EARTH SESSION PASS: " + label)
+		quit(0)
+	else:
+		for failure in failures:
+			printerr("FAIL: " + failure)
+		quit(1)
