@@ -1,0 +1,85 @@
+{
+  "schema": 1,
+  "notice": "Предварительная настройка игрового баланса; ручные геоданные, подсветка аномалий и коэффициенты ограничены локальным бюджетом добычи и не меняют канонические ID или XP.",
+  "manual_bonus_cap": 0.35,
+  "pocket": {
+    "base_chance": 0.08,
+    "per_level_chance": 0.035,
+    "per_precision_streak": 0.015,
+    "streak_cap": 8,
+    "critical_chance": 0.06,
+    "forecast_chance": 0.10,
+    "lens_chance": 0.08,
+    "lens_per_level": 0.03,
+    "max_chance": 0.35,
+    "units_per_hit": 0.25,
+    "max_pool_units": 4,
+    "max_draw_per_tap": 2
+  },
+  "precision": {
+    "weak_mark_seconds": 4.0,
+    "directional_successes": 3,
+    "directional_bonus": 0.22,
+    "marked_strike_seconds": 10.0,
+    "marked_strike_threshold": 3,
+    "marked_strike_level_bonus": 0.06,
+    "marked_strike_base_bonus": 0.12
+  },
+  "forecast": {
+    "interval_seconds": 35.0,
+    "max_interval_seconds": 90.0
+  },
+  "resonance": {
+    "streak_required": 3,
+    "armed_seconds": 8.0,
+    "bonus": 0.22,
+    "cooldown_seconds": 45.0,
+    "max_cooldown_seconds": 60.0
+  },
+  "zones": {
+    "choice_seconds": 15.0,
+    "choice_streak": 3,
+    "bonus": 0.18,
+    "radius": 0.15
+  },
+  "routes": {
+    "path_radius": 0.055
+  },
+  "drill_order": {
+    "wait_reduction_fraction": 0.25
+  },
+  "cohesion": {
+    "duration_seconds": 15.0,
+    "tap_bonus": 0.25
+  },
+  "profiles": {
+    "balanced": {"rate_bonus": 0.15, "wage_multiplier": 1.0, "tap_multiplier": 1.0},
+    "throughput": {"rate_bonus": 0.30, "wage_multiplier": 1.10, "tap_multiplier": 1.0},
+    "quality": {"rate_bonus": 0.0, "wage_multiplier": 1.0, "tap_multiplier": 1.25}
+  },
+  "profile_transition": {"duration_seconds": 8.0, "efficiency_loss_fraction": 0.20},
+  "geology": {"manual_sample_base_quality": 0.65, "precision_sample_quality_bonus": 0.2, "weak_point_sample_quality_bonus": 0.15, "weak_point_highlight_base_seconds": 4.0},
+  "core_event": {
+    "minimum_horizon": 3,
+    "work_units": 5,
+    "reward_units": 20
+  },
+  "supported": {
+    "D01": {"catalog": "research", "mechanism": "Weak-point contacts build a real precision streak; misses retain ordinary mining.", "canonical_effect": "Точное нажатие на слабую точку даёт видимый заряд серии; промах не снимает обычную добычу."},
+    "D02": {"catalog": "research", "mechanism": "A capped finite pocket can be discovered only on a successful physical hit and is drawn by a later hit.", "canonical_effect": "Серия точных попаданий увеличивает шанс бонусного кармана в рамках бюджета активной добычи."},
+    "D03": {"catalog": "research", "mechanism": "A timed forecast points to the next actual eligible rock zone; it grants no resources.", "canonical_effect": "Показывает на горизонте ближайшую потенциальную богатую жилу и время её появления."},
+    "D04": {"catalog": "research", "mechanism": "After a precision streak, arm one targetable enhanced strike; it consumes only on a real hit there.", "canonical_effect": "После серии точных ударов разрешает один усиленный удар по отмеченному участку."},
+    "D11": {"catalog": "research", "mechanism": "Choose whether the next finite pocket draw enters free inventory or a reserved factory buffer.", "canonical_effect": "При открытии богатого кармана можно выбрать немедленное железо или заводской буфер."},
+    "D14": {"catalog": "research", "mechanism": "An optional armed resonance can fire once on a precise contact, then enters a capped cooldown.", "canonical_effect": "Открывает дополнительную одноразовую цепную реакцию при активном резонансе."},
+    "D15": {"catalog": "research", "mechanism": "Select a previously unlocked deep horizon where a real mining hit has improved pocket prospecting.", "canonical_effect": "Делает редкие глубокие линзы доступными на ранее открытых горизонтах."},
+    "D19": {"catalog": "research", "mechanism": "Choose a reversible production profile for one unlocked deep horizon; each profile affects a different real output path.", "canonical_effect": "Открывает выбор одного из трёх производственных профилей глубокого горизонта без необратимой блокировки."},
+    "D20": {"catalog": "research", "mechanism": "A unique event requires five successful manual deep-horizon work units, then archives and pays once.", "canonical_effect": "Открывает уникальное глубинное событие с однократной наградой и записью в архив."},
+    "FE_SK01": {"catalog": "mastery", "mechanism": "Mark the real weak-point location for four seconds; one precise hit consumes the mark.", "canonical_effect": "Отмечает текущую слабую точку на 4 секунды для следующего точного удара; обычный удар без метки не штрафуется."},
+    "FE_SK02": {"catalog": "mastery", "mechanism": "After three successful contacts, choose a visible region for one directional strike.", "canonical_effect": "После трёх успешных касаний предлагает один направленный удар по выбранной части жилы; общий бонус ограничен активным бюджетом."},
+    "FE_SK03": {"catalog": "mastery", "mechanism": "Choose one of two drawn paths through an already discovered finite pocket; the chosen path must be physically struck.", "canonical_effect": "В активной мини-игре игрок выбирает один из двух показанных путей внутри рудной жилы; получает фиксированный честный выход из одного кармана, не новую бесплатную жилу."},
+    "FE_SK04": {"catalog": "mastery", "mechanism": "One manual order advances only the real pending iron-drill cycle; each completed drill cycle produces its usual single output.", "canonical_effect": "Раз в производственный цикл вручную сокращает ожидание следующей буровой операции без создания второго выхода.", "actions": ["mining_order_drill"]},
+    "FE_SK05": {"catalog": "mastery", "mechanism": "A three-hit precision combo opens an optional 15-second target-zone choice with a real zone-limited tap effect.", "canonical_effect": "Мини-комбо 3 отметок раскрывает короткий выбор рудной зоны; длительность 15 секунд, можно игнорировать."},
+    "FE_SK07": {"catalog": "mastery", "mechanism": "Assign one discovered finite ore pocket to the oldest accepted Fe contract; real delivered pocket units move into that order's existing reservation.", "canonical_effect": "Один ручной рудный карман можно пометить для ближайшего принятого заказа; фактические единицы товара переходят в его резерв без копирования.", "actions": ["mining_mark_contract_pocket"]},
+    "FE_SK08": {"catalog": "mastery", "mechanism": "Once per live session, apply one real drill order on a chosen unlocked horizon and grant a short horizon-bound manual mining bonus capped at 25%.", "canonical_effect": "Раз за сессию совместить выбранный горизонт и буровой приказ для короткого эффекта +25% ручной добычи.", "actions": ["mining_activate_cohesion"]}
+  }
+}

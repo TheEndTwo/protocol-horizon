@@ -1,0 +1,17 @@
+{
+  "status": "PROPOSAL_NOT_CANON",
+  "notice": "Исходный канон неизменён. Все отсутствовавшие коэффициенты, таймеры, пулы и награды ниже являются рабочими предложениями, а не утверждённым балансом.",
+  "configs": {
+    "economy": "res://data/proposals/economy.json",
+    "features": "res://data/proposals/features.json",
+    "industrial_features": "res://data/proposals/industrial_features.json",
+    "meta": "res://data/proposals/meta.json",
+    "mining_features": "res://data/proposals/mining_features.json",
+    "organisation_features": "res://data/proposals/organisation_features.json",
+    "progression": "res://data/proposals/progression.json",
+    "research_runtime": "res://data/proposals/research_runtime.json",
+    "sites": "res://data/proposals/sites.json"
+  },
+  "measurements": "res://docs/BALANCE_RESULTS.md",
+  "season_41_60": "res://docs/SEASON_REWARDS_41_60_PROPOSAL.md"
+}
