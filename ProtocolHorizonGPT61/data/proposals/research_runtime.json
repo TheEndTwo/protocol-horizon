@@ -1,0 +1,1871 @@
+{
+  "schema": 1,
+  "provisional_coefficients": true,
+  "notice": "Coefficients are provisional tuning. Canonical text does not specify percentages. Runtime contracts marked missing require core consumers. Ownership remains in game.progression; this engine never buys nodes or spends points.",
+  "research": {
+    "D06": {
+      "mode": "view",
+      "mechanism": "Map currently opened Fe horizons",
+      "canonical_status": "partial",
+      "implemented": false,
+      "core_hook_required": true,
+      "view": "open_horizons",
+      "site": "fe",
+      "gap": "Lists already-open Fe horizons; per-horizon specialization labels are not available in the core data."
+    },
+    "P01": {
+      "mode": "view",
+      "mechanism": "Next-worker cost, rate, and wage estimate",
+      "canonical_status": "partial",
+      "implemented": false,
+      "core_hook_required": true,
+      "view": "worker_roi",
+      "site": "fe",
+      "gap": "Computes next-worker cost/output/wage ROI, but does not recommend an optimal crew composition."
+    },
+    "P08": {
+      "mode": "view",
+      "mechanism": "Next-worker cost, rate, and wage estimate",
+      "canonical_status": "partial",
+      "implemented": false,
+      "core_hook_required": true,
+      "view": "worker_roi",
+      "site": "fe",
+      "gap": "Computes catalog-price net-per-hour; realized sale timing/storage are outside this forecast."
+    },
+    "P09": {
+      "mode": "view",
+      "mechanism": "Wage reserve tracked against current balance",
+      "canonical_status": "partial",
+      "implemented": false,
+      "core_hook_required": true,
+      "action": "set_cash_reserve",
+      "action_fields": [
+        "amount_cents"
+      ],
+      "gap": "Shows current forecast and stores a reserve; EconomyModel spending does not honor it.",
+      "view": "wages",
+      "site": "fe",
+      "reserve_kind": "wage",
+      "preference_key": "wage_reserve"
+    },
+    "P11": {
+      "mode": "view",
+      "mechanism": "Current specialist roster only",
+      "canonical_status": "partial",
+      "implemented": false,
+      "core_hook_required": true,
+      "view": "specialists",
+      "site": "fe",
+      "gap": "Shows the existing roster; specialist interaction analysis and a five-person cap are not wired."
+    },
+    "P16": {
+      "mode": "view",
+      "mechanism": "Current worker counts and machine levels",
+      "canonical_status": "partial",
+      "implemented": false,
+      "core_hook_required": true,
+      "view": "workforce",
+      "site": "fe",
+      "gap": "Shows actual worker counts and machine levels, but not per-profession machine-effect analysis."
+    },
+    "G01": {
+      "mode": "view",
+      "mechanism": "Existing reports and tags",
+      "canonical_status": "partial",
+      "implemented": false,
+      "core_hook_required": true,
+      "view": "geology_reports",
+      "gap": "Shows real reports/tags, but no spectral decoding field exists in the scan model."
+    },
+    "G03": {
+      "mode": "view",
+      "mechanism": "Previously recorded discoveries",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "view": "geology_archive"
+    },
+    "G05": {
+      "mode": "view",
+      "mechanism": "Unlocked sites, lifetime peaks, and opened horizons",
+      "canonical_status": "partial",
+      "implemented": false,
+      "core_hook_required": true,
+      "view": "site_map",
+      "gap": "Shows real site peaks/geodata; a spatial density heatmap is not present in the model."
+    },
+    "G07": {
+      "mode": "view",
+      "mechanism": "Most recent 20 real geological reports",
+      "canonical_status": "partial",
+      "implemented": false,
+      "core_hook_required": true,
+      "view": "geology_history",
+      "gap": "Shows the latest actual reports; lifetime scan statistics are not available."
+    },
+    "G11": {
+      "mode": "view",
+      "mechanism": "Compare all open Fe horizons using catalog-price output and worker wages",
+      "canonical_status": "partial",
+      "implemented": false,
+      "core_hook_required": true,
+      "view": "horizon_value_comparison",
+      "gap": "Computes catalog-price value by all open Fe horizons; factory/sale realization is not part of this forecast."
+    },
+    "PD16": {
+      "mode": "view",
+      "mechanism": "Canonical recipe sale value, inputs, and added margin",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "view": "market_added_value"
+    },
+    "G13": {
+      "mode": "view",
+      "mechanism": "Expedition status and issued reports",
+      "canonical_status": "partial",
+      "implemented": false,
+      "core_hook_required": true,
+      "view": "geology_reports",
+      "gap": "Shows actual reports and active expedition state, but not a separate reward-issuance history."
+    },
+    "G15": {
+      "mode": "view",
+      "mechanism": "Actual geology discoveries used as optional goals",
+      "canonical_status": "partial",
+      "implemented": false,
+      "core_hook_required": true,
+      "view": "geology_goals",
+      "gap": "Shows discovered geology tags; new deep-vein visual types are not present in the model."
+    },
+    "PD01": {
+      "mode": "view",
+      "mechanism": "Available P-7 lens definitions and costs",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "view": "pd_lenses",
+      "site": "pd"
+    },
+    "PD03": {
+      "mode": "view",
+      "mechanism": "Current real Pd sample and measured fields",
+      "canonical_status": "partial",
+      "implemented": false,
+      "core_hook_required": true,
+      "view": "pd_sample",
+      "site": "pd",
+      "gap": "Shows the real current sample and its impurity fields; no dedicated impurity-contribution overlay is wired."
+    },
+    "PD04": {
+      "mode": "view",
+      "mechanism": "Current real Pd sample and measured fields",
+      "canonical_status": "partial",
+      "implemented": false,
+      "core_hook_required": true,
+      "view": "pd_sample",
+      "site": "pd",
+      "gap": "Shows the real sample interval; the research-specific confidence-bound presentation is not wired."
+    },
+    "PD21": {
+      "mode": "view",
+      "mechanism": "Current real Pd sample and measured fields",
+      "canonical_status": "missing",
+      "implemented": false,
+      "core_hook_required": true,
+      "view": "pd_sample",
+      "site": "pd",
+      "gap": "The sample model has no fourth impurity type."
+    },
+    "PD06": {
+      "mode": "view",
+      "mechanism": "Saved snapshots only; no fabricated measurement history",
+      "canonical_status": "missing",
+      "implemented": false,
+      "core_hook_required": true,
+      "view": "runtime_archive",
+      "site": "pd",
+      "gap": "Past measurements are not archived on lens changes."
+    },
+    "PD10": {
+      "mode": "view",
+      "mechanism": "Current real Pd cost and duration",
+      "canonical_status": "missing",
+      "implemented": false,
+      "core_hook_required": true,
+      "view": "pd_costs",
+      "site": "pd",
+      "gap": "The current Pd model has no energy-cost field to forecast."
+    },
+    "PD13": {
+      "mode": "view",
+      "mechanism": "Catalogued Pd lens yield, quality, and cost ranges",
+      "canonical_status": "partial",
+      "implemented": false,
+      "core_hook_required": true,
+      "view": "pd_lens_comparison",
+      "site": "pd",
+      "gap": "Shows actual lens projections; comparison of two purification profiles is not modeled."
+    },
+    "PD19": {
+      "mode": "view",
+      "mechanism": "Actual Pd extraction state and queue status",
+      "canonical_status": "partial",
+      "implemented": false,
+      "core_hook_required": true,
+      "view": "production_chain",
+      "site": "pd",
+      "gap": "Shows actual Pd state/cycle status; a stage-by-stage process graph is not present."
+    },
+    "IR01": {
+      "mode": "view",
+      "mechanism": "Current route projections, time, cost, and thermal fields",
+      "canonical_status": "partial",
+      "implemented": false,
+      "core_hook_required": true,
+      "view": "ir_forecast",
+      "site": "ir",
+      "gap": "Shows current route forecasts, but the three routes are not distinguished by rock type."
+    },
+    "IR02": {
+      "mode": "view",
+      "mechanism": "Current route projections, time, cost, and thermal fields",
+      "canonical_status": "partial",
+      "implemented": false,
+      "core_hook_required": true,
+      "view": "ir_forecast",
+      "site": "ir",
+      "gap": "Shows aggregate projected thermal penalty, not per-zone risk regions."
+    },
+    "IR11": {
+      "mode": "view",
+      "mechanism": "Current route projections, time, cost, and thermal fields",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "view": "ir_forecast",
+      "site": "ir"
+    },
+    "IR04": {
+      "mode": "view",
+      "mechanism": "Saved route snapshots and current campaign",
+      "canonical_status": "partial",
+      "implemented": false,
+      "core_hook_required": true,
+      "view": "ir_history",
+      "site": "ir",
+      "gap": "Shows saved real campaign snapshots; comparison against a discovered historical scheme is not wired."
+    },
+    "IR15": {
+      "mode": "view",
+      "mechanism": "Actual production line and active recipe time remaining",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "view": "factory_queues",
+      "site": "ir"
+    },
+    "IR21": {
+      "mode": "view",
+      "mechanism": "Real campaign phase, temperature, and projection",
+      "canonical_status": "partial",
+      "implemented": false,
+      "core_hook_required": true,
+      "view": "ir_campaign",
+      "site": "ir",
+      "gap": "Shows real campaign temperature and route projections; per-phase heat-window annotations are missing."
+    },
+    "IR29": {
+      "mode": "view",
+      "mechanism": "Real campaign phase, temperature, and projection",
+      "canonical_status": "partial",
+      "implemented": false,
+      "core_hook_required": true,
+      "view": "ir_campaign",
+      "site": "ir",
+      "gap": "Shows total strategy projections; guaranteed Ir minimum and per-phase cost/time are missing."
+    },
+    "IR17": {
+      "mode": "feature",
+      "mechanism": "Contract reservation view only; automatic route selection is missing",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "view": "ir_contract_status",
+      "site": "ir",
+      "integration_note": "Verified family dispatcher and action tests"
+    },
+    "D05": {
+      "mode": "modifier",
+      "mechanism": "Critical-hit variance reduction",
+      "canonical_status": "missing",
+      "implemented": false,
+      "core_hook_required": true,
+      "key": "manual:crit_spread_reduction",
+      "scope": "fe",
+      "per_rank": 0.01,
+      "cap": 0.05,
+      "coefficient_source": "provisional"
+    },
+    "D08": {
+      "mode": "modifier",
+      "mechanism": "Weak-point anomaly highlight duration",
+      "canonical_status": "missing",
+      "implemented": false,
+      "core_hook_required": true,
+      "key": "geology:anomaly_highlight_seconds",
+      "scope": "fe",
+      "per_rank": 0.01,
+      "cap": 0.05,
+      "coefficient_source": "provisional"
+    },
+    "D09": {
+      "mode": "modifier",
+      "mechanism": "Manual combo-point length",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "key": "manual:combo_point_length",
+      "scope": "fe",
+      "per_rank": 0.01,
+      "cap": 0.05,
+      "coefficient_source": "provisional",
+      "integration_note": "Consumed by scoped model hooks; covered by research_consumers_test or late_sites_test"
+    },
+    "D10": {
+      "mode": "modifier",
+      "mechanism": "Deep-horizon-only iron output; not drill output",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "key": "deep_output",
+      "scope": "fe",
+      "per_rank": 0.01,
+      "cap": 0.05,
+      "coefficient_source": "provisional"
+    },
+    "D12": {
+      "mode": "modifier",
+      "mechanism": "Precision value by distance",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "key": "manual:far_zone_value",
+      "scope": "fe",
+      "per_rank": 0.01,
+      "cap": 0.05,
+      "coefficient_source": "provisional",
+      "integration_note": "Consumed by scoped model hooks; covered by research_consumers_test or late_sites_test"
+    },
+    "D17": {
+      "mode": "modifier",
+      "mechanism": "Active extraction geology-data quality",
+      "canonical_status": "missing",
+      "implemented": false,
+      "core_hook_required": true,
+      "key": "geology:data_quality",
+      "scope": "fe",
+      "per_rank": 0.01,
+      "cap": 0.05,
+      "coefficient_source": "provisional"
+    },
+    "D18": {
+      "mode": "modifier",
+      "mechanism": "Active combo cooldown reduction",
+      "canonical_status": "missing",
+      "implemented": false,
+      "core_hook_required": true,
+      "key": "manual:combo_cooldown_reduction",
+      "scope": "fe",
+      "per_rank": 0.01,
+      "cap": 0.05,
+      "coefficient_source": "provisional"
+    },
+    "A02": {
+      "mode": "modifier",
+      "mechanism": "Iron drill uptime only, not worker output",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "key": "machine:iron_drill",
+      "scope": "fe",
+      "per_rank": 0.01,
+      "cap": 0.05,
+      "coefficient_source": "provisional",
+      "integration_note": "Consumed by scoped model hooks; covered by research_consumers_test or late_sites_test"
+    },
+    "A04": {
+      "mode": "modifier",
+      "mechanism": "Hauler-directed factory-flow share",
+      "canonical_status": "missing",
+      "implemented": false,
+      "core_hook_required": true,
+      "key": "logistics:loader_share",
+      "scope": "fe",
+      "per_rank": 0.01,
+      "cap": 0.05,
+      "coefficient_source": "provisional"
+    },
+    "A05": {
+      "mode": "modifier",
+      "mechanism": "Ore-hauler dispatch interval",
+      "canonical_status": "missing",
+      "implemented": false,
+      "core_hook_required": true,
+      "key": "transport:ore_dispatch_rate",
+      "scope": "fe",
+      "per_rank": 0.01,
+      "cap": 0.05,
+      "coefficient_source": "provisional"
+    },
+    "A06": {
+      "mode": "modifier",
+      "mechanism": "Conveyor resonance window only",
+      "canonical_status": "missing",
+      "implemented": false,
+      "core_hook_required": true,
+      "key": "conveyor:resonance_efficiency",
+      "scope": "fe",
+      "per_rank": 0.01,
+      "cap": 0.05,
+      "coefficient_source": "provisional"
+    },
+    "A08": {
+      "mode": "modifier",
+      "mechanism": "Profile-switch efficiency loss",
+      "canonical_status": "missing",
+      "implemented": false,
+      "core_hook_required": true,
+      "key": "production:profile_switch_loss_reduction",
+      "scope": "fe",
+      "per_rank": 0.01,
+      "cap": 0.05,
+      "coefficient_source": "provisional"
+    },
+    "A09": {
+      "mode": "modifier",
+      "mechanism": "Bounded transport throughput, not production",
+      "canonical_status": "missing",
+      "implemented": false,
+      "core_hook_required": true,
+      "key": "transport:efficiency",
+      "scope": "fe",
+      "per_rank": 0.01,
+      "cap": 0.05,
+      "coefficient_source": "provisional"
+    },
+    "A12": {
+      "mode": "modifier",
+      "mechanism": "Finished-goods shipping only",
+      "canonical_status": "missing",
+      "implemented": false,
+      "core_hook_required": true,
+      "key": "shipping:finished_goods_rate",
+      "scope": "fe",
+      "per_rank": 0.01,
+      "cap": 0.05,
+      "coefficient_source": "provisional"
+    },
+    "A13": {
+      "mode": "modifier",
+      "mechanism": "Diminishing high-level machine efficiency",
+      "canonical_status": "missing",
+      "implemented": false,
+      "core_hook_required": true,
+      "key": "machine:high_level_efficiency",
+      "scope": "fe",
+      "per_rank": 0.01,
+      "cap": 0.05,
+      "coefficient_source": "provisional"
+    },
+    "A17": {
+      "mode": "modifier",
+      "mechanism": "Factory shipment net value, not raw ore",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "key": "shipping:factory_margin",
+      "scope": "fe",
+      "per_rank": 0.01,
+      "cap": 0.05,
+      "coefficient_source": "provisional",
+      "integration_note": "Consumed by scoped model hooks; covered by research_consumers_test or late_sites_test"
+    },
+    "A18": {
+      "mode": "modifier",
+      "mechanism": "Priority recipe-order speed, capped",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "key": "recipe_speed",
+      "scope": "factory",
+      "per_rank": 0.01,
+      "cap": 0.05,
+      "coefficient_source": "provisional",
+      "integration_note": "Consumed by scoped model hooks; covered by research_consumers_test or late_sites_test"
+    },
+    "P02": {
+      "mode": "modifier",
+      "mechanism": "Iron miner output only",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "key": "worker:iron_miner",
+      "scope": "fe",
+      "per_rank": 0.01,
+      "cap": 0.05,
+      "coefficient_source": "provisional",
+      "integration_note": "Consumed by scoped model hooks; covered by research_consumers_test or late_sites_test"
+    },
+    "P03": {
+      "mode": "modifier",
+      "mechanism": "Iron driller deep-zone quality only",
+      "canonical_status": "missing",
+      "implemented": false,
+      "core_hook_required": true,
+      "key": "worker:iron_driller",
+      "scope": "fe",
+      "per_rank": 0.01,
+      "cap": 0.05,
+      "coefficient_source": "provisional"
+    },
+    "P05": {
+      "mode": "modifier",
+      "mechanism": "Hauler factory-flow share only",
+      "canonical_status": "missing",
+      "implemented": false,
+      "core_hook_required": true,
+      "key": "worker:iron_hauler",
+      "scope": "fe",
+      "per_rank": 0.01,
+      "cap": 0.05,
+      "coefficient_source": "provisional"
+    },
+    "P06": {
+      "mode": "modifier",
+      "mechanism": "Hauler/conveyor downtime reduction",
+      "canonical_status": "missing",
+      "implemented": false,
+      "core_hook_required": true,
+      "key": "transport:operator_downtime_reduction",
+      "scope": "fe",
+      "per_rank": 0.01,
+      "cap": 0.05,
+      "coefficient_source": "provisional"
+    },
+    "P07": {
+      "mode": "modifier",
+      "mechanism": "Foreman-led team bonus only",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "key": "worker:iron_foreman",
+      "scope": "fe",
+      "per_rank": 0.01,
+      "cap": 0.05,
+      "coefficient_source": "provisional",
+      "integration_note": "Consumed by scoped model hooks; covered by research_consumers_test or late_sites_test"
+    },
+    "P10": {
+      "mode": "modifier",
+      "mechanism": "Miner plus hauler synergy, without global output stacking",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "key": "team:miner_hauler_synergy",
+      "scope": "fe",
+      "per_rank": 0.01,
+      "cap": 0.05,
+      "coefficient_source": "provisional",
+      "integration_note": "Consumed by scoped model hooks; covered by research_consumers_test or late_sites_test"
+    },
+    "P13": {
+      "mode": "modifier",
+      "mechanism": "Qualified profession-specific specialist bonus",
+      "canonical_status": "missing",
+      "implemented": false,
+      "core_hook_required": true,
+      "key": "specialist:role_matched_worker",
+      "scope": "fe",
+      "per_rank": 0.01,
+      "cap": 0.05,
+      "coefficient_source": "provisional"
+    },
+    "P18": {
+      "mode": "modifier",
+      "mechanism": "Driller and operator coordinated cycle",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "key": "team:driller_operator_sync",
+      "scope": "fe",
+      "per_rank": 0.01,
+      "cap": 0.05,
+      "coefficient_source": "provisional",
+      "integration_note": "Consumed by scoped model hooks; covered by research_consumers_test or late_sites_test"
+    },
+    "G02": {
+      "mode": "modifier",
+      "mechanism": "Geological signature display precision",
+      "canonical_status": "missing",
+      "implemented": false,
+      "core_hook_required": true,
+      "key": "geology:signature_precision",
+      "scope": "fe",
+      "per_rank": 0.01,
+      "cap": 0.05,
+      "coefficient_source": "provisional"
+    },
+    "G04": {
+      "mode": "modifier",
+      "mechanism": "Usable sample share, no extra rarity rolls",
+      "canonical_status": "missing",
+      "implemented": false,
+      "core_hook_required": true,
+      "key": "geology:usable_sample_share",
+      "scope": "fe",
+      "per_rank": 0.01,
+      "cap": 0.05,
+      "coefficient_source": "provisional"
+    },
+    "G06": {
+      "mode": "modifier",
+      "mechanism": "Ordinary expedition duration",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "key": "expedition:duration_reduction",
+      "scope": "all",
+      "per_rank": 0.01,
+      "cap": 0.05,
+      "coefficient_source": "provisional",
+      "integration_note": "Consumed by scoped model hooks; covered by research_consumers_test or late_sites_test"
+    },
+    "G09": {
+      "mode": "modifier",
+      "mechanism": "Expedition reward quality with published odds",
+      "canonical_status": "missing",
+      "implemented": false,
+      "core_hook_required": true,
+      "key": "expedition:reward_quality",
+      "scope": "all",
+      "per_rank": 0.01,
+      "cap": 0.05,
+      "coefficient_source": "provisional"
+    },
+    "G14": {
+      "mode": "modifier",
+      "mechanism": "Capped scanner progress rate",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "key": "geology:scan_progress",
+      "scope": "all",
+      "per_rank": 0.01,
+      "cap": 0.05,
+      "coefficient_source": "provisional",
+      "integration_note": "Consumed by scoped model hooks; covered by research_consumers_test or late_sites_test"
+    },
+    "G18": {
+      "mode": "modifier",
+      "mechanism": "Deep geological mark precision",
+      "canonical_status": "missing",
+      "implemented": false,
+      "core_hook_required": true,
+      "key": "geology:deep_mark_precision",
+      "scope": "ir",
+      "per_rank": 0.01,
+      "cap": 0.05,
+      "coefficient_source": "provisional"
+    },
+    "PD02": {
+      "mode": "modifier",
+      "mechanism": "Selected-lens forecast variance",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "key": "pd:forecast_variance_reduction",
+      "scope": "pd",
+      "per_rank": 0.01,
+      "cap": 0.05,
+      "coefficient_source": "provisional",
+      "integration_note": "Consumed by scoped model hooks; covered by research_consumers_test or late_sites_test"
+    },
+    "PD08": {
+      "mode": "modifier",
+      "mechanism": "High-volume Pd line speed",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "key": "pd:bulk_processing_speed",
+      "scope": "pd",
+      "per_rank": 0.01,
+      "cap": 0.05,
+      "coefficient_source": "provisional",
+      "integration_note": "Consumed by scoped model hooks; covered by research_consumers_test or late_sites_test"
+    },
+    "PD09": {
+      "mode": "modifier",
+      "mechanism": "Alternate crushing schedule",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "key": "pd:crushing_duration_reduction",
+      "scope": "pd",
+      "per_rank": 0.01,
+      "cap": 0.05,
+      "coefficient_source": "provisional",
+      "integration_note": "Consumed by scoped model hooks; covered by research_consumers_test or late_sites_test"
+    },
+    "PD11": {
+      "mode": "modifier",
+      "mechanism": "Optional long-cycle chemical saving",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "key": "pd:chemical_cost_reduction",
+      "scope": "pd",
+      "per_rank": 0.01,
+      "cap": 0.05,
+      "coefficient_source": "provisional",
+      "integration_note": "Consumed by scoped model hooks; covered by research_consumers_test or late_sites_test"
+    },
+    "PD12": {
+      "mode": "modifier",
+      "mechanism": "Direct reagent expense only",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "key": "pd:reagent_cost_reduction",
+      "scope": "pd",
+      "per_rank": 0.01,
+      "cap": 0.05,
+      "coefficient_source": "provisional",
+      "integration_note": "Consumed by scoped model hooks; covered by research_consumers_test or late_sites_test"
+    },
+    "PD15": {
+      "mode": "modifier",
+      "mechanism": "Catalyst tooling cash fee, not steel",
+      "canonical_status": "missing",
+      "implemented": false,
+      "core_hook_required": true,
+      "key": "pd:tooling_cash_cost_reduction",
+      "scope": "pd",
+      "per_rank": 0.01,
+      "cap": 0.05,
+      "coefficient_source": "provisional"
+    },
+    "IR03": {
+      "mode": "modifier",
+      "mechanism": "Ir output forecast range",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "key": "ir:yield_uncertainty_reduction",
+      "scope": "ir",
+      "per_rank": 0.01,
+      "cap": 0.05,
+      "coefficient_source": "provisional",
+      "integration_note": "Consumed by scoped model hooks; covered by research_consumers_test or late_sites_test"
+    },
+    "IR07": {
+      "mode": "modifier",
+      "mechanism": "Safe-route stability margin",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "key": "ir:stability_margin",
+      "scope": "ir",
+      "per_rank": 0.01,
+      "cap": 0.05,
+      "coefficient_source": "provisional",
+      "integration_note": "Consumed by scoped model hooks; covered by research_consumers_test or late_sites_test"
+    },
+    "IR09": {
+      "mode": "modifier",
+      "mechanism": "Robot-grab extraction setup time",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "key": "ir:setup_duration_reduction",
+      "scope": "ir",
+      "per_rank": 0.01,
+      "cap": 0.05,
+      "coefficient_source": "provisional",
+      "integration_note": "Consumed by scoped model hooks; covered by research_consumers_test or late_sites_test"
+    },
+    "IR10": {
+      "mode": "modifier",
+      "mechanism": "Forced-route cooling expense with a floor",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "key": "ir:forced_cooling_energy_reduction",
+      "scope": "ir",
+      "per_rank": 0.01,
+      "cap": 0.05,
+      "coefficient_source": "provisional",
+      "integration_note": "Consumed by scoped model hooks; covered by research_consumers_test or late_sites_test"
+    },
+    "IR12": {
+      "mode": "modifier",
+      "mechanism": "Independent cleanup buffer capacity",
+      "canonical_status": "missing",
+      "implemented": false,
+      "core_hook_required": true,
+      "key": "ir:cleanup_buffer_capacity",
+      "scope": "ir",
+      "per_rank": 0.01,
+      "cap": 0.05,
+      "coefficient_source": "provisional"
+    },
+    "IR13": {
+      "mode": "modifier",
+      "mechanism": "Direct Ir cleanup cash expense",
+      "canonical_status": "missing",
+      "implemented": false,
+      "core_hook_required": true,
+      "key": "ir:cleanup_cost_reduction",
+      "scope": "ir",
+      "per_rank": 0.01,
+      "cap": 0.05,
+      "coefficient_source": "provisional"
+    },
+    "IR19": {
+      "mode": "modifier",
+      "mechanism": "Safe-cavity project duration only",
+      "canonical_status": "missing",
+      "implemented": false,
+      "core_hook_required": true,
+      "key": "ir:safe_project_duration_reduction",
+      "scope": "ir",
+      "per_rank": 0.01,
+      "cap": 0.05,
+      "coefficient_source": "provisional"
+    },
+    "A01": {
+      "mode": "action",
+      "mechanism": "Save/restore routing settings only",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "action": "preset",
+      "action_fields": [
+        "operation",
+        "slot",
+        "settings"
+      ],
+      "preset_slots": 2,
+      "preset_kind": "network"
+    },
+    "A03": {
+      "mode": "action",
+      "mechanism": "Reserve only existing inventory through the economy reservation ledger",
+      "canonical_status": "partial",
+      "implemented": false,
+      "core_hook_required": true,
+      "action": "reserve_items",
+      "action_fields": [
+        "token",
+        "items"
+      ],
+      "gap": "Uses real inventory reservations; automatic contract-priority selection is not wired."
+    },
+    "A15": {
+      "mode": "action",
+      "mechanism": "Reserve only existing inventory through the economy reservation ledger",
+      "canonical_status": "partial",
+      "implemented": false,
+      "core_hook_required": true,
+      "action": "reserve_items",
+      "action_fields": [
+        "token",
+        "items"
+      ],
+      "gap": "Uses real inventory reservations, but the promised automatic minimum for contracts/wages is not enforced."
+    },
+    "PD28": {
+      "mode": "action",
+      "mechanism": "Reserve only existing inventory through the economy reservation ledger",
+      "canonical_status": "partial",
+      "implemented": false,
+      "core_hook_required": true,
+      "action": "reserve_items",
+      "action_fields": [
+        "token",
+        "items"
+      ],
+      "gap": "Reserves real inventory; contract-priority catalyst production is not wired."
+    },
+    "IR26": {
+      "mode": "action",
+      "mechanism": "Reserve only existing inventory through the economy reservation ledger",
+      "canonical_status": "partial",
+      "implemented": false,
+      "core_hook_required": true,
+      "action": "reserve_items",
+      "action_fields": [
+        "token",
+        "items"
+      ],
+      "gap": "Uses the real reservation ledger, but does not bind the reservation to the next thermal-contact job."
+    },
+    "A07": {
+      "mode": "action",
+      "mechanism": "Save/restore a recipe plan; loading pays and queues real recipes",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "action": "preset",
+      "action_fields": [
+        "operation",
+        "slot",
+        "settings"
+      ],
+      "preset_slots": 2,
+      "preset_kind": "recipe_chain"
+    },
+    "A14": {
+      "mode": "action",
+      "mechanism": "Queue real recipes using existing line capacity, ingredients, and cash",
+      "canonical_status": "partial",
+      "implemented": false,
+      "core_hook_required": true,
+      "action": "queue_recipe_chain",
+      "action_fields": [
+        "recipe_ids",
+        "line",
+        "count"
+      ],
+      "max_recipe_ids": 5,
+      "gap": "Queues only recipes whose inputs are currently free; dependent intermediate-output chaining is not implemented."
+    },
+    "PD14": {
+      "mode": "action",
+      "mechanism": "Queue real recipes using existing line capacity, ingredients, and cash",
+      "canonical_status": "partial",
+      "implemented": false,
+      "core_hook_required": true,
+      "action": "queue_recipe_chain",
+      "action_fields": [
+        "recipe_ids",
+        "line",
+        "count"
+      ],
+      "max_recipe_ids": 5,
+      "gap": "Queues real catalogued recipes; saving a target catalyst queue is not wired."
+    },
+    "PD26": {
+      "mode": "action",
+      "mechanism": "Queue real recipes using existing line capacity, ingredients, and cash",
+      "canonical_status": "partial",
+      "implemented": false,
+      "core_hook_required": true,
+      "action": "queue_recipe_chain",
+      "action_fields": [
+        "recipe_ids",
+        "line",
+        "count"
+      ],
+      "max_recipe_ids": 5,
+      "gap": "Queues real recipes on a real line; two separate queues sharing capacity are not wired."
+    },
+    "PD25": {
+      "mode": "action",
+      "mechanism": "Select a real next Pd lens while the current sample is idle",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "action": "select_pd_lens",
+      "action_fields": [
+        "lens_id"
+      ],
+      "site": "pd"
+    },
+    "PD18": {
+      "mode": "action",
+      "mechanism": "Toggle the existing Pd automatic extractor",
+      "canonical_status": "partial",
+      "implemented": false,
+      "core_hook_required": true,
+      "action": "set_pd_auto",
+      "action_fields": [
+        "enabled"
+      ],
+      "gap": "Toggles the existing balanced automatic extractor; a known-lens queue is not wired."
+    },
+    "IR18": {
+      "mode": "action",
+      "mechanism": "Archive an actual Ir campaign snapshot",
+      "canonical_status": "partial",
+      "implemented": false,
+      "core_hook_required": true,
+      "action": "archive_current",
+      "action_fields": [
+        "id"
+      ],
+      "archive_source": "ir_campaign",
+      "gap": "Archives a real campaign snapshot; a separate bonus-document source is not defined."
+    },
+    "IR22": {
+      "mode": "action",
+      "mechanism": "Guaranteed minimum-yield detour with explicit cost and duration projection",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "action": "industry_set_guaranteed_detour",
+      "action_fields": [
+        "enabled"
+      ],
+      "site": "ir"
+    },
+    "IR27": {
+      "mode": "action",
+      "mechanism": "Lower-yield faster cleanup route with a changed real phase duration",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "action": "industry_set_fast_cleanup",
+      "action_fields": [
+        "enabled"
+      ],
+      "site": "ir"
+    },
+    "A10": {
+      "mode": "feature",
+      "mechanism": "Intermediate-material priority automation has no consumer in the factory model",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "integration_note": "Verified family dispatcher and action tests"
+    },
+    "D11": {
+      "mode": "feature",
+      "mechanism": "Choose iron or factory-buffer destination",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "feature_key": "pocket_destination",
+      "options": [
+        "inventory",
+        "factory_buffer"
+      ],
+      "integration_note": "Verified family dispatcher and action tests"
+    },
+    "D16": {
+      "mode": "feature",
+      "mechanism": "Choose next-cycle Fe horizon",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "feature_key": "next_fe_horizon",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10"
+      ],
+      "integration_note": "Verified family dispatcher and action tests"
+    },
+    "D19": {
+      "mode": "feature",
+      "mechanism": "Choose a non-exclusive deep Fe profile",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "feature_key": "deep_fe_profile",
+      "options": [
+        "balanced",
+        "throughput",
+        "quality"
+      ],
+      "integration_note": "Verified family dispatcher and action tests"
+    },
+    "A16": {
+      "mode": "feature",
+      "mechanism": "Choose optional factory cosmetic",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "feature_key": "factory_cosmetic",
+      "options": [
+        "standard",
+        "steel",
+        "copper"
+      ],
+      "integration_note": "Verified family dispatcher and action tests"
+    },
+    "P04": {
+      "mode": "feature",
+      "mechanism": "Auto-assign new workers to an open role",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "feature_key": "worker_auto_assignment",
+      "options": [],
+      "integration_note": "Verified family dispatcher and action tests"
+    },
+    "P12": {
+      "mode": "feature",
+      "mechanism": "Choose temporary speed or logistics task",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "feature_key": "shift_task_choice",
+      "options": [
+        "speed",
+        "logistics"
+      ],
+      "integration_note": "Verified family dispatcher and action tests"
+    },
+    "P17": {
+      "mode": "feature",
+      "mechanism": "Assign a specialist training task",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "feature_key": "specialist_training_task",
+      "options": [],
+      "integration_note": "Verified family dispatcher and action tests"
+    },
+    "P19": {
+      "mode": "feature",
+      "mechanism": "Reassign an active specialist without cost",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "feature_key": "specialist_roster",
+      "options": [],
+      "integration_note": "Verified family dispatcher and action tests"
+    },
+    "G08": {
+      "mode": "feature",
+      "mechanism": "Preview a real known event option",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "feature_key": "geology_event_preview",
+      "options": [],
+      "integration_note": "Verified family dispatcher and action tests"
+    },
+    "G12": {
+      "mode": "feature",
+      "mechanism": "Choose two concurrent geology tasks",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "feature_key": "parallel_geology_tasks",
+      "options": [],
+      "integration_note": "Verified family dispatcher and action tests"
+    },
+    "G16": {
+      "mode": "feature",
+      "mechanism": "Choose an optional map event",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "feature_key": "geology_event_choice",
+      "options": [],
+      "integration_note": "Verified family dispatcher and action tests"
+    },
+    "PD07": {
+      "mode": "feature",
+      "mechanism": "Select high-purity Pd profile",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "feature_key": "pd_selective_profile",
+      "options": [
+        "balanced",
+        "high_purity"
+      ],
+      "integration_note": "Verified family dispatcher and action tests"
+    },
+    "PD17": {
+      "mode": "feature",
+      "mechanism": "Select lens for accepted contract",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "feature_key": "contract_lens_profile",
+      "options": [],
+      "integration_note": "Verified family dispatcher and action tests"
+    },
+    "PD23": {
+      "mode": "feature",
+      "mechanism": "Choose survey lines under shared capacity",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "feature_key": "parallel_survey_lines",
+      "options": [],
+      "integration_note": "Verified family dispatcher and action tests"
+    },
+    "IR06": {
+      "mode": "feature",
+      "mechanism": "Select an optional support point",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "feature_key": "support_point",
+      "options": [],
+      "integration_note": "Verified family dispatcher and action tests"
+    },
+    "IR14": {
+      "mode": "feature",
+      "mechanism": "Choose contact-assembly time/cost profile",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "feature_key": "thermal_contact_profile",
+      "options": [
+        "fast",
+        "economic"
+      ],
+      "integration_note": "Verified family dispatcher and action tests"
+    },
+    "IR23": {
+      "mode": "feature",
+      "mechanism": "Pause between campaign phases",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "feature_key": "cold_pause",
+      "options": [],
+      "integration_note": "Verified family dispatcher and action tests"
+    },
+    "IR25": {
+      "mode": "feature",
+      "mechanism": "Choose safe cooling/time exchange",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "feature_key": "thermal_stabilization",
+      "options": [
+        "economic",
+        "fast"
+      ],
+      "integration_note": "Verified family dispatcher and action tests"
+    },
+    "IR05": {
+      "mode": "feature",
+      "mechanism": "Select optional deep Ir route",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "feature_key": "deep_ir_route",
+      "options": [],
+      "integration_note": "Verified family dispatcher and action tests"
+    },
+    "IR08": {
+      "mode": "feature",
+      "mechanism": "Select optional faster paid Ir route",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "feature_key": "forced_ir_route",
+      "options": [],
+      "integration_note": "Verified family dispatcher and action tests"
+    },
+    "IR16": {
+      "mode": "feature",
+      "mechanism": "Repeat a known safe campaign",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "feature_key": "safe_campaign_autoprogram",
+      "options": [],
+      "integration_note": "Verified family dispatcher and action tests"
+    },
+    "D13": {
+      "mode": "feature",
+      "mechanism": "Keep part of a real combo streak",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "feature_key": "manual_streak_memory",
+      "options": [],
+      "integration_note": "Verified family dispatcher and action tests"
+    },
+    "D14": {
+      "mode": "feature",
+      "mechanism": "Enable one resonance chain reaction",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "feature_key": "resonance_chain",
+      "options": [],
+      "integration_note": "Verified family dispatcher and action tests"
+    },
+    "A19": {
+      "mode": "feature",
+      "mechanism": "Route an idle line to a valid recipe",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "feature_key": "idle_line_autoroute",
+      "options": [],
+      "integration_note": "Verified family dispatcher and action tests"
+    },
+    "A20": {
+      "mode": "feature",
+      "mechanism": "Save future-site automation template",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "feature_key": "automation_slot",
+      "options": [],
+      "integration_note": "Verified family dispatcher and action tests"
+    },
+    "PD22": {
+      "mode": "feature",
+      "mechanism": "Request another sample analysis using real time",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "feature_key": "repeat_pd_analysis",
+      "options": [],
+      "integration_note": "Verified family dispatcher and action tests"
+    },
+    "PD05": {
+      "mode": "feature",
+      "mechanism": "Choose an optional Pd lens type",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "feature_key": "extra_pd_geoplate",
+      "options": [],
+      "integration_note": "Verified family dispatcher and action tests"
+    },
+    "P14": {
+      "mode": "action",
+      "mechanism": "Payroll reserve tracked against current balance",
+      "canonical_status": "missing",
+      "implemented": false,
+      "core_hook_required": true,
+      "action": "set_cash_reserve",
+      "action_fields": [
+        "amount_cents"
+      ],
+      "gap": "Tracked cash reserve is not deducted or protected by EconomyModel spending yet."
+    },
+    "PD24": {
+      "mode": "view",
+      "mechanism": "Pd batch cash reserve tracked against current balance",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "action": "set_cash_reserve",
+      "action_fields": [
+        "amount_cents"
+      ],
+      "view": "pd_costs",
+      "site": "pd",
+      "reserve_kind": "pd_batch",
+      "preference_key": "pd_batch_reserve",
+      "integration_note": "Consumed by scoped model hooks; covered by research_consumers_test or late_sites_test"
+    },
+    "G17": {
+      "mode": "task",
+      "mechanism": "Rock archive after real lifetime Fe peak 600",
+      "canonical_status": "partial",
+      "implemented": false,
+      "core_hook_required": true,
+      "action": "complete_task",
+      "action_fields": [
+        "id"
+      ],
+      "condition": "fe_peak_600",
+      "reward": {},
+      "optional": true,
+      "one_time": true,
+      "gap": "Records a one-time archive marker after a real condition; the canonical document/report payload is not defined."
+    },
+    "G19": {
+      "mode": "task",
+      "mechanism": "Optional anomaly document after real REGISTRY_ANOMALY discovery",
+      "canonical_status": "partial",
+      "implemented": false,
+      "core_hook_required": true,
+      "action": "complete_task",
+      "action_fields": [
+        "id"
+      ],
+      "condition": "registry_anomaly",
+      "reward": {},
+      "optional": true,
+      "one_time": true,
+      "gap": "Records a one-time archive marker after a real condition; the canonical document/report payload is not defined."
+    },
+    "G20": {
+      "mode": "task",
+      "mechanism": "Preliminary report after real deep-geology discovery",
+      "canonical_status": "partial",
+      "implemented": false,
+      "core_hook_required": true,
+      "action": "complete_task",
+      "action_fields": [
+        "id"
+      ],
+      "condition": "deep_geology_signal",
+      "reward": {},
+      "optional": true,
+      "one_time": true,
+      "gap": "Records a one-time archive marker after a real condition; the canonical document/report payload is not defined."
+    },
+    "PD20": {
+      "mode": "task",
+      "mechanism": "Industrial expertise record after completed Pd cycle",
+      "canonical_status": "partial",
+      "implemented": false,
+      "core_hook_required": true,
+      "action": "complete_task",
+      "action_fields": [
+        "id"
+      ],
+      "condition": "pd_cycle",
+      "reward": {},
+      "optional": true,
+      "one_time": true,
+      "gap": "Archives a real completed Pd cycle; the extra collection reward is not defined."
+    },
+    "PD30": {
+      "mode": "task",
+      "mechanism": "One-time archive record after two real Pd cycles",
+      "canonical_status": "partial",
+      "implemented": false,
+      "core_hook_required": true,
+      "action": "complete_task",
+      "action_fields": [
+        "id"
+      ],
+      "condition": "pd_two_cycles",
+      "reward": {},
+      "optional": true,
+      "one_time": true,
+      "gap": "Archives the real two-cycle milestone; the collection cosmetic is not defined."
+    },
+    "IR20": {
+      "mode": "task",
+      "mechanism": "Optional unusual-sample document after real A20 completion",
+      "canonical_status": "partial",
+      "implemented": false,
+      "core_hook_required": true,
+      "action": "complete_task",
+      "action_fields": [
+        "id"
+      ],
+      "condition": "story_a20",
+      "reward": {},
+      "optional": true,
+      "one_time": true,
+      "gap": "Archives the real A20 story state; a separate document/reward is not defined."
+    },
+    "IR30": {
+      "mode": "task",
+      "mechanism": "Depth chronicle after a real Ir campaign completion",
+      "canonical_status": "partial",
+      "implemented": false,
+      "core_hook_required": true,
+      "action": "complete_task",
+      "action_fields": [
+        "id"
+      ],
+      "condition": "ir_campaign",
+      "reward": {},
+      "optional": true,
+      "one_time": true,
+      "gap": "Archives a real completed campaign; the unique cosmetic reward is not defined."
+    },
+    "D01": {
+      "mode": "feature",
+      "mechanism": "Legacy active-mining feature remains in ProgressionModel; this runtime emits no duplicate flags or numeric tap bonus.",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "skip_numeric": false,
+      "integration_note": "Verified family dispatcher and action tests"
+    },
+    "D02": {
+      "mode": "feature",
+      "mechanism": "Legacy active-mining feature remains in ProgressionModel; this runtime emits no duplicate flags or numeric tap bonus.",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "skip_numeric": true,
+      "integration_note": "Verified family dispatcher and action tests"
+    },
+    "D03": {
+      "mode": "feature",
+      "mechanism": "Legacy active-mining feature remains in ProgressionModel; this runtime emits no duplicate flags or numeric tap bonus.",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "skip_numeric": false,
+      "integration_note": "Verified family dispatcher and action tests"
+    },
+    "D04": {
+      "mode": "feature",
+      "mechanism": "Legacy active-mining feature remains in ProgressionModel; this runtime emits no duplicate flags or numeric tap bonus.",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "skip_numeric": true,
+      "integration_note": "Verified family dispatcher and action tests"
+    },
+    "D07": {
+      "mode": "action",
+      "mechanism": "Choose a real currently unlocked Fe horizon through the existing Economy action",
+      "canonical_status": "partial",
+      "implemented": false,
+      "core_hook_required": true,
+      "action": "set_horizon",
+      "action_fields": [
+        "index"
+      ],
+      "gap": "Horizon selection is real; the direct Economy action still needs a research-owned gate."
+    },
+    "D15": {
+      "mode": "feature",
+      "mechanism": "canonical effect mapped but no concrete runtime consumer/action exists",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "integration_note": "Verified family dispatcher and action tests"
+    },
+    "A11": {
+      "mode": "feature",
+      "mechanism": "canonical effect mapped but no concrete runtime consumer/action exists",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "integration_note": "Verified family dispatcher and action tests"
+    },
+    "P15": {
+      "mode": "feature",
+      "mechanism": "canonical effect mapped but no concrete runtime consumer/action exists",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "integration_note": "Verified family dispatcher and action tests"
+    },
+    "G10": {
+      "mode": "feature",
+      "mechanism": "canonical effect mapped but no concrete runtime consumer/action exists",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "integration_note": "Verified family dispatcher and action tests"
+    },
+    "D20": {
+      "mode": "feature",
+      "mechanism": "No unique deep-site event state or one-time event reward exists.",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "integration_note": "Verified family dispatcher and action tests"
+    },
+    "P20": {
+      "mode": "feature",
+      "mechanism": "No unique group-task state exists; worker roles alone are not sufficient to invent task completion.",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "integration_note": "Verified family dispatcher and action tests"
+    },
+    "PD27": {
+      "mode": "feature",
+      "mechanism": "No real selected-impurity task exists to generate this report.",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "integration_note": "Verified family dispatcher and action tests"
+    },
+    "PD29": {
+      "mode": "feature",
+      "mechanism": "No optional distant Pd analysis site exists.",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "integration_note": "Verified family dispatcher and action tests"
+    },
+    "IR24": {
+      "mode": "feature",
+      "mechanism": "No queue for two sequential campaigns exists.",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "integration_note": "Verified family dispatcher and action tests"
+    },
+    "IR28": {
+      "mode": "feature",
+      "mechanism": "No paid optional geological expedition action exists.",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "integration_note": "Verified family dispatcher and action tests"
+    }
+  },
+  "mastery": {
+    "PD_SK01": {
+      "mode": "view",
+      "mechanism": "Highlight the actual impurity region on the generated Pd sample",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "view": "pd_sample",
+      "site": "pd"
+    },
+    "PD_SK03": {
+      "mode": "view",
+      "mechanism": "Pd sample analysis and measured contract comparison",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "view": "pd_sample",
+      "site": "pd"
+    },
+    "PD_SK04": {
+      "mode": "view",
+      "mechanism": "Compare actual active-contract cash reward and per-lens net projections",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "view": "pd_sample",
+      "site": "pd"
+    },
+    "IR_SK01": {
+      "mode": "view",
+      "mechanism": "Read out the real peak-heat phase for support placement",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "view": "ir_forecast",
+      "site": "ir"
+    },
+    "IR_SK02": {
+      "mode": "view",
+      "mechanism": "Read out the maximum projected phase cooling load",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "view": "ir_forecast",
+      "site": "ir"
+    },
+    "IR_SK03": {
+      "mode": "view",
+      "mechanism": "Compare projected thermal stability margin across existing strategies",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "view": "ir_forecast",
+      "site": "ir"
+    },
+    "IR_SK05": {
+      "mode": "action",
+      "mechanism": "Prepare manipulator for next real batch",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "action": "industry_prepare_manipulator",
+      "action_fields": []
+    },
+    "PD_SK02": {
+      "mode": "action",
+      "mechanism": "Request second sample before lens confirmation",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "action": "industry_take_second_sample",
+      "action_fields": []
+    },
+    "PD_SK06": {
+      "mode": "action",
+      "mechanism": "Prepare next filter manually",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "action": "industry_prepare_filter",
+      "action_fields": []
+    },
+    "FE_SK01": {
+      "mode": "feature",
+      "mechanism": "Mark a real manual weak point",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "feature_key": "manual_precision",
+      "options": [],
+      "integration_note": "Verified family dispatcher and action tests"
+    },
+    "FE_SK02": {
+      "mode": "feature",
+      "mechanism": "Direct one marked real vein strike",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "feature_key": "manual_strike",
+      "options": [],
+      "integration_note": "Verified family dispatcher and action tests"
+    },
+    "FE_SK03": {
+      "mode": "feature",
+      "mechanism": "Choose one of two actual shown vein paths",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "feature_key": "vein_route",
+      "options": [],
+      "integration_note": "Verified family dispatcher and action tests"
+    },
+    "FE_SK05": {
+      "mode": "feature",
+      "mechanism": "Choose a real manual mining zone",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "feature_key": "manual_zone_choice",
+      "options": [],
+      "integration_note": "Verified family dispatcher and action tests"
+    },
+    "FE_SK06": {
+      "mode": "feature",
+      "mechanism": "Route one actually mined batch",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "feature_key": "ore_destination",
+      "options": [
+        "factory",
+        "sale"
+      ],
+      "integration_note": "Verified family dispatcher and action tests"
+    },
+    "IR_SK06": {
+      "mode": "action",
+      "mechanism": "Choose a known-cost cooling preset used in live campaign projection and thermal ticks",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "action": "industry_set_cooling_mode",
+      "action_fields": [
+        "cooling_mode_id"
+      ],
+      "options": [
+        "economical",
+        "fast"
+      ]
+    },
+    "FE_SK07": {
+      "mode": "feature",
+      "mechanism": "Route one physically delivered Fe pocket into the nearest accepted contract's existing real reservation without duplicating inventory.",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "integration_note": "Verified family dispatcher and action tests"
+    },
+    "IR_SK07": {
+      "mode": "action",
+      "mechanism": "Reserve and explicitly release one existing Ir core for cleanup priority",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "action": "industry_reserve_ir_core_for_cleanup",
+      "action_fields": []
+    },
+    "IR_SK04": {
+      "mode": "action",
+      "mechanism": "Override cost and duration for one real unstarted campaign phase only",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "action": "industry_configure_unstarted_ir_phase",
+      "action_fields": [
+        "phase_index",
+        "phase_mode_id"
+      ],
+      "site": "ir"
+    },
+    "IR_SK08": {
+      "mode": "action",
+      "mechanism": "Select a safe route, queue the real contact recipe, and optionally reserve actual free Pd/Fe inventory in one command",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "action": "industry_plan_ir_contact_and_reserves",
+      "action_fields": [
+        "strategy_id",
+        "line",
+        "contact_count",
+        "pd_reserve",
+        "fe_reserve"
+      ],
+      "site": "ir"
+    },
+    "FE_SK04": {
+      "mode": "feature",
+      "mechanism": "One manual drill order reduces real drill-cycle wait",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "integration_note": "Verified family dispatcher and action tests"
+    },
+    "FE_SK08": {
+      "mode": "feature",
+      "mechanism": "Once per live session, combine one real drill order with a chosen unlocked horizon for a short manual mining bonus capped at 25%.",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "integration_note": "Verified family dispatcher and action tests"
+    },
+    "PD_SK05": {
+      "mode": "action",
+      "mechanism": "Choose one measured spectral band; a correct choice adds a small bonus to that sample batch",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "action": "industry_analyze_spectrum",
+      "action_fields": [
+        "spectral_band_id"
+      ]
+    },
+    "PD_SK07": {
+      "mode": "action",
+      "mechanism": "Shorten actual analysis work time and wage exposure for one Pd sample",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "action": "industry_express_analysis",
+      "action_fields": [
+        "spectral_band_id"
+      ]
+    },
+    "PD_SK08": {
+      "mode": "action",
+      "mechanism": "Choose a real Pd contract lens and run exactly one automatic production cycle",
+      "canonical_status": "complete",
+      "implemented": true,
+      "core_hook_required": false,
+      "action": "industry_start_pd_contract_clean_plan",
+      "action_fields": [
+        "order_id"
+      ],
+      "site": "pd"
+    }
+  },
+  "compatibility": {
+    "ignore_existing_progression_numeric_ids": [
+      "D02",
+      "D04"
+    ],
+    "reason": "Runtime never emits legacy D02/D04 tap bonuses. Parent must skip/remove those old numeric contributions. D01/D03 and D02/D04 flags remain in separate progression feature state."
+  }
+}
