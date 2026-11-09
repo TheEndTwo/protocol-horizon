@@ -14,6 +14,7 @@ GameState="*res://autoload/GameState.gd"
 SaveService="*res://autoload/SaveService.gd"
 AudioService="*res://autoload/AudioService.gd"
 SceneRouter="*res://autoload/SceneRouter.gd"
+GameSession="*res://autoload/GameSession.gd"
 
 [display]
 window/size/viewport_width=432
