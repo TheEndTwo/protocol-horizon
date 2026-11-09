@@ -274,7 +274,7 @@ func _normalize_profile(value: Variant) -> Variant:
 		return null
 	if value.is_empty():
 		return {}
-	if not _has_exact_keys(value, PROFILE_KEYS):
+	if not _has_exact_keys(value, PROFILE_KEYS) and not _has_exact_keys(value, PROFILE_KEYS + ["game"]):
 		return null
 	if typeof(value["profile_id"]) != TYPE_STRING or value["profile_id"].strip_edges().is_empty():
 		return null
@@ -282,9 +282,12 @@ func _normalize_profile(value: Variant) -> Variant:
 		if not _is_nonnegative_integer(value[key]):
 			return null
 	var inventory: Variant = value["inventory"]
-	if not inventory is Dictionary or not _has_exact_keys(inventory, ["iron_ore"]):
+	if not inventory is Dictionary or not inventory.has("iron_ore") or inventory.size() > 1000:
 		return null
-	if not _is_nonnegative_integer(inventory["iron_ore"]):
+	for resource in inventory:
+		if typeof(resource) != TYPE_STRING or not _is_nonnegative_integer(inventory[resource]):
+			return null
+	if value.has("game") and (not value["game"] is Dictionary or not _valid_game_json(value["game"], 0)):
 		return null
 	if typeof(value["active_site"]) != TYPE_STRING or not SITE_IDS.has(value["active_site"]):
 		return null
@@ -307,7 +310,7 @@ func _normalize_profile(value: Variant) -> Variant:
 	for key in LOCAL_MAP_KEYS:
 		if not local_state[key] is Dictionary or not local_state[key].is_empty():
 			return null
-	if typeof(value["route"]) != TYPE_STRING or not ["intro", "checkpoint"].has(value["route"]):
+	if typeof(value["route"]) != TYPE_STRING or not ["intro", "checkpoint", "earth"].has(value["route"]):
 		return null
 	var story: Variant = value["story"]
 	if not story is Dictionary or not _has_exact_keys(story, ["current_id", "line", "intro_seen"]):
@@ -319,7 +322,8 @@ func _normalize_profile(value: Variant) -> Variant:
 	var normalized_profile: Dictionary = value.duplicate(true)
 	for key in ["money_cents", "shards", "research_points"]:
 		normalized_profile[key] = int(value[key])
-	normalized_profile["inventory"]["iron_ore"] = int(inventory["iron_ore"])
+	for resource in inventory:
+		normalized_profile["inventory"][resource] = int(inventory[resource])
 	normalized_profile["local"]["lifetime_peak"] = int(local_state["lifetime_peak"])
 	normalized_profile["story"]["line"] = int(story["line"])
 	return normalized_profile
@@ -362,3 +366,27 @@ func _remove_file(path: String) -> void:
 
 func _game_state() -> Variant:
 	return get_node_or_null("/root/GameState")
+
+func _valid_game_json(value: Variant, depth: int) -> bool:
+	if depth > 24:
+		return false
+	match typeof(value):
+		TYPE_DICTIONARY:
+			if value.size() > 20000:
+				return false
+			for key in value:
+				if typeof(key) != TYPE_STRING or not _valid_game_json(value[key], depth + 1):
+					return false
+		TYPE_ARRAY:
+			if value.size() > 20000:
+				return false
+			for item in value:
+				if not _valid_game_json(item, depth + 1):
+					return false
+		TYPE_FLOAT:
+			return is_finite(value)
+		TYPE_INT, TYPE_BOOL, TYPE_STRING, TYPE_NIL:
+			return true
+		_:
+			return false
+	return true
