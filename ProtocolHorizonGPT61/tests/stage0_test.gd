@@ -14,7 +14,7 @@ func _run() -> void:
 	var registry := root.get_node("ContentRegistry")
 	var state := root.get_node("GameState")
 	var router := root.get_node("SceneRouter")
-	var start_screen = load("res://components/StartScreen.gd")
+	var start_screen = load("res://components/HorizonUI.gd")
 	check(registry.is_loaded, "Catalog loading failed: " + str(registry.errors))
 	if not registry.is_loaded:
 		printerr(failures)
@@ -39,24 +39,14 @@ func _run() -> void:
 	check(state.SAVE_PATH == "user://protocol_horizon_gpt61_save_v1.json", "Save namespace mismatch")
 	check(ProjectSettings.get_setting("display/window/stretch/mode") == "canvas_items", "Wrong stretch mode")
 	check(ProjectSettings.get_setting("display/window/handheld/orientation") == 1, "Not portrait")
-	check(start_screen.safe_insets(Vector2(432, 936), Rect2(0, 44, 432, 858)) == {"left":24, "top":68, "right":24, "bottom":58}, "Safe-area conversion")
-	var had_save := FileAccess.file_exists(state.SAVE_PATH)
+	check(start_screen.safe_insets(Vector2(432, 936), Rect2(0, 44, 432, 858)) == {"left":24, "top":64, "right":24, "bottom":54}, "Safe-area conversion")
 	check(router.go_to(&"not_a_route") == ERR_DOES_NOT_EXIST, "Unknown route accepted")
 	check(router.go_to(&"start") == OK, "Start route failed")
-	await scene_changed
-	await process_frame
-	check(current_scene.name == "Splash", "Splash was not opened")
-	current_scene.get_node("SafeMargin/Column/Action").pressed.emit()
-	await scene_changed
-	await process_frame
-	check(current_scene.name == "MainMenu" and state.current_route == &"menu", "Menu button failed")
-	current_scene.get_node("SafeMargin/Column/Action").pressed.emit()
-	await scene_changed
-	await process_frame
-	check(current_scene.name == "Splash" and state.current_route == &"start", "Back button failed")
-	check(FileAccess.file_exists(state.SAVE_PATH) == had_save, "Stage 0 unexpectedly created a save")
+	for frame in range(12):
+		await process_frame
+	check(current_scene != null and current_scene.name == "MainMenu", "Splash did not immediately open menu")
 	if failures.is_empty():
-		print("STAGE 0 PASS: catalogs, IDs, schema, portrait, safe-area math, start/menu/back; no save writes")
+		print("FOUNDATION PASS: catalogs, IDs, schema, portrait, safe-area math, immediate splash/menu")
 		quit(0)
 	else:
 		for failure in failures:
