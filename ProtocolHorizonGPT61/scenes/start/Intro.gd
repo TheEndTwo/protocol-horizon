@@ -44,14 +44,15 @@ func _advance() -> void:
 	var next := GameState.profile.duplicate(true)
 	next["story"]["line"] += 1
 	if _commit(next):
+		AudioService.play_effect("dialogue_message")
 		_render()
 
 func _finish() -> void:
 	var next := GameState.profile.duplicate(true)
 	next["story"]["intro_seen"] = true
-	next["route"] = "checkpoint"
+	next["route"] = "earth"
 	if _commit(next):
-		SceneRouter.go_to(&"checkpoint")
+		SceneRouter.go_to(&"earth")
 
 func _commit(next: Dictionary) -> bool:
 	if _busy:
