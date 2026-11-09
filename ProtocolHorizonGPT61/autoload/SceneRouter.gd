@@ -3,6 +3,9 @@ extends Node
 const ROUTES := {
 	&"start": "res://scenes/start/Splash.tscn",
 	&"menu": "res://scenes/start/MainMenu.tscn",
+	&"settings": "res://scenes/start/Settings.tscn",
+	&"intro": "res://scenes/start/Intro.tscn",
+	&"checkpoint": "res://scenes/start/Checkpoint.tscn",
 }
 var _changing := false
 

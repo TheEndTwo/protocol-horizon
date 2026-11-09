@@ -1,0 +1,168 @@
+extends SceneTree
+
+const SaveServiceScript = preload("res://autoload/SaveService.gd")
+var failures: PackedStringArray = []
+var save_service: Variant
+
+func _initialize() -> void:
+	_run.call_deferred()
+
+func check(condition: bool, message: String) -> void:
+	if not condition:
+		failures.append(message)
+
+func _run() -> void:
+	var save_path: String = GameState.SAVE_PATH
+	var isolated_home := OS.get_environment("XDG_DATA_HOME")
+	var absolute_save_path := ProjectSettings.globalize_path(save_path)
+	print("SAVE_TEST_PATH=" + absolute_save_path)
+	if not isolated_home.is_empty():
+		check(absolute_save_path.begins_with(isolated_home), "Test save escaped isolated XDG_DATA_HOME")
+	_cleanup_files()
+	GameState.current_route = &"menu"
+	_restart_service()
+	check(not save_service.has_profile(), "Empty install unexpectedly has a profile")
+	check(not save_service.has_existing_files(), "Empty install unexpectedly has save files")
+	check(GameState.profile.is_empty(), "Empty install profile is not empty")
+	check(GameState.settings == GameState.default_settings(), "Default settings differ")
+
+	var custom_settings: Dictionary = GameState.default_settings()
+	custom_settings["master"] = 0.25
+	custom_settings["music"] = 0.4
+	custom_settings["sfx"] = 0.7
+	custom_settings["ambience"] = 0.3
+	custom_settings["vibration"] = false
+	custom_settings["quality"] = "low"
+	custom_settings["fps"] = 30
+	custom_settings["reduce_motion"] = true
+	check(save_service.save_settings(custom_settings) == OK, "Settings-only save failed: " + save_service.status_message)
+	check(not save_service.has_profile(), "Settings-only file enabled Continue")
+	check(save_service.has_existing_files(), "Settings-only file was not detected")
+	_restart_service()
+	check(not save_service.has_profile(), "Settings-only reload enabled Continue")
+	check(GameState.settings == custom_settings, "Settings-only roundtrip failed")
+	check(GameState.current_route == &"menu", "Loading persistence changed the UI route")
+
+	var second_profile: Dictionary = GameState.make_new_profile()
+	check(second_profile["profile_id"] != GameState.make_new_profile()["profile_id"], "Profile IDs were not unique")
+	check(save_service.new_game() == OK, "New Game save failed: " + save_service.status_message)
+	check(save_service.has_profile(), "New Game did not enable Continue")
+	check(GameState.settings == custom_settings, "New Game did not preserve settings")
+	check(GameState.profile["money_cents"] == 0 and GameState.profile["shards"] == 0 and GameState.profile["research_points"] == 0, "New profile currency was not zero")
+	check(GameState.profile["inventory"] == {"iron_ore": 0}, "New profile inventory differs")
+	check(GameState.profile["active_site"] == "site_earth_fe_17", "Wrong starter site")
+	check(GameState.profile["sites"]["site_earth_fe_17"]["unlocked"] and not GameState.profile["sites"]["site_earth_pd_7"]["unlocked"] and not GameState.profile["sites"]["site_earth_ir_9"]["unlocked"], "Starter site unlocks differ")
+	check(GameState.profile["local"]["lifetime_peak"] == 0, "Starter lifetime peak was not zero")
+	check(GameState.profile["local"]["upgrades"].is_empty() and GameState.profile["local"]["machines"].is_empty() and GameState.profile["local"]["workers"].is_empty() and GameState.profile["local"]["equipment"].is_empty(), "Starter local state invented IDs")
+	check(GameState.profile["route"] == "intro" and GameState.profile["story"] == {"current_id": "A01", "line": 0, "intro_seen": false}, "Starter route/story differs")
+	var original_profile_id: String = GameState.profile["profile_id"]
+	var cancelled_new_game_profile_id: String = GameState.profile["profile_id"]
+	check(GameState.profile["profile_id"] == cancelled_new_game_profile_id, "Cancelled New Game simulation changed profile")
+
+	var checkpoint_profile: Dictionary = GameState.profile.duplicate(true)
+	checkpoint_profile["route"] = "checkpoint"
+	checkpoint_profile["story"]["line"] = 6
+	checkpoint_profile["story"]["intro_seen"] = true
+	check(save_service.commit_profile(checkpoint_profile) == OK, "Checkpoint commit failed: " + save_service.status_message)
+	check(GameState.profile["profile_id"] == original_profile_id, "Commit changed the profile ID")
+	check(GameState.current_route == &"menu", "Profile commit changed the UI route")
+	var backup_before_recovery := _read_text(save_path + ".bak")
+	check(not backup_before_recovery.is_empty(), "Second valid write did not create a backup")
+	_restart_service()
+	check(save_service.has_profile(), "Continue missing after checkpoint reload")
+	check(GameState.profile["route"] == "checkpoint" and GameState.profile["story"]["line"] == 6 and GameState.profile["story"]["intro_seen"], "Checkpoint/story position did not roundtrip")
+	check(GameState.current_route == &"menu", "Reload routed into the game automatically")
+
+	_write_text(save_path, "{broken primary")
+	_restart_service()
+	check(save_service.recovered_from_backup, "Corrupt primary did not recover from backup")
+	check(save_service.has_profile(), "Backup recovery did not restore a profile")
+	check(GameState.profile["route"] == "intro" and GameState.profile["story"]["line"] == 0, "Recovery did not load the valid backup state")
+	var recovered_settings: Dictionary = GameState.settings.duplicate(true)
+	recovered_settings["master"] = 0.55
+	check(save_service.save_settings(recovered_settings) == OK, "Save after backup recovery failed: " + save_service.status_message)
+	check(_read_text(save_path + ".bak") == backup_before_recovery, "Corrupt primary replaced the valid backup")
+	_restart_service()
+	check(not save_service.recovered_from_backup and save_service.has_profile(), "Recovered save was not committed as primary")
+	check(GameState.settings["master"] == 0.55 and GameState.profile["route"] == "intro", "Recovered state did not persist")
+
+	var invalid_fixtures: Array[Dictionary] = []
+	var future := _make_envelope(GameState.default_settings(), {})
+	future["schema_version"] = 2
+	invalid_fixtures.append({"name": "future schema", "json": JSON.stringify(future)})
+	var invalid_route_profile: Dictionary = GameState.make_new_profile()
+	invalid_route_profile["route"] = "menu"
+	invalid_fixtures.append({"name": "invalid profile route", "json": JSON.stringify(_make_envelope(GameState.default_settings(), invalid_route_profile))})
+	var invalid_settings: Dictionary = GameState.default_settings()
+	invalid_settings["master"] = 1.5
+	invalid_fixtures.append({"name": "invalid settings", "json": JSON.stringify(_make_envelope(invalid_settings, {}))})
+	invalid_fixtures.append({"name": "malformed JSON", "json": "{broken"})
+	for fixture in invalid_fixtures:
+		_cleanup_files()
+		_write_text(save_path, fixture["json"])
+		var original_bytes := _read_text(save_path)
+		_restart_service()
+		check(not save_service.has_profile(), "%s unexpectedly enabled Continue" % fixture["name"])
+		check(save_service.has_existing_files(), "%s file was not detected" % fixture["name"])
+		var attempted_settings: Dictionary = GameState.default_settings()
+		attempted_settings["master"] = 0.1
+		check(save_service.save_settings(attempted_settings) != OK, "%s was overwritten by settings" % fixture["name"])
+		check(_read_text(save_path) == original_bytes, "%s changed after rejected settings write" % fixture["name"])
+
+	_cleanup_files()
+	_restart_service()
+	var baseline_settings: Dictionary = GameState.default_settings()
+	baseline_settings["master"] = 0.35
+	check(save_service.save_settings(baseline_settings) == OK, "Could not prepare write-failure fixture")
+	var primary_before_failure := _read_text(save_path)
+	var changed_settings: Dictionary = baseline_settings.duplicate(true)
+	changed_settings["master"] = 0.9
+	var blocked_temp_path := ProjectSettings.globalize_path(save_path + ".tmp")
+	check(DirAccess.make_dir_absolute(blocked_temp_path) == OK, "Could not create write-failure fixture")
+	check(save_service.save_settings(changed_settings) != OK, "Write failure reported success")
+	check(_read_text(save_path) == primary_before_failure, "Precommit write failure changed primary")
+	check(GameState.settings == baseline_settings, "Failed settings write changed in-memory settings")
+	check(DirAccess.remove_absolute(blocked_temp_path) == OK, "Could not remove write-failure fixture")
+
+	if failures.is_empty():
+		print("SAVE SERVICE PASS: defaults, settings-only, new/continue, checkpoint, backup recovery, strict rejection, failed write")
+		quit(0)
+	else:
+		for failure in failures:
+			printerr("FAIL: " + failure)
+		quit(1)
+
+func _make_envelope(settings: Dictionary, profile: Dictionary) -> Dictionary:
+	return {"schema_version": GameState.SCHEMA_VERSION, "settings": settings, "profile": profile}
+
+func _restart_service() -> void:
+	if save_service != null and is_instance_valid(save_service):
+		root.remove_child(save_service)
+		save_service.free()
+	save_service = SaveServiceScript.new()
+	root.add_child(save_service)
+
+func _cleanup_files() -> void:
+	for path in [GameState.SAVE_PATH, GameState.SAVE_PATH + ".bak", GameState.SAVE_PATH + ".tmp", GameState.SAVE_PATH + ".bak.tmp"]:
+		var absolute_path := ProjectSettings.globalize_path(path)
+		if FileAccess.file_exists(path) or DirAccess.dir_exists_absolute(absolute_path):
+			DirAccess.remove_absolute(absolute_path)
+
+func _read_text(path: String) -> String:
+	var file := FileAccess.open(path, FileAccess.READ)
+	if file == null:
+		return ""
+	var content := file.get_as_text()
+	file.close()
+	return content
+
+func _write_text(path: String, content: String) -> void:
+	var file := FileAccess.open(path, FileAccess.WRITE)
+	if file == null:
+		check(false, "Could not write test fixture: " + path)
+		return
+	file.store_string(content)
+	file.flush()
+	var write_error: Error = file.get_error()
+	file.close()
+	check(write_error == OK, "Could not flush test fixture: " + path)
