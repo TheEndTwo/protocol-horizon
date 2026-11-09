@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="840" viewBox="0 0 1200 840">
+  <defs>
+    <linearGradient id="cave" x2="0" y2="1"><stop stop-color="#17242a"/><stop offset=".42" stop-color="#3d3430"/><stop offset="1" stop-color="#171e23"/></linearGradient>
+    <linearGradient id="face" x2=".86" y2=".18"><stop stop-color="#59493b"/><stop offset=".42" stop-color="#8b6847"/><stop offset=".74" stop-color="#554a3e"/><stop offset="1" stop-color="#2a3436"/></linearGradient>
+    <linearGradient id="vein" x2="1" y2="1"><stop stop-color="#f0bb66"/><stop offset=".48" stop-color="#a85836"/><stop offset="1" stop-color="#654235"/></linearGradient>
+    <pattern id="strata" width="180" height="96" patternUnits="userSpaceOnUse"><path d="M0 20q45-13 92 2t88-1M12 69q46-12 84 1t84-2" fill="none" stroke="#d5b07b" stroke-opacity=".15" stroke-width="6"/><circle cx="29" cy="48" r="3" fill="#201f20" opacity=".42"/><circle cx="142" cy="81" r="4" fill="#dbc090" opacity=".18"/></pattern>
+  </defs>
+  <path fill="url(#cave)" d="M0 0h1200v840H0z"/>
+  <path fill="#1b252a" d="M0 0h1200v104l-111 24-109-27-131 42-116-31-122 39-145-32-135 26L0 102z"/>
+  <path fill="url(#face)" d="m0 128 127-37 112 48 118-60 122 39 115-47 137 57 112-34 126 56 111-34 120 45v552L0 810z"/>
+  <path fill="url(#strata)" d="m0 128 127-37 112 48 118-60 122 39 115-47 137 57 112-34 126 56 111-34 120 45v552L0 810z"/>
+  <path d="m394 222 72 28-38 65 52 45-45 76 58 59-62 56 30 78-82 34-29-87 37-57-54-53 56-81-48-54 53-69-33-73z" fill="url(#vein)" opacity=".95"/>
+  <path d="m418 243 29 15-31 64 33 43-39 68 44 48-47 58 20 59" fill="none" stroke="#f5d28a" stroke-opacity=".68" stroke-width="11"/>
+  <path d="M78 287q129-47 228 4M704 206q141 25 265-22M718 503q165-42 284 11M139 648q124 26 224-12" fill="none" stroke="#ddc193" stroke-opacity=".26" stroke-width="7"/>
+  <path fill="#111a20" d="M0 694q213-73 386-13t350 1q207-76 464 5v153H0z"/>
+  <path d="M0 711q208-52 385 3t351 1q202-59 464 6" fill="none" stroke="#b38049" stroke-opacity=".52" stroke-width="7"/>
+  <path d="M0 0h1200v840H0z" fill="#07131a" opacity=".11"/>
+</svg>
