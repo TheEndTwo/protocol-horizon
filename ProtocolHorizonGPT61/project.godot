@@ -11,6 +11,8 @@ config/custom_user_dir_name="ProtocolHorizonGPT61"
 [autoload]
 ContentRegistry="*res://autoload/ContentRegistry.gd"
 GameState="*res://autoload/GameState.gd"
+SaveService="*res://autoload/SaveService.gd"
+AudioService="*res://autoload/AudioService.gd"
 SceneRouter="*res://autoload/SceneRouter.gd"
 
 [display]
