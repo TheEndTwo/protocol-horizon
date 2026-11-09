@@ -1,0 +1,1090 @@
+{
+  "schema_version": 1,
+  "status": "PROPOSAL_NOT_CANON",
+  "canonical_findings": {
+    "specialists": "80 IDs and stats in data/canon/09_Специалисты_80_v8.json; VIP exclusives are VIP_FE_5, VIP_PD_6, VIP_IR_7, VIP_GLOBAL_10.",
+    "cases": "Canonical rarity/category percentages and pity thresholds come from data/canon/10_Кейсы_пулы_и_шансы_v8.json. Per-case specialist ID pools and pity counter reset behavior are not specified; those policies below are provisional.",
+    "season_tasks": "18 templates contain route/progress/XP only; no level reward table for levels 1-40 or 41-60 was found in supplied canon.",
+    "season_levels_41_60": "No canonical reward levels were supplied. Levels 41-60 are implemented as playable, explicitly provisional proposals; they are not blocked pending approval.",
+    "events": "EV01-EV08 titles, sites and gameplay hooks come from data/canon/05_События_8_шаблонов_v7.csv; reward amounts below are proposals.",
+    "vip_shop": "Catalog records are draft; StoreKit/receipt verification is not present, so purchases and VIP advancement are disabled."
+  },
+  "equipment": {
+    "status": "PROVISIONAL_BALANCE",
+    "site_slots": {
+      "fe": [
+        "pickaxe",
+        "helmet",
+        "gloves",
+        "suit",
+        "boots",
+        "lamp",
+        "scanner",
+        "backpack"
+      ],
+      "pd": [
+        "drill",
+        "respirator",
+        "gloves",
+        "overalls",
+        "analyzer",
+        "transport"
+      ],
+      "ir": [
+        "drill",
+        "coolant",
+        "suit",
+        "helmet",
+        "robot",
+        "analyzer"
+      ]
+    },
+    "slot_effects": {
+      "fe": {
+        "pickaxe": {
+          "tap": 0.015
+        },
+        "helmet": {
+          "crit": 0.005
+        },
+        "gloves": {
+          "weak": 0.02
+        },
+        "suit": {
+          "wage": 0.01
+        },
+        "boots": {
+          "speed": 0.015
+        },
+        "lamp": {
+          "weak": 0.01
+        },
+        "scanner": {
+          "crit": 0.01
+        },
+        "backpack": {
+          "storage": 100
+        }
+      },
+      "pd": {
+        "drill": {
+          "output": 0.02
+        },
+        "respirator": {
+          "wage": 0.01
+        },
+        "gloves": {
+          "weak": 0.015
+        },
+        "overalls": {
+          "wage": 0.01
+        },
+        "analyzer": {
+          "output": 0.02
+        },
+        "transport": {
+          "storage": 100
+        }
+      },
+      "ir": {
+        "drill": {
+          "output": 0.02
+        },
+        "coolant": {
+          "wage": 0.01
+        },
+        "suit": {
+          "speed": 0.02
+        },
+        "helmet": {
+          "crit": 0.01
+        },
+        "robot": {
+          "weak": 0.02
+        },
+        "analyzer": {
+          "output": 0.02
+        }
+      }
+    },
+    "rarity_multipliers": {
+      "Обычный": 1.0,
+      "Редкий": 1.15,
+      "Эпический": 1.3,
+      "Легендарный": 1.5,
+      "Мифический": 1.75
+    },
+    "starter_rarity": "Обычный",
+    "level_cap": 100,
+    "star_cap": 5,
+    "effect_per_level": 0.015,
+    "effect_per_star": 0.08,
+    "upgrade_base_cost_cents": 100,
+    "upgrade_cost_per_level_cents": 25,
+    "star_fragment_costs": [
+      5,
+      10,
+      20,
+      35,
+      55
+    ],
+    "duplicate_fragments": 5,
+    "starter_item_id_policy": "Free starter items use unique profile-scoped generated IDs and do not alter canonical catalog records."
+  },
+  "specialists": {
+    "status": "CANON_STATS_WITH_PROVISIONAL_COSTS",
+    "starter_id": "SP01",
+    "team_slots": {
+      "fe": 5,
+      "pd": 3,
+      "ir": 3
+    },
+    "vip8_global_extra_slots": 1,
+    "level_base_cost_cents": 100,
+    "level_cost_per_level_cents": 25,
+    "star_fragment_costs": [
+      5,
+      10,
+      20,
+      35,
+      55
+    ],
+    "duplicate_fragments": 5,
+    "effect_per_star": 0.08,
+    "storage_base_capacity": 10000,
+    "storage_capacity_per_slot": 1000
+  },
+  "cases": {
+    "table_version": "cases_v8",
+    "case_inventory_ids": [
+      "case_basic",
+      "case_rare",
+      "case_elite",
+      "case_specialist",
+      "case_vip_daily"
+    ],
+    "free_case_milestones": [
+      {
+        "id": "MINE_100_TAPS",
+        "stat": "taps",
+        "target": 100,
+        "reward": {
+          "kind": "case",
+          "case_id": "case_basic",
+          "amount": 1
+        }
+      },
+      {
+        "id": "CONTRACTS_3",
+        "stat": "contract_fulfilled",
+        "target": 3,
+        "reward": {
+          "kind": "case",
+          "case_id": "case_basic",
+          "amount": 1
+        }
+      },
+      {
+        "id": "IRON_SALES_100",
+        "stat": "sold:iron_ore",
+        "target": 100,
+        "reward": {
+          "kind": "case",
+          "case_id": "case_rare",
+          "amount": 1
+        }
+      },
+      {
+        "id": "GEOLOGY_5",
+        "stat": "geology_completed",
+        "target": 5,
+        "reward": {
+          "kind": "case",
+          "case_id": "case_specialist",
+          "amount": 1
+        }
+      }
+    ],
+    "specialist_card_duplicate_fragments": 5,
+    "equipment_duplicate_fragments": 5,
+    "currency_rewards": {
+      "shards": 20,
+      "money_cents": 100,
+      "boost_seconds": 600,
+      "boost_output": 0.1
+    },
+    "industrial_material_amount": 1,
+    "eligible_specialist_pool_policy": "Provisional: the exact 80-person canonical IDs/stats are filtered by rolled rarity, unlocked site, and confirmed VIP rank. Canonical files provide no explicit per-case specialist ID pools.",
+    "pity_reset_policy": "Provisional: a drop resets its tier and lower-tier pity counters; canonical data specifies thresholds but not reset behavior."
+  },
+  "season": {
+    "id": "mountain_depths_proposal_01",
+    "xp_per_level": 100,
+    "level_cap": 60,
+    "levels": [
+      {
+        "level": 1,
+        "approval_status": "provisional_not_canon",
+        "free": {
+          "kind": "money_cents",
+          "amount": 110
+        },
+        "premium": {
+          "kind": "shards",
+          "amount": 26
+        }
+      },
+      {
+        "level": 2,
+        "approval_status": "provisional_not_canon",
+        "free": {
+          "kind": "shards",
+          "amount": 10
+        },
+        "premium": {
+          "kind": "shards",
+          "amount": 27
+        }
+      },
+      {
+        "level": 3,
+        "approval_status": "provisional_not_canon",
+        "free": {
+          "kind": "specialist_fragments",
+          "specialist_id": "SP01",
+          "amount": 1
+        },
+        "premium": {
+          "kind": "shards",
+          "amount": 28
+        }
+      },
+      {
+        "level": 4,
+        "approval_status": "provisional_not_canon",
+        "free": {
+          "kind": "equipment_fragments",
+          "template_id": "starter_fe_pickaxe",
+          "amount": 1
+        },
+        "premium": {
+          "kind": "shards",
+          "amount": 29
+        }
+      },
+      {
+        "level": 5,
+        "approval_status": "provisional_not_canon",
+        "free": {
+          "kind": "case",
+          "case_id": "case_basic",
+          "amount": 1
+        },
+        "premium": {
+          "kind": "shards",
+          "amount": 30
+        }
+      },
+      {
+        "level": 6,
+        "approval_status": "provisional_not_canon",
+        "free": {
+          "kind": "money_cents",
+          "amount": 160
+        },
+        "premium": {
+          "kind": "shards",
+          "amount": 31
+        }
+      },
+      {
+        "level": 7,
+        "approval_status": "provisional_not_canon",
+        "free": {
+          "kind": "shards",
+          "amount": 11
+        },
+        "premium": {
+          "kind": "shards",
+          "amount": 32
+        }
+      },
+      {
+        "level": 8,
+        "approval_status": "provisional_not_canon",
+        "free": {
+          "kind": "specialist_fragments",
+          "specialist_id": "SP01",
+          "amount": 1
+        },
+        "premium": {
+          "kind": "shards",
+          "amount": 33
+        }
+      },
+      {
+        "level": 9,
+        "approval_status": "provisional_not_canon",
+        "free": {
+          "kind": "equipment_fragments",
+          "template_id": "starter_fe_pickaxe",
+          "amount": 1
+        },
+        "premium": {
+          "kind": "shards",
+          "amount": 34
+        }
+      },
+      {
+        "level": 10,
+        "approval_status": "provisional_not_canon",
+        "free": {
+          "kind": "case",
+          "case_id": "case_rare",
+          "amount": 1
+        },
+        "premium": {
+          "kind": "shards",
+          "amount": 35
+        }
+      },
+      {
+        "level": 11,
+        "approval_status": "provisional_not_canon",
+        "free": {
+          "kind": "money_cents",
+          "amount": 210
+        },
+        "premium": {
+          "kind": "shards",
+          "amount": 36
+        }
+      },
+      {
+        "level": 12,
+        "approval_status": "provisional_not_canon",
+        "free": {
+          "kind": "shards",
+          "amount": 12
+        },
+        "premium": {
+          "kind": "shards",
+          "amount": 37
+        }
+      },
+      {
+        "level": 13,
+        "approval_status": "provisional_not_canon",
+        "free": {
+          "kind": "specialist_fragments",
+          "specialist_id": "SP01",
+          "amount": 1
+        },
+        "premium": {
+          "kind": "shards",
+          "amount": 38
+        }
+      },
+      {
+        "level": 14,
+        "approval_status": "provisional_not_canon",
+        "free": {
+          "kind": "equipment_fragments",
+          "template_id": "starter_fe_pickaxe",
+          "amount": 1
+        },
+        "premium": {
+          "kind": "shards",
+          "amount": 39
+        }
+      },
+      {
+        "level": 15,
+        "approval_status": "provisional_not_canon",
+        "free": {
+          "kind": "case",
+          "case_id": "case_basic",
+          "amount": 1
+        },
+        "premium": {
+          "kind": "shards",
+          "amount": 40
+        }
+      },
+      {
+        "level": 16,
+        "approval_status": "provisional_not_canon",
+        "free": {
+          "kind": "money_cents",
+          "amount": 260
+        },
+        "premium": {
+          "kind": "shards",
+          "amount": 41
+        }
+      },
+      {
+        "level": 17,
+        "approval_status": "provisional_not_canon",
+        "free": {
+          "kind": "shards",
+          "amount": 13
+        },
+        "premium": {
+          "kind": "shards",
+          "amount": 42
+        }
+      },
+      {
+        "level": 18,
+        "approval_status": "provisional_not_canon",
+        "free": {
+          "kind": "specialist_fragments",
+          "specialist_id": "SP01",
+          "amount": 1
+        },
+        "premium": {
+          "kind": "shards",
+          "amount": 43
+        }
+      },
+      {
+        "level": 19,
+        "approval_status": "provisional_not_canon",
+        "free": {
+          "kind": "equipment_fragments",
+          "template_id": "starter_fe_pickaxe",
+          "amount": 1
+        },
+        "premium": {
+          "kind": "shards",
+          "amount": 44
+        }
+      },
+      {
+        "level": 20,
+        "approval_status": "provisional_not_canon",
+        "free": {
+          "kind": "case",
+          "case_id": "case_rare",
+          "amount": 1
+        },
+        "premium": {
+          "kind": "shards",
+          "amount": 45
+        }
+      },
+      {
+        "level": 21,
+        "approval_status": "provisional_not_canon",
+        "free": {
+          "kind": "money_cents",
+          "amount": 310
+        },
+        "premium": {
+          "kind": "shards",
+          "amount": 46
+        }
+      },
+      {
+        "level": 22,
+        "approval_status": "provisional_not_canon",
+        "free": {
+          "kind": "shards",
+          "amount": 14
+        },
+        "premium": {
+          "kind": "shards",
+          "amount": 47
+        }
+      },
+      {
+        "level": 23,
+        "approval_status": "provisional_not_canon",
+        "free": {
+          "kind": "specialist_fragments",
+          "specialist_id": "SP01",
+          "amount": 2
+        },
+        "premium": {
+          "kind": "shards",
+          "amount": 48
+        }
+      },
+      {
+        "level": 24,
+        "approval_status": "provisional_not_canon",
+        "free": {
+          "kind": "equipment_fragments",
+          "template_id": "starter_fe_pickaxe",
+          "amount": 2
+        },
+        "premium": {
+          "kind": "shards",
+          "amount": 49
+        }
+      },
+      {
+        "level": 25,
+        "approval_status": "provisional_not_canon",
+        "free": {
+          "kind": "case",
+          "case_id": "case_basic",
+          "amount": 1
+        },
+        "premium": {
+          "kind": "shards",
+          "amount": 50
+        }
+      },
+      {
+        "level": 26,
+        "approval_status": "provisional_not_canon",
+        "free": {
+          "kind": "money_cents",
+          "amount": 360
+        },
+        "premium": {
+          "kind": "shards",
+          "amount": 51
+        }
+      },
+      {
+        "level": 27,
+        "approval_status": "provisional_not_canon",
+        "free": {
+          "kind": "shards",
+          "amount": 15
+        },
+        "premium": {
+          "kind": "shards",
+          "amount": 52
+        }
+      },
+      {
+        "level": 28,
+        "approval_status": "provisional_not_canon",
+        "free": {
+          "kind": "specialist_fragments",
+          "specialist_id": "SP01",
+          "amount": 2
+        },
+        "premium": {
+          "kind": "shards",
+          "amount": 53
+        }
+      },
+      {
+        "level": 29,
+        "approval_status": "provisional_not_canon",
+        "free": {
+          "kind": "equipment_fragments",
+          "template_id": "starter_fe_pickaxe",
+          "amount": 2
+        },
+        "premium": {
+          "kind": "shards",
+          "amount": 54
+        }
+      },
+      {
+        "level": 30,
+        "approval_status": "provisional_not_canon",
+        "free": {
+          "kind": "case",
+          "case_id": "case_rare",
+          "amount": 1
+        },
+        "premium": {
+          "kind": "shards",
+          "amount": 55
+        }
+      },
+      {
+        "level": 31,
+        "approval_status": "provisional_not_canon",
+        "free": {
+          "kind": "money_cents",
+          "amount": 410
+        },
+        "premium": {
+          "kind": "shards",
+          "amount": 56
+        }
+      },
+      {
+        "level": 32,
+        "approval_status": "provisional_not_canon",
+        "free": {
+          "kind": "shards",
+          "amount": 16
+        },
+        "premium": {
+          "kind": "shards",
+          "amount": 57
+        }
+      },
+      {
+        "level": 33,
+        "approval_status": "provisional_not_canon",
+        "free": {
+          "kind": "specialist_fragments",
+          "specialist_id": "SP01",
+          "amount": 2
+        },
+        "premium": {
+          "kind": "shards",
+          "amount": 58
+        }
+      },
+      {
+        "level": 34,
+        "approval_status": "provisional_not_canon",
+        "free": {
+          "kind": "equipment_fragments",
+          "template_id": "starter_fe_pickaxe",
+          "amount": 2
+        },
+        "premium": {
+          "kind": "shards",
+          "amount": 59
+        }
+      },
+      {
+        "level": 35,
+        "approval_status": "provisional_not_canon",
+        "free": {
+          "kind": "case",
+          "case_id": "case_basic",
+          "amount": 1
+        },
+        "premium": {
+          "kind": "shards",
+          "amount": 60
+        }
+      },
+      {
+        "level": 36,
+        "approval_status": "provisional_not_canon",
+        "free": {
+          "kind": "money_cents",
+          "amount": 460
+        },
+        "premium": {
+          "kind": "shards",
+          "amount": 61
+        }
+      },
+      {
+        "level": 37,
+        "approval_status": "provisional_not_canon",
+        "free": {
+          "kind": "shards",
+          "amount": 17
+        },
+        "premium": {
+          "kind": "shards",
+          "amount": 62
+        }
+      },
+      {
+        "level": 38,
+        "approval_status": "provisional_not_canon",
+        "free": {
+          "kind": "specialist_fragments",
+          "specialist_id": "SP01",
+          "amount": 2
+        },
+        "premium": {
+          "kind": "shards",
+          "amount": 63
+        }
+      },
+      {
+        "level": 39,
+        "approval_status": "provisional_not_canon",
+        "free": {
+          "kind": "equipment_fragments",
+          "template_id": "starter_fe_pickaxe",
+          "amount": 2
+        },
+        "premium": {
+          "kind": "shards",
+          "amount": 64
+        }
+      },
+      {
+        "level": 40,
+        "approval_status": "provisional_not_canon",
+        "free": {
+          "kind": "case",
+          "case_id": "case_rare",
+          "amount": 1
+        },
+        "premium": {
+          "kind": "shards",
+          "amount": 65
+        }
+      },
+      {
+        "level": 41,
+        "approval_status": "provisional_not_canon",
+        "free": {
+          "kind": "money_cents",
+          "amount": 510
+        },
+        "premium": {
+          "kind": "shards",
+          "amount": 66
+        }
+      },
+      {
+        "level": 42,
+        "approval_status": "provisional_not_canon",
+        "free": {
+          "kind": "shards",
+          "amount": 18
+        },
+        "premium": {
+          "kind": "shards",
+          "amount": 67
+        }
+      },
+      {
+        "level": 43,
+        "approval_status": "provisional_not_canon",
+        "free": {
+          "kind": "specialist_fragments",
+          "specialist_id": "SP01",
+          "amount": 3
+        },
+        "premium": {
+          "kind": "shards",
+          "amount": 68
+        }
+      },
+      {
+        "level": 44,
+        "approval_status": "provisional_not_canon",
+        "free": {
+          "kind": "equipment_fragments",
+          "template_id": "starter_fe_pickaxe",
+          "amount": 3
+        },
+        "premium": {
+          "kind": "shards",
+          "amount": 69
+        }
+      },
+      {
+        "level": 45,
+        "approval_status": "provisional_not_canon",
+        "free": {
+          "kind": "case",
+          "case_id": "case_basic",
+          "amount": 1
+        },
+        "premium": {
+          "kind": "shards",
+          "amount": 70
+        }
+      },
+      {
+        "level": 46,
+        "approval_status": "provisional_not_canon",
+        "free": {
+          "kind": "money_cents",
+          "amount": 560
+        },
+        "premium": {
+          "kind": "shards",
+          "amount": 71
+        }
+      },
+      {
+        "level": 47,
+        "approval_status": "provisional_not_canon",
+        "free": {
+          "kind": "shards",
+          "amount": 19
+        },
+        "premium": {
+          "kind": "shards",
+          "amount": 72
+        }
+      },
+      {
+        "level": 48,
+        "approval_status": "provisional_not_canon",
+        "free": {
+          "kind": "specialist_fragments",
+          "specialist_id": "SP01",
+          "amount": 3
+        },
+        "premium": {
+          "kind": "shards",
+          "amount": 73
+        }
+      },
+      {
+        "level": 49,
+        "approval_status": "provisional_not_canon",
+        "free": {
+          "kind": "equipment_fragments",
+          "template_id": "starter_fe_pickaxe",
+          "amount": 3
+        },
+        "premium": {
+          "kind": "shards",
+          "amount": 74
+        }
+      },
+      {
+        "level": 50,
+        "approval_status": "provisional_not_canon",
+        "free": {
+          "kind": "case",
+          "case_id": "case_rare",
+          "amount": 1
+        },
+        "premium": {
+          "kind": "shards",
+          "amount": 75
+        }
+      },
+      {
+        "level": 51,
+        "approval_status": "provisional_not_canon",
+        "free": {
+          "kind": "money_cents",
+          "amount": 610
+        },
+        "premium": {
+          "kind": "shards",
+          "amount": 76
+        }
+      },
+      {
+        "level": 52,
+        "approval_status": "provisional_not_canon",
+        "free": {
+          "kind": "shards",
+          "amount": 20
+        },
+        "premium": {
+          "kind": "shards",
+          "amount": 77
+        }
+      },
+      {
+        "level": 53,
+        "approval_status": "provisional_not_canon",
+        "free": {
+          "kind": "specialist_fragments",
+          "specialist_id": "SP01",
+          "amount": 3
+        },
+        "premium": {
+          "kind": "shards",
+          "amount": 78
+        }
+      },
+      {
+        "level": 54,
+        "approval_status": "provisional_not_canon",
+        "free": {
+          "kind": "equipment_fragments",
+          "template_id": "starter_fe_pickaxe",
+          "amount": 3
+        },
+        "premium": {
+          "kind": "shards",
+          "amount": 79
+        }
+      },
+      {
+        "level": 55,
+        "approval_status": "provisional_not_canon",
+        "free": {
+          "kind": "case",
+          "case_id": "case_basic",
+          "amount": 1
+        },
+        "premium": {
+          "kind": "shards",
+          "amount": 80
+        }
+      },
+      {
+        "level": 56,
+        "approval_status": "provisional_not_canon",
+        "free": {
+          "kind": "money_cents",
+          "amount": 660
+        },
+        "premium": {
+          "kind": "shards",
+          "amount": 81
+        }
+      },
+      {
+        "level": 57,
+        "approval_status": "provisional_not_canon",
+        "free": {
+          "kind": "shards",
+          "amount": 21
+        },
+        "premium": {
+          "kind": "shards",
+          "amount": 82
+        }
+      },
+      {
+        "level": 58,
+        "approval_status": "provisional_not_canon",
+        "free": {
+          "kind": "specialist_fragments",
+          "specialist_id": "SP01",
+          "amount": 3
+        },
+        "premium": {
+          "kind": "shards",
+          "amount": 83
+        }
+      },
+      {
+        "level": 59,
+        "approval_status": "provisional_not_canon",
+        "free": {
+          "kind": "equipment_fragments",
+          "template_id": "starter_fe_pickaxe",
+          "amount": 3
+        },
+        "premium": {
+          "kind": "shards",
+          "amount": 84
+        }
+      },
+      {
+        "level": 60,
+        "approval_status": "provisional_not_canon",
+        "free": {
+          "kind": "case",
+          "case_id": "case_rare",
+          "amount": 1
+        },
+        "premium": {
+          "kind": "shards",
+          "amount": 85
+        }
+      }
+    ],
+    "premium_enabled": false,
+    "cycle_rules": {
+      "daily": "UTC calendar day",
+      "weekly": "UTC epoch week"
+    },
+    "reward_note": "All 60 free and premium reward rows are functional proposals, not canon; levels 41-60 were absent from supplied reward canon and are ready for owner balance review."
+  },
+  "events": {
+    "status": "CANON_HOOKS_PROVISIONAL_REWARDS",
+    "hooks": {
+      "EV01": {
+        "stat": "iron_pocket_choice",
+        "target": 1
+      },
+      "EV02": {
+        "stat": "contract_fulfilled",
+        "target": 1
+      },
+      "EV03": {
+        "stat": "geology_completed",
+        "target": 1
+      },
+      "EV04": {
+        "stat": "pd_optional_scan_completed",
+        "target": 1
+      },
+      "EV05": {
+        "stat": "pd_catalyst_contract_completed",
+        "target": 1
+      },
+      "EV06": {
+        "stat": "ir_route_selected",
+        "target": 1
+      },
+      "EV07": {
+        "stat": "produced:ir_thermal_contact",
+        "target": 1
+      },
+      "EV08": {
+        "stat": "worker_registry_compared",
+        "target": 1
+      }
+    },
+    "rewards": {
+      "EV01": {
+        "kind": "material",
+        "resource_id": "iron_ore",
+        "amount": 50,
+        "season_xp": 50
+      },
+      "EV02": {
+        "kind": "money_cents",
+        "amount": 200,
+        "season_xp": 50
+      },
+      "EV03": {
+        "kind": "material",
+        "resource_id": "iron_ore",
+        "amount": 10,
+        "season_xp": 50
+      },
+      "EV04": {
+        "kind": "material",
+        "resource_id": "pd_concentrate",
+        "amount": 1,
+        "season_xp": 50
+      },
+      "EV05": {
+        "kind": "money_cents",
+        "amount": 500,
+        "season_xp": 75
+      },
+      "EV06": {
+        "kind": "material",
+        "resource_id": "ir_core",
+        "amount": 1,
+        "season_xp": 50
+      },
+      "EV07": {
+        "kind": "money_cents",
+        "amount": 1000,
+        "season_xp": 75
+      },
+      "EV08": {
+        "kind": "evidence",
+        "amount": 1,
+        "season_xp": 0
+      }
+    }
+  },
+  "vip_shop": {
+    "verified_receipts_available": false,
+    "vip_rank_default": 0,
+    "storekit_purchase_enabled": false,
+    "disabled_message": "Покупки пока недоступны",
+    "rank_bonus_cap_pct": 30,
+    "unverified_receipt_policy": "Never grant VIP rank, VIP specialists, premium season rewards, or purchases from local profile fields."
+  },
+  "bonus_semantics": {
+    "output": "Fraction multiplier; 0.02 means +2%.",
+    "tap": "Fraction multiplier/bonus consumed by the economy model.",
+    "crit": "Probability fraction.",
+    "weak": "Probability fraction.",
+    "wage": "Positive fraction reduces wages via the economy model wage multiplier.",
+    "storage": "Absolute shared warehouse capacity units; storage effects aggregate globally.",
+    "speed": "Fraction multiplier consumed by the economy model.",
+    "site_scoped": "All keys except shared storage and global VIP effects use site:stat."
+  }
+}
