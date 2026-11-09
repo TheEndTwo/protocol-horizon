@@ -16,6 +16,9 @@ func _ready() -> void:
 func get_record(catalog: StringName, id: String) -> Dictionary:
 	return _indices.get(String(catalog), {}).get(id, {}).duplicate(true)
 
+func get_records(catalog: StringName) -> Array:
+	return _catalogs.get(String(catalog), []).duplicate(true)
+
 func get_count(catalog: StringName) -> int:
 	return _catalogs.get(String(catalog), []).size()
 
