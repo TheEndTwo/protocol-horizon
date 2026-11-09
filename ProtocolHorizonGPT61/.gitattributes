@@ -1,0 +1,4 @@
+# Preserve canonical source bytes, including BOM and CRLF.
+data/canon/* -text
+data/canon/*.csv whitespace=cr-at-eol
+docs/source/* -text

@@ -1,0 +1,20 @@
+﻿id,display_name,type,sale_price_cents,source
+money_helios,гелионы,currency,,unbounded
+shard,осколки,currency,,nonnegative
+research_point,очки исследований,currency,,nonnegative
+geodata_fe,геоданные железа,site_progress,,persistent
+geodata_pd,геоданные палладия,site_progress,,persistent
+geodata_ir,геоданные иридия,site_progress,,persistent
+iron_ore,железная руда,ore,100,native_fe
+ingot,слиток,product,650,plant_fe
+steel,сталь,product,2800,plant_fe
+mechanical_node,механический узел,product,7200,plant_fe
+high_strength_alloy,высокопрочный сплав,product,13000,plant_fe
+experimental_material,экспериментальный композит,product,39000,plant_fe
+pd_concentrate,палладиевый концентрат,ore,1200,native_pd
+pd_refined,чистый палладий,product,7200,plant_pd
+pd_catalyst,палладиевый катализатор,product,22000,plant_pd
+ir_core,иридиевое включение,ore,7000,native_ir
+ir_refined,чистый иридий,product,32000,plant_ir
+ir_thermal_contact,термостойкий контакт,product,96000,plant_ir
+KEY_HORIZONITE_SAMPLE,сюжетный образец горизонтита,quest_item,,story:A20

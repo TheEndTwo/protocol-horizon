@@ -1,0 +1,12 @@
+﻿sku_id,title,preview_price_kzt,vip_points,limit,unlock,contents,requires_verified_storekit
+starter_earth,Стартовый промышленный набор,990,10,one_time,Fe,"{""shards"": 900, ""case_basic"": 2, ""choose_rare_specialist_fragment_pack"": 1, ""boost_fe_25pct_2h"": 1}",True
+shards_small,Осколки: малая партия,990,10,repeat,Fe,"{""shards"": 1200}",True
+shards_medium,Осколки: крупная партия,2490,25,repeat,Fe,"{""shards"": 3600}",True
+shards_large,Осколки: промышленный запас,4990,50,repeat,Fe,"{""shards"": 8000}",True
+equipment_fe,Железо: набор мастера,1990,20,one_time,Fe,"{""choose_fe_epic_equipment"": 1, ""fe_equipment_fragments"": 100, ""shards"": 400}",True
+team_pd,Палладий: экспедиционная команда,2990,30,one_time,A08,"{""choose_pd_epic_specialist"": 1, ""pd_specialist_fragments"": 120, ""shards"": 650}",True
+team_ir,Иридий: инженерный резерв,3990,40,one_time,A14,"{""choose_ir_epic_specialist"": 1, ""ir_specialist_fragments"": 160, ""shards"": 900}",True
+elite_cases_3,Элитная поставка: три кейса,2490,25,repeat,Fe,"{""case_elite"": 3}",True
+season_pass,Сезонный премиум-пропуск,2490,25,one_per_season,active_season,"{""premium_season_entitlement"": 1}",True
+factory_support,Промышленная поддержка,1290,13,repeat,Fe,"{""factory_speed_15pct_48h"": 1, ""shards"": 300, ""case_rare"": 1}",True
+cosmetic_industry,Косметика: индустриальный комплект,1490,15,one_time,Fe,"{""cosmetic_mine_shell"": 1, ""cosmetic_ui_badge"": 1, ""shards"": 250}",True

@@ -1,0 +1,10 @@
+﻿id,output,quantity,inputs_json,cash_cost_cents,output_sale_cents,added_margin_cents,production_line,minutes
+R_INGOT,ingot,1,"{""iron_ore"": 5}",50,650,100,fe_furnace,CONFIG_IN_GODOT
+R_STEEL,steel,1,"{""ingot"": 4}",100,2800,100,fe_alloy,CONFIG_IN_GODOT
+R_MECHANICAL,mechanical_node,1,"{""steel"": 2, ""ingot"": 1}",200,7200,750,fe_parts,CONFIG_IN_GODOT
+R_HI_ALLOY,high_strength_alloy,1,"{""steel"": 3, ""ingot"": 2}",400,13000,2900,fe_hi,CONFIG_IN_GODOT
+R_EXPERIMENTAL,experimental_material,1,"{""high_strength_alloy"": 2, ""mechanical_node"": 1}",1500,39000,4300,fe_exp,CONFIG_IN_GODOT
+R_PD_REFINED,pd_refined,1,"{""pd_concentrate"": 4}",800,7200,1600,pd_clean,CONFIG_IN_GODOT
+R_PD_CAT,pd_catalyst,1,"{""pd_refined"": 2, ""steel"": 1}",1000,22000,3800,pd_cat,CONFIG_IN_GODOT
+R_IR_REFINED,ir_refined,1,"{""ir_core"": 3}",5500,32000,5500,ir_clean,CONFIG_IN_GODOT
+R_IR_CONTACT,ir_thermal_contact,1,"{""ir_refined"": 1, ""pd_catalyst"": 1, ""high_strength_alloy"": 2}",4000,96000,12000,ir_contact,CONFIG_IN_GODOT

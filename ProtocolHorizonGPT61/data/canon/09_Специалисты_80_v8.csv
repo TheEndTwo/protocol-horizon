@@ -1,0 +1,81 @@
+﻿id,name,rarity,site,role,stat,target,base,max,unit,unlock,rank_required,level_cap,star_cap
+SP01,Джек Мерсер,Обычный,Fe,Наставник шахтёров,worker_output,iron_miner,2,8,percent,cases_and_free_milestones,,100,5
+SP02,Клэр Уитмор,Редкий,Fe,Настройщик буровой,machine_throughput,iron_drill,3,8,percent,cases_and_free_milestones,,100,5
+SP03,Эйден Роу,Эпический,Fe,Мастер точной добычи,tap_bonus,iron_weak_point,4,12,percent,cases_and_free_milestones,,100,5
+SP04,Райли Фрост,Редкий,Global,Контрактный брокер,contract_profit,normal_contract,2,6,percent,cases_and_free_milestones,,100,5
+SP05,Коул Беннет,Редкий,Global,Диспетчер резервов,storage_reserved_slots,site_network,1,1,slots,cases_and_free_milestones,,100,5
+SP06,Маркус Стил,Эпический,Fe,Конвейерный инженер,transport_throughput,iron_conveyor,3,10,percent,cases_and_free_milestones,,100,5
+SP07,Виктория Хейл,Легендарный,Global,Переговорщик,contract_profit,first_complex_daily,4,10,percent,cases_and_free_milestones,,100,5
+SP08,Дэмиен Кроу,Легендарный,Fe,Начальник горизонта,resonance_duration,iron_resonance,4,12,percent,cases_and_free_milestones,,100,5
+SP09,Эмма Блейк,Обычный,Fe,Плавильщик,factory_throughput,ingot,2,8,percent,cases_and_free_milestones,,100,5
+SP10,Нолан Прайс,Обычный,Fe,Металлург,factory_throughput,steel,2,8,percent,cases_and_free_milestones,,100,5
+SP11,Оливия Рид,Редкий,Global,Плановик заказов,storage_reserved_slots,industrial_orders,1,1,slots,cases_and_free_milestones,,100,5
+SP12,Лукас Грей,Обычный,Fe,Бурильщик,worker_output,iron_driller,2,8,percent,cases_and_free_milestones,,100,5
+SP13,Скарлетт Мур,Редкий,Fe,Начальник погрузки,transport_throughput,ore_to_factory,3,8,percent,cases_and_free_milestones,,100,5
+SP14,Логан Вейл,Эпический,Fe,Машинист-рельсовик,transport_throughput,ore_hauler,4,10,percent,cases_and_free_milestones,,100,5
+SP15,Селена Кейн,Эпический,Global,Минералог,geology_normal_samples,earth_geology,3,8,percent,cases_and_free_milestones,,100,5
+SP16,Майлз Харпер,Редкий,Global,Экспедиционный руководитель,survey_precision,earth_exp_canyon,4,10,percent,cases_and_free_milestones,,100,5
+SP17,Джулиан Форд,Эпический,Fe,Мастер рудных карманов,deposit_yield,iron_ore_pocket,3,8,percent,cases_and_free_milestones,,100,5
+SP18,Натали Харт,Эпический,Fe,Контролёр качества,material_input_saving,mechanical_node,2,5,percent,cases_and_free_milestones,,100,5
+SP19,Себастьян Рейн,Легендарный,Global,Логист-плановик,storage_reserved_slots,construction_orders,1,1,slots,cases_and_free_milestones,,100,5
+SP20,Аврора Восс,Мифический,Fe,Резонансный инженер,resonance_duration,iron_rich_vein,5,12,percent,cases_and_free_milestones,,100,5
+PDS01,Элис Морган,Обычный,Pd,Геокерновый аналитик,survey_precision,pd_core,3,8,percent,cases_and_free_milestones,,100,5
+PDS02,Тео Коллинз,Редкий,Pd,Георазведчик,survey_speed,pd_lens,3,10,percent,cases_and_free_milestones,,100,5
+PDS03,Софи Келлер,Эпический,Pd,Селективный геолог,deposit_yield,pd_clean_lens,3,10,percent,cases_and_free_milestones,,100,5
+PDS04,Райан Уокер,Редкий,Pd,Химик-технолог,operating_cost_saving,pd_reagent,2,8,percent,cases_and_free_milestones,,100,5
+PDS05,Ава Синклер,Эпический,Pd,Каталитический технолог,factory_throughput,pd_catalyst,4,10,percent,cases_and_free_milestones,,100,5
+PDS06,Кристофер Нокс,Легендарный,Pd,Автодиспетчер,queue_capacity,pd_production,1,3,slots,cases_and_free_milestones,,100,5
+IRS01,Хлоя Винтер,Обычный,Ir,Сейсмоаналитик,survey_precision,ir_seismic,3,8,percent,cases_and_free_milestones,,100,5
+IRS02,Грант Мэддокс,Редкий,Ir,Проектировщик опор,campaign_speed,ir_route,2,8,percent,cases_and_free_milestones,,100,5
+IRS03,Мэдисон Пирс,Эпический,Ir,Криоинженер,operating_cost_saving,ir_cooling,3,10,percent,cases_and_free_milestones,,100,5
+IRS04,Оливер Брукс,Редкий,Ir,Робототехник,machine_throughput,ir_extraction,2,8,percent,cases_and_free_milestones,,100,5
+IRS05,Бруклин Шоу,Эпический,Ir,Специалист чистой плавки,refining_yield,ir_refined,3,9,percent,cases_and_free_milestones,,100,5
+IRS06,Леонард Блэквелл,Легендарный,Ir,Инженер термоконтактов,factory_throughput,ir_thermal_contact,4,10,percent,cases_and_free_milestones,,100,5
+SPF21,Зои Куинн,Редкий,Fe,Мастер вентиляции,worker_output,iron_ventilation,3,8,percent,cases_and_free_milestones,,100,5
+SPF22,Финн Уэллс,Обычный,Fe,Штрековый крепильщик,machine_throughput,iron_tunnel_support,2,6,percent,cases_and_free_milestones,,100,5
+SPF23,Харпер Кинг,Эпический,Fe,Картограф глубин,survey_precision,iron_deep_scan,3,10,percent,cases_and_free_milestones,,100,5
+SPF24,Дилан Уорд,Обычный,Fe,Сортировщик,refining_yield,iron_sorting,2,6,percent,cases_and_free_milestones,,100,5
+SPF25,Хейли Картер,Редкий,Fe,Инженер освещения,survey_speed,iron_light,3,8,percent,cases_and_free_milestones,,100,5
+SPF26,Кэмерон Уайлд,Эпический,Fe,Механик рудовоза,transport_throughput,iron_haulage,4,10,percent,cases_and_free_milestones,,100,5
+SPF27,Лилиан Стоун,Редкий,Fe,Контролёр смен,salary_saving,iron_wage,2,6,percent,cases_and_free_milestones,,100,5
+SPF28,Хантер Грейвс,Легендарный,Fe,Главный проходчик,machine_throughput,iron_roadheader,5,12,percent,cases_and_free_milestones,,100,5
+SPF29,Сиенна Локк,Эпический,Fe,Металлург сплавов,factory_throughput,high_strength_alloy,4,10,percent,cases_and_free_milestones,,100,5
+SPF30,Итан Маршалл,Редкий,Fe,Начальник склада,storage_capacity,iron_ore,3,10,percent,cases_and_free_milestones,,100,5
+SPF31,Вивьен Арчер,Легендарный,Fe,Промышленный аналитик,factory_throughput,mechanical_node,5,12,percent,cases_and_free_milestones,,100,5
+SPF32,Орион Дрейк,Мифический,Fe,Горный архитектор,deposit_yield,iron_deep_layers,5,13,percent,cases_and_free_milestones,,100,5
+PDS07,Изабель Флинн,Обычный,Pd,Лаборант проб,survey_speed,pd_core,2,6,percent,cases_and_free_milestones,,100,5
+PDS08,Джейкоб Коул,Обычный,Pd,Оператор выемки,worker_output,pd_extraction,2,6,percent,cases_and_free_milestones,,100,5
+PDS09,Кэтрин Эшфорд,Редкий,Pd,Хроматографист,survey_precision,pd_impurity,3,8,percent,cases_and_free_milestones,,100,5
+PDS10,Тревор Хейз,Редкий,Pd,Диспетчер реактивов,operating_cost_saving,pd_reagent,3,8,percent,cases_and_free_milestones,,100,5
+PDS11,Белла Риверс,Эпический,Pd,Технолог мембран,refining_yield,pd_membrane,4,10,percent,cases_and_free_milestones,,100,5
+PDS12,Нэйтан Кросби,Эпический,Pd,Главный пробоотборщик,deposit_yield,pd_lens,4,10,percent,cases_and_free_milestones,,100,5
+PDS13,Грейс Монро,Редкий,Pd,Плановик партий,queue_capacity,pd_batches,1,2,slots,cases_and_free_milestones,,100,5
+PDS14,Алекс Ривз,Редкий,Pd,Мастер дробления,machine_throughput,pd_crusher,3,8,percent,cases_and_free_milestones,,100,5
+PDS15,Эдриан Блэк,Эпический,Pd,Исследователь катализа,factory_throughput,pd_catalyst,4,10,percent,cases_and_free_milestones,,100,5
+PDS16,Джессика Холт,Обычный,Pd,Логист проб,transport_throughput,pd_samples,2,6,percent,cases_and_free_milestones,,100,5
+PDS17,Элизабет Слоун,Легендарный,Pd,Директор очистки,refining_yield,pd_refined,5,12,percent,cases_and_free_milestones,,100,5
+PDS18,Калеб Скотт,Эпический,Pd,Спектральный эксперт,survey_precision,pd_lens,4,10,percent,cases_and_free_milestones,,100,5
+PDS19,Пенелопа Вейл,Легендарный,Pd,Инженер селективной добычи,deposit_yield,pd_high_grade,5,12,percent,cases_and_free_milestones,,100,5
+PDS20,Оуэн Хадсон,Редкий,Pd,Экономист реагентов,operating_cost_saving,pd_chemistry,3,8,percent,cases_and_free_milestones,,100,5
+PDS21,Айрис Кейн,Мифический,Pd,Архитектор катализаторов,factory_throughput,pd_catalyst,5,13,percent,cases_and_free_milestones,,100,5
+PDS22,Винсент Торн,Мифический,Pd,Геофизик аномальных линз,survey_precision,pd_anomaly_lens,5,13,percent,cases_and_free_milestones,,100,5
+IRS07,Джейсон Бернс,Обычный,Ir,Оператор буровой,worker_output,ir_drill_crew,2,6,percent,cases_and_free_milestones,,100,5
+IRS08,Мелани Сторм,Редкий,Ir,Сейсмический картограф,survey_precision,ir_seismic,3,8,percent,cases_and_free_milestones,,100,5
+IRS09,Бенджамин Норт,Редкий,Ir,Механик термобура,machine_throughput,ir_thermal_drill,3,8,percent,cases_and_free_milestones,,100,5
+IRS10,Амелия Уэст,Эпический,Ir,Инженер гермокамер,operating_cost_saving,ir_chamber,4,10,percent,cases_and_free_milestones,,100,5
+IRS11,Закари Блейн,Редкий,Ir,Контролёр опор,campaign_speed,ir_support_phase,3,8,percent,cases_and_free_milestones,,100,5
+IRS12,Фиби Кларк,Эпический,Ir,Робототехник манипуляторов,machine_throughput,ir_robots,4,10,percent,cases_and_free_milestones,,100,5
+IRS13,Коннор Флинт,Обычный,Ir,Мастер подачи,transport_throughput,ir_core_transport,2,6,percent,cases_and_free_milestones,,100,5
+IRS14,Эллисон Роуз,Редкий,Ir,Спектрометрист,survey_precision,ir_core_quality,3,8,percent,cases_and_free_milestones,,100,5
+IRS15,Максвелл Риверс,Эпический,Ir,Криофизик,operating_cost_saving,ir_cooling,4,10,percent,cases_and_free_milestones,,100,5
+IRS16,Элеонора Райт,Легендарный,Ir,Металлург высокого давления,refining_yield,ir_refined,5,12,percent,cases_and_free_milestones,,100,5
+IRS17,Гэвин Шепард,Эпический,Ir,Начальник походки буров,campaign_speed,ir_route,4,10,percent,cases_and_free_milestones,,100,5
+IRS18,Лорен Брукс,Редкий,Ir,Экономист кампаний,operating_cost_saving,ir_campaign,3,8,percent,cases_and_free_milestones,,100,5
+IRS19,Альберт Вега,Легендарный,Ir,Конструктор термоконтактов,factory_throughput,ir_thermal_contact,5,12,percent,cases_and_free_milestones,,100,5
+IRS20,Наоми Престон,Эпический,Ir,Логист гермоблоков,queue_capacity,ir_chambers,1,3,slots,cases_and_free_milestones,,100,5
+IRS21,Кассиан Хоук,Мифический,Ir,Архитектор глубинной станции,campaign_speed,ir_drill_overall,6,13,percent,cases_and_free_milestones,,100,5
+IRS22,Серена Хоу,Мифический,Ir,Мастер прецизионного извлечения,refining_yield,ir_core,5,13,percent,cases_and_free_milestones,,100,5
+VIP_FE_5,Джеймс Роук,Легендарный,Fe,Ведущий механик машин,machine_throughput,iron_machines,15,18,percent,vip_rank,5,100,5
+VIP_PD_6,Рэйчел Вейд,Легендарный,Pd,Директор химического цеха,operating_cost_saving,pd_refining_cash,12,14,percent,vip_rank,6,100,5
+VIP_IR_7,Декстер Кейн,Легендарный,Ir,Инженер буровой кампании,campaign_speed,ir_drill_phase,12,14,percent,vip_rank,7,100,5
+VIP_GLOBAL_10,Кассандра Нокс,Мифический,Global,Архитектор производственной сети,factory_throughput,one_selected_line,10,12,percent,vip_rank,10,100,5

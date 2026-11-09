@@ -1,0 +1,305 @@
+[
+  {
+    "catalog": "research",
+    "path": "res://data/canon/01_Исследования_140_v7.csv",
+    "format": "csv",
+    "id_field": "id",
+    "count": 140,
+    "required_fields": [
+      "id",
+      "site",
+      "branch",
+      "name",
+      "max_levels",
+      "total_cost_oi",
+      "dependencies",
+      "unlock",
+      "effect"
+    ]
+  },
+  {
+    "catalog": "research",
+    "path": "res://data/canon/01_Исследования_140_v7.json",
+    "format": "json",
+    "id_field": "id",
+    "count": 140,
+    "required_fields": [
+      "id",
+      "site",
+      "branch",
+      "name",
+      "max_levels",
+      "total_cost_oi",
+      "dependencies",
+      "unlock",
+      "effect"
+    ]
+  },
+  {
+    "catalog": "mastery",
+    "path": "res://data/canon/02_Мастерство_24_навыка_v7.csv",
+    "format": "csv",
+    "id_field": "id",
+    "count": 24,
+    "required_fields": [
+      "id",
+      "site",
+      "name",
+      "milestone",
+      "cost_mastery_points",
+      "max_rank",
+      "effect",
+      "requires_prestige",
+      "persistent"
+    ]
+  },
+  {
+    "catalog": "mastery",
+    "path": "res://data/canon/02_Мастерство_24_навыка_v7.json",
+    "format": "json",
+    "id_field": "id",
+    "count": 24,
+    "required_fields": [
+      "id",
+      "site",
+      "name",
+      "milestone",
+      "cost_mastery_points",
+      "max_rank",
+      "effect",
+      "requires_prestige",
+      "persistent"
+    ]
+  },
+  {
+    "catalog": "story",
+    "path": "res://data/canon/03_Сюжет_20_КАНОН_v7.csv",
+    "format": "csv",
+    "id_field": "id",
+    "count": 20,
+    "required_fields": [
+      "id",
+      "prerequisite_story",
+      "trigger",
+      "description",
+      "reward_unlock",
+      "once",
+      "paid_gate",
+      "prestige_gate"
+    ]
+  },
+  {
+    "catalog": "story",
+    "path": "res://data/canon/03_Сюжет_20_КАНОН_v7.json",
+    "format": "json",
+    "id_field": "id",
+    "count": 20,
+    "required_fields": [
+      "id",
+      "prerequisite_story",
+      "trigger",
+      "description",
+      "reward_unlock",
+      "once",
+      "paid_gate",
+      "prestige_gate"
+    ]
+  },
+  {
+    "catalog": "season_tasks",
+    "path": "res://data/canon/04_Сезон_задания_18_v7.csv",
+    "format": "csv",
+    "id_field": "template_id",
+    "count": 18,
+    "required_fields": [
+      "template_id",
+      "kind",
+      "progress_event",
+      "target_count",
+      "xp_reward",
+      "title",
+      "route_id",
+      "rules"
+    ]
+  },
+  {
+    "catalog": "events",
+    "path": "res://data/canon/05_События_8_шаблонов_v7.csv",
+    "format": "csv",
+    "id_field": "id",
+    "count": 8,
+    "required_fields": [
+      "id",
+      "title",
+      "site",
+      "gameplay_type",
+      "goal",
+      "reward_type",
+      "mandatory_story_gate"
+    ]
+  },
+  {
+    "catalog": "vip",
+    "path": "res://data/canon/06_VIP_ранги_11_v7_1.csv",
+    "format": "csv",
+    "id_field": "rank",
+    "count": 11,
+    "required_fields": [
+      "rank",
+      "required_vip_points",
+      "cumulative_base_production_bonus_pct",
+      "rank_reward"
+    ]
+  },
+  {
+    "catalog": "resources",
+    "path": "res://data/canon/07_Ресурсы_19_v7.csv",
+    "format": "csv",
+    "id_field": "id",
+    "count": 19,
+    "required_fields": [
+      "id",
+      "display_name",
+      "type",
+      "sale_price_cents",
+      "source"
+    ]
+  },
+  {
+    "catalog": "recipes",
+    "path": "res://data/canon/08_Рецепты_9_v7.csv",
+    "format": "csv",
+    "id_field": "id",
+    "count": 9,
+    "required_fields": [
+      "id",
+      "output",
+      "quantity",
+      "inputs_json",
+      "cash_cost_cents",
+      "output_sale_cents",
+      "added_margin_cents",
+      "production_line",
+      "minutes"
+    ]
+  },
+  {
+    "catalog": "specialists",
+    "path": "res://data/canon/09_Специалисты_80_v8.csv",
+    "format": "csv",
+    "id_field": "id",
+    "count": 80,
+    "required_fields": [
+      "id",
+      "name",
+      "rarity",
+      "site",
+      "role",
+      "stat",
+      "target",
+      "base",
+      "max",
+      "unit",
+      "unlock",
+      "rank_required",
+      "level_cap",
+      "star_cap"
+    ]
+  },
+  {
+    "catalog": "specialists",
+    "path": "res://data/canon/09_Специалисты_80_v8.json",
+    "format": "json",
+    "id_field": "id",
+    "count": 80,
+    "required_fields": [
+      "id",
+      "name",
+      "rarity",
+      "site",
+      "role",
+      "stat",
+      "target",
+      "base",
+      "max",
+      "unit",
+      "unlock",
+      "rank_required",
+      "level_cap",
+      "star_cap"
+    ]
+  },
+  {
+    "catalog": "cases",
+    "path": "res://data/canon/10_Кейсы_пулы_и_шансы_v8.json",
+    "format": "json",
+    "id_field": "id",
+    "count": 5,
+    "required_fields": [
+      "id",
+      "title",
+      "unlock",
+      "rarity_prob_pct",
+      "category_prob_pct",
+      "paid_enabled",
+      "free_source",
+      "pity",
+      "preview_only_if_eligible"
+    ]
+  },
+  {
+    "catalog": "shop",
+    "path": "res://data/canon/11_Магазин_SKU_черновик_v8.csv",
+    "format": "csv",
+    "id_field": "sku_id",
+    "count": 11,
+    "required_fields": [
+      "sku_id",
+      "title",
+      "preview_price_kzt",
+      "vip_points",
+      "limit",
+      "unlock",
+      "contents",
+      "requires_verified_storekit"
+    ]
+  },
+  {
+    "catalog": "shop",
+    "path": "res://data/canon/11_Магазин_SKU_черновик_v8.json",
+    "format": "json",
+    "id_field": "sku_id",
+    "count": 11,
+    "required_fields": [
+      "sku_id",
+      "title",
+      "preview_price_kzt",
+      "vip_points",
+      "limit",
+      "unlock",
+      "contents",
+      "store_product_id",
+      "requires_verified_storekit"
+    ]
+  },
+  {
+    "catalog": "dialogue",
+    "path": "res://data/canon/12_Сюжет_20_диалоги_v9.json",
+    "format": "json",
+    "id_field": "id",
+    "count": 20,
+    "required_fields": [
+      "id",
+      "title",
+      "trigger",
+      "prerequisite_story",
+      "once",
+      "paid_gate",
+      "prestige_gate",
+      "lines",
+      "choices",
+      "reward_unlock",
+      "delivery"
+    ]
+  }
+]

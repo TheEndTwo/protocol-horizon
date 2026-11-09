@@ -1,0 +1,202 @@
+[
+  {
+    "id": "A01",
+    "prerequisite_story": "",
+    "trigger": "first_launch",
+    "description": "Покупка участка; первый ручной удар",
+    "reward_unlock": "Стартовый рабочий бур/зарплата первой смены; базовый tutorial железа",
+    "once": "yes",
+    "paid_gate": "no",
+    "prestige_gate": "no"
+  },
+  {
+    "id": "A02",
+    "prerequisite_story": "A01",
+    "trigger": "first_worker_and_safe_repair",
+    "description": "Ремонт и первая смена",
+    "reward_unlock": "Открыть смены и модернизацию машин после безопасного ремонта",
+    "once": "yes",
+    "paid_gate": "no",
+    "prestige_gate": "no"
+  },
+  {
+    "id": "A03",
+    "prerequisite_story": "A02",
+    "trigger": "first_geology_sample",
+    "description": "Аномальная структура породы, не горизонтит",
+    "reward_unlock": "Образец STRUCTURE_01, первый гео-отчёт (без горизонтита)",
+    "once": "yes",
+    "paid_gate": "no",
+    "prestige_gate": "no"
+  },
+  {
+    "id": "A04",
+    "prerequisite_story": "A03",
+    "trigger": "first_trade_contract",
+    "description": "Выполнен первый обычный контракт",
+    "reward_unlock": "Открыть клиентов, первый контракт и контекстный урок маржи",
+    "once": "yes",
+    "paid_gate": "no",
+    "prestige_gate": "no"
+  },
+  {
+    "id": "A05",
+    "prerequisite_story": "A04",
+    "trigger": "old_registry_discovered",
+    "description": "Архивный код подрядчика",
+    "reward_unlock": "Улика REGISTRY_ANOMALY, архив Штаба",
+    "once": "yes",
+    "paid_gate": "no",
+    "prestige_gate": "no"
+  },
+  {
+    "id": "A06",
+    "prerequisite_story": "A05",
+    "trigger": "iron_business_stable",
+    "description": "Предложение выкупа и неподписанное соглашение",
+    "reward_unlock": "Диалог корпорации, выбор реплики; без потери владения участком",
+    "once": "yes",
+    "paid_gate": "no",
+    "prestige_gate": "no"
+  },
+  {
+    "id": "A07",
+    "prerequisite_story": "A06",
+    "trigger": "lifetime_iron_level_600",
+    "description": "Необязательное предложение первой Экспансии",
+    "reward_unlock": "Показать добровольную Экспансию; нельзя требовать A07 для A08",
+    "once": "yes",
+    "paid_gate": "no",
+    "prestige_gate": "no"
+  },
+  {
+    "id": "A08",
+    "prerequisite_story": "A06",
+    "trigger": "palladium_deposit_verified;iron_lifetime_350;steel_line_active",
+    "description": "Открытие палладиевого участка; не требует A07",
+    "reward_unlock": "Гарантированная палладиевая линза; зона П-7 и tutorial состава",
+    "once": "yes",
+    "paid_gate": "no",
+    "prestige_gate": "no"
+  },
+  {
+    "id": "A09",
+    "prerequisite_story": "A08",
+    "trigger": "first_pd_catalyst_produced",
+    "description": "Проблема с продажей первой партии",
+    "reward_unlock": "Первый Pd катализатор; диверсификация клиента",
+    "once": "yes",
+    "paid_gate": "no",
+    "prestige_gate": "no"
+  },
+  {
+    "id": "A10",
+    "prerequisite_story": "A09",
+    "trigger": "palladium_refinery_running",
+    "description": "Приход корпоративного аудитора",
+    "reward_unlock": "Документ разрешений; корпоративный аудит и расследование",
+    "once": "yes",
+    "paid_gate": "no",
+    "prestige_gate": "no"
+  },
+  {
+    "id": "A11",
+    "prerequisite_story": "A10",
+    "trigger": "railway_log_acquired",
+    "description": "Расследование поддельной команды",
+    "reward_unlock": "Улика TRAIN_LOG; учебная проверка журнала команд",
+    "once": "yes",
+    "paid_gate": "no",
+    "prestige_gate": "no"
+  },
+  {
+    "id": "A12",
+    "prerequisite_story": "A11",
+    "trigger": "alternative_contract_proposal",
+    "description": "Переговоры Виктории",
+    "reward_unlock": "Временная ветка переговоров/контрактов, без эксклюзивных ресурсов",
+    "once": "yes",
+    "paid_gate": "no",
+    "prestige_gate": "no"
+  },
+  {
+    "id": "A13",
+    "prerequisite_story": "A12",
+    "trigger": "old_project_record_found",
+    "description": "Папка «Порог»",
+    "reward_unlock": "Улика ARCHIVE_THRESHOLD; доступ к поиску И-9",
+    "once": "yes",
+    "paid_gate": "no",
+    "prestige_gate": "no"
+  },
+  {
+    "id": "A14",
+    "prerequisite_story": "A13",
+    "trigger": "iridium_deposit_verified;first_pd_catalyst;two_geology_reports;deep_station_project_completed",
+    "description": "Редкое иридиевое месторождение",
+    "reward_unlock": "Гарантированная иридиевая кампания, зона И-9",
+    "once": "yes",
+    "paid_gate": "no",
+    "prestige_gate": "no"
+  },
+  {
+    "id": "A15",
+    "prerequisite_story": "A14",
+    "trigger": "iridium_spectrum_analyzed",
+    "description": "Признание Эвелин",
+    "reward_unlock": "Научный архив LEYA_SPECTRUM; без принудительного доверия",
+    "once": "yes",
+    "paid_gate": "no",
+    "prestige_gate": "no"
+  },
+  {
+    "id": "A16",
+    "prerequisite_story": "A15",
+    "trigger": "worker_registry_compared",
+    "description": "Записи о «нулевой смене»",
+    "reward_unlock": "Улика ZERO_SHIFT; реестр работников",
+    "once": "yes",
+    "paid_gate": "no",
+    "prestige_gate": "no"
+  },
+  {
+    "id": "A17",
+    "prerequisite_story": "A16",
+    "trigger": "deep_geology_signal_confirmed",
+    "description": "Обнаружен искусственный сигнал",
+    "reward_unlock": "Улика DEEP_SIGNAL; фиксированное научное событие без руды",
+    "once": "yes",
+    "paid_gate": "no",
+    "prestige_gate": "no"
+  },
+  {
+    "id": "A18",
+    "prerequisite_story": "A17",
+    "trigger": "evidence_transmission_attempted",
+    "description": "Покушение беспилотным грузовиком",
+    "reward_unlock": "Кинематографическая сцена угрозы; без платного спасения",
+    "once": "yes",
+    "paid_gate": "no",
+    "prestige_gate": "no"
+  },
+  {
+    "id": "A19",
+    "prerequisite_story": "A18",
+    "trigger": "engineering_finance_science_evidence",
+    "description": "Три доказательства без случайного дропа",
+    "reward_unlock": "Набор 3 свидетельств: финансы+техника+наука, без RNG",
+    "once": "yes",
+    "paid_gate": "no",
+    "prestige_gate": "no"
+  },
+  {
+    "id": "A20",
+    "prerequisite_story": "A19",
+    "trigger": "artificial_cavity_entered_safely;ir_thermal_contact_reserved;A19_three_evidence;deep_geology_signal_confirmed;safe_cavity_project_completed",
+    "description": "Обнаружен горизонтит; конец этапа Земли",
+    "reward_unlock": "Один неотчуждаемый сюжетный KEY_HORIZONITE_SAMPLE; phase2_discovered=true; завершение главы Земли, НЕ создание добываемого ресурсного горизонтита.",
+    "once": "yes",
+    "paid_gate": "no",
+    "prestige_gate": "no"
+  }
+]

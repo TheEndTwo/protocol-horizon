@@ -1,0 +1,158 @@
+[
+  {
+    "sku_id": "starter_earth",
+    "title": "Стартовый промышленный набор",
+    "preview_price_kzt": 990,
+    "vip_points": 10,
+    "limit": "one_time",
+    "unlock": "Fe",
+    "contents": {
+      "shards": 900,
+      "case_basic": 2,
+      "choose_rare_specialist_fragment_pack": 1,
+      "boost_fe_25pct_2h": 1
+    },
+    "store_product_id": "storekit.com.horizon.starter_earth",
+    "requires_verified_storekit": true
+  },
+  {
+    "sku_id": "shards_small",
+    "title": "Осколки: малая партия",
+    "preview_price_kzt": 990,
+    "vip_points": 10,
+    "limit": "repeat",
+    "unlock": "Fe",
+    "contents": {
+      "shards": 1200
+    },
+    "store_product_id": "storekit.com.horizon.shards_small",
+    "requires_verified_storekit": true
+  },
+  {
+    "sku_id": "shards_medium",
+    "title": "Осколки: крупная партия",
+    "preview_price_kzt": 2490,
+    "vip_points": 25,
+    "limit": "repeat",
+    "unlock": "Fe",
+    "contents": {
+      "shards": 3600
+    },
+    "store_product_id": "storekit.com.horizon.shards_medium",
+    "requires_verified_storekit": true
+  },
+  {
+    "sku_id": "shards_large",
+    "title": "Осколки: промышленный запас",
+    "preview_price_kzt": 4990,
+    "vip_points": 50,
+    "limit": "repeat",
+    "unlock": "Fe",
+    "contents": {
+      "shards": 8000
+    },
+    "store_product_id": "storekit.com.horizon.shards_large",
+    "requires_verified_storekit": true
+  },
+  {
+    "sku_id": "equipment_fe",
+    "title": "Железо: набор мастера",
+    "preview_price_kzt": 1990,
+    "vip_points": 20,
+    "limit": "one_time",
+    "unlock": "Fe",
+    "contents": {
+      "choose_fe_epic_equipment": 1,
+      "fe_equipment_fragments": 100,
+      "shards": 400
+    },
+    "store_product_id": "storekit.com.horizon.equipment_fe",
+    "requires_verified_storekit": true
+  },
+  {
+    "sku_id": "team_pd",
+    "title": "Палладий: экспедиционная команда",
+    "preview_price_kzt": 2990,
+    "vip_points": 30,
+    "limit": "one_time",
+    "unlock": "A08",
+    "contents": {
+      "choose_pd_epic_specialist": 1,
+      "pd_specialist_fragments": 120,
+      "shards": 650
+    },
+    "store_product_id": "storekit.com.horizon.team_pd",
+    "requires_verified_storekit": true
+  },
+  {
+    "sku_id": "team_ir",
+    "title": "Иридий: инженерный резерв",
+    "preview_price_kzt": 3990,
+    "vip_points": 40,
+    "limit": "one_time",
+    "unlock": "A14",
+    "contents": {
+      "choose_ir_epic_specialist": 1,
+      "ir_specialist_fragments": 160,
+      "shards": 900
+    },
+    "store_product_id": "storekit.com.horizon.team_ir",
+    "requires_verified_storekit": true
+  },
+  {
+    "sku_id": "elite_cases_3",
+    "title": "Элитная поставка: три кейса",
+    "preview_price_kzt": 2490,
+    "vip_points": 25,
+    "limit": "repeat",
+    "unlock": "Fe",
+    "contents": {
+      "case_elite": 3
+    },
+    "store_product_id": "storekit.com.horizon.elite_cases_3",
+    "requires_verified_storekit": true
+  },
+  {
+    "sku_id": "season_pass",
+    "title": "Сезонный премиум-пропуск",
+    "preview_price_kzt": 2490,
+    "vip_points": 25,
+    "limit": "one_per_season",
+    "unlock": "active_season",
+    "contents": {
+      "premium_season_entitlement": 1
+    },
+    "store_product_id": "storekit.com.horizon.season_pass",
+    "requires_verified_storekit": true
+  },
+  {
+    "sku_id": "factory_support",
+    "title": "Промышленная поддержка",
+    "preview_price_kzt": 1290,
+    "vip_points": 13,
+    "limit": "repeat",
+    "unlock": "Fe",
+    "contents": {
+      "factory_speed_15pct_48h": 1,
+      "shards": 300,
+      "case_rare": 1
+    },
+    "store_product_id": "storekit.com.horizon.factory_support",
+    "requires_verified_storekit": true
+  },
+  {
+    "sku_id": "cosmetic_industry",
+    "title": "Косметика: индустриальный комплект",
+    "preview_price_kzt": 1490,
+    "vip_points": 15,
+    "limit": "one_time",
+    "unlock": "Fe",
+    "contents": {
+      "cosmetic_mine_shell": 1,
+      "cosmetic_ui_badge": 1,
+      "shards": 250
+    },
+    "store_product_id": "storekit.com.horizon.cosmetic_industry",
+    "requires_verified_storekit": true
+  }
+]

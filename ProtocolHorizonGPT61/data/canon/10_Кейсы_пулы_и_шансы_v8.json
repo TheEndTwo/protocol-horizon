@@ -1,0 +1,137 @@
+[
+  {
+    "id": "case_basic",
+    "title": "Базовый кейс",
+    "unlock": "Fe",
+    "rarity_prob_pct": {
+      "Обычный": 55,
+      "Редкий": 28,
+      "Эпический": 12,
+      "Легендарный": 4,
+      "Мифический": 1
+    },
+    "category_prob_pct": {
+      "specialist_card_or_fragments": 30,
+      "equipment_card_or_fragments": 35,
+      "industrial_materials": 20,
+      "shards": 7,
+      "helios": 5,
+      "boosts": 3
+    },
+    "paid_enabled": false,
+    "free_source": "daily_or_milestones",
+    "pity": {
+      "epic_or_higher": 10,
+      "legendary_or_higher": 40,
+      "mythic": 120
+    },
+    "preview_only_if_eligible": true
+  },
+  {
+    "id": "case_rare",
+    "title": "Редкий кейс",
+    "unlock": "Fe",
+    "rarity_prob_pct": {
+      "Обычный": 20,
+      "Редкий": 42,
+      "Эпический": 25,
+      "Легендарный": 10,
+      "Мифический": 3
+    },
+    "category_prob_pct": {
+      "specialist_card_or_fragments": 38,
+      "equipment_card_or_fragments": 36,
+      "industrial_materials": 10,
+      "shards": 10,
+      "helios": 3,
+      "boosts": 3
+    },
+    "paid_enabled": true,
+    "free_source": "events_season_contracts",
+    "pity": {
+      "epic_or_higher": 10,
+      "legendary_or_higher": 40,
+      "mythic": 120
+    },
+    "preview_only_if_eligible": true
+  },
+  {
+    "id": "case_elite",
+    "title": "Элитный кейс",
+    "unlock": "Fe",
+    "rarity_prob_pct": {
+      "Обычный": 0,
+      "Редкий": 28,
+      "Эпический": 43,
+      "Легендарный": 23,
+      "Мифический": 6
+    },
+    "category_prob_pct": {
+      "specialist_card_or_fragments": 50,
+      "equipment_card_or_fragments": 33,
+      "industrial_materials": 5,
+      "shards": 8,
+      "helios": 2,
+      "boosts": 2
+    },
+    "paid_enabled": true,
+    "free_source": "rare_achievements_and_season",
+    "pity": {
+      "epic_or_higher": 10,
+      "legendary_or_higher": 40,
+      "mythic": 120
+    },
+    "preview_only_if_eligible": true
+  },
+  {
+    "id": "case_specialist",
+    "title": "Кейс специалистов",
+    "unlock": "Fe",
+    "rarity_prob_pct": {
+      "Обычный": 20,
+      "Редкий": 40,
+      "Эпический": 25,
+      "Легендарный": 12,
+      "Мифический": 3
+    },
+    "category_prob_pct": {
+      "specialist_card_or_fragments": 100
+    },
+    "paid_enabled": true,
+    "free_source": "weekly_challenges",
+    "pity": {
+      "epic_or_higher": 10,
+      "legendary_or_higher": 40,
+      "mythic": 120
+    },
+    "preview_only_if_eligible": true
+  },
+  {
+    "id": "case_vip_daily",
+    "title": "VIP-кейс (VIP 4)",
+    "unlock": "VIP4",
+    "rarity_prob_pct": {
+      "Обычный": 45,
+      "Редкий": 32,
+      "Эпический": 18,
+      "Легендарный": 4,
+      "Мифический": 1
+    },
+    "category_prob_pct": {
+      "specialist_card_or_fragments": 40,
+      "equipment_card_or_fragments": 35,
+      "industrial_materials": 10,
+      "shards": 10,
+      "helios": 3,
+      "boosts": 2
+    },
+    "paid_enabled": false,
+    "free_source": "verified_VIP4_one_per_UTC_day",
+    "pity": {
+      "epic_or_higher": 10,
+      "legendary_or_higher": 40,
+      "mythic": 120
+    },
+    "preview_only_if_eligible": true
+  }
+]

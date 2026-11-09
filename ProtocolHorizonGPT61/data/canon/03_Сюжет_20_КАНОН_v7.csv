@@ -1,0 +1,21 @@
+﻿id,prerequisite_story,trigger,description,reward_unlock,once,paid_gate,prestige_gate
+A01,,first_launch,Покупка участка; первый ручной удар,Стартовый рабочий бур/зарплата первой смены; базовый tutorial железа,yes,no,no
+A02,A01,first_worker_and_safe_repair,Ремонт и первая смена,Открыть смены и модернизацию машин после безопасного ремонта,yes,no,no
+A03,A02,first_geology_sample,"Аномальная структура породы, не горизонтит","Образец STRUCTURE_01, первый гео-отчёт (без горизонтита)",yes,no,no
+A04,A03,first_trade_contract,Выполнен первый обычный контракт,"Открыть клиентов, первый контракт и контекстный урок маржи",yes,no,no
+A05,A04,old_registry_discovered,Архивный код подрядчика,"Улика REGISTRY_ANOMALY, архив Штаба",yes,no,no
+A06,A05,iron_business_stable,Предложение выкупа и неподписанное соглашение,"Диалог корпорации, выбор реплики; без потери владения участком",yes,no,no
+A07,A06,lifetime_iron_level_600,Необязательное предложение первой Экспансии,Показать добровольную Экспансию; нельзя требовать A07 для A08,yes,no,no
+A08,A06,palladium_deposit_verified;iron_lifetime_350;steel_line_active,Открытие палладиевого участка; не требует A07,Гарантированная палладиевая линза; зона П-7 и tutorial состава,yes,no,no
+A09,A08,first_pd_catalyst_produced,Проблема с продажей первой партии,Первый Pd катализатор; диверсификация клиента,yes,no,no
+A10,A09,palladium_refinery_running,Приход корпоративного аудитора,Документ разрешений; корпоративный аудит и расследование,yes,no,no
+A11,A10,railway_log_acquired,Расследование поддельной команды,Улика TRAIN_LOG; учебная проверка журнала команд,yes,no,no
+A12,A11,alternative_contract_proposal,Переговоры Виктории,"Временная ветка переговоров/контрактов, без эксклюзивных ресурсов",yes,no,no
+A13,A12,old_project_record_found,Папка «Порог»,Улика ARCHIVE_THRESHOLD; доступ к поиску И-9,yes,no,no
+A14,A13,iridium_deposit_verified;first_pd_catalyst;two_geology_reports;deep_station_project_completed,Редкое иридиевое месторождение,"Гарантированная иридиевая кампания, зона И-9",yes,no,no
+A15,A14,iridium_spectrum_analyzed,Признание Эвелин,Научный архив LEYA_SPECTRUM; без принудительного доверия,yes,no,no
+A16,A15,worker_registry_compared,Записи о «нулевой смене»,Улика ZERO_SHIFT; реестр работников,yes,no,no
+A17,A16,deep_geology_signal_confirmed,Обнаружен искусственный сигнал,Улика DEEP_SIGNAL; фиксированное научное событие без руды,yes,no,no
+A18,A17,evidence_transmission_attempted,Покушение беспилотным грузовиком,Кинематографическая сцена угрозы; без платного спасения,yes,no,no
+A19,A18,engineering_finance_science_evidence,Три доказательства без случайного дропа,"Набор 3 свидетельств: финансы+техника+наука, без RNG",yes,no,no
+A20,A19,artificial_cavity_entered_safely;ir_thermal_contact_reserved;A19_three_evidence;deep_geology_signal_confirmed;safe_cavity_project_completed,Обнаружен горизонтит; конец этапа Земли,"Один неотчуждаемый сюжетный KEY_HORIZONITE_SAMPLE; phase2_discovered=true; завершение главы Земли, НЕ создание добываемого ресурсного горизонтита.",yes,no,no
