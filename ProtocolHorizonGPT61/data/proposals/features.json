@@ -1,0 +1,146 @@
+{
+  "version": 1,
+  "caps": {
+    "auto_hire_budget_cents": 2000000,
+    "auto_hire_limit": 5,
+    "factory_route_budget_cents": 2000000,
+    "ir_queue_budget_cents": 3000000,
+    "ir_queue_length": 2,
+    "combo_preserve_streak": 3,
+    "combo_memory_seconds": 3.0
+  },
+  "supported": {
+    "D13": {
+      "mechanism": "Retain at most the selected number of real precision hits across one unprecise manual tap during a three-second window; archive only a measured streak.",
+      "canonical_effect": "Часть прогресса серии сохраняется между короткими касаниями; нет работы от автокликера.",
+      "site": "fe",
+      "actions": ["set_combo_memory", "archive_combo"]
+    },
+    "D16": {
+      "mechanism": "Select only an Fe horizon that the existing upgrade-level gate already permits.",
+      "canonical_effect": "Выбор горизонта для следующего железного цикла доступен и без Экспансии; без бесплатного пропуска уровней.",
+      "site": "fe",
+      "actions": ["choose_horizon"]
+    },
+    "A10": {
+      "mechanism": "Choose which real factory line gets first claim on current inventory and cash; each queued recipe is still quoted and paid by EconomyModel.",
+      "canonical_effect": "Автоматизирует приоритеты промежуточных материалов для нескольких линий.",
+      "site": "fe",
+      "actions": ["set_factory_priority"]
+    },
+    "A19": {
+      "mechanism": "Save a real unlocked recipe per line and queue at most one paid job when that line is idle and live inventory, cash, and the per-job budget permit.",
+      "canonical_effect": "Автоматически перенаправляет простаивающие линии на допустимый рецепт.",
+      "site": "fe",
+      "actions": ["set_line_route", "clear_line_route"]
+    },
+    "A11": {
+      "mechanism": "Save and apply bounded snapshots of the real A10 line priority and existing paid A19 routes; presets change settings only.",
+      "canonical_effect": "Разрешает сохранённые пресеты приоритетов без ручного перенастроя после каждого входа.",
+      "site": "fe",
+      "actions": ["org_save_shift_preset", "org_apply_shift_preset"]
+    },
+    "A16": {
+      "mechanism": "Unlock and persist a cosmetic key after real Fe equipment levels are installed; no production stat is added.",
+      "canonical_effect": "При достижении вехи техники раскрывает косметическую модернизацию производственного участка.",
+      "site": "fe",
+      "actions": ["org_set_factory_cosmetic"]
+    },
+    "A20": {
+      "mechanism": "Persist one automation template and apply it only by an explicit action, retaining the existing per-route cash budget.",
+      "canonical_effect": "Открывает один постоянный слот шаблона автоматизации для будущих месторождений.",
+      "site": "fe",
+      "actions": ["org_save_automation_template", "org_apply_automation_template"]
+    },
+    "P12": {
+      "mechanism": "A speed or logistics shift task grants one capped temporary effect only after real production since task start.",
+      "canonical_effect": "Временные задачи смены дают выбор между скоростью производства и заводской логистикой.",
+      "site": "fe",
+      "actions": ["org_start_shift_task"]
+    },
+    "P15": {
+      "mechanism": "Save up to two real specialist rosters and reapply them using canonical ownership and slot validation.",
+      "canonical_effect": "Открывает второй настраиваемый пресет состава смены, не нанимает рабочих бесплатно.",
+      "site": "fe",
+      "actions": ["org_save_roster_preset", "org_apply_roster_preset", "org_reassign_specialist"]
+    },
+    "P17": {
+      "mechanism": "Train an owned canonical specialist while assigned; post-start production earns that specialist's levels, not player XP.",
+      "canonical_effect": "Специалисты получают профильный опыт на учебных заданиях; перерождение не требуется.",
+      "site": "fe",
+      "actions": ["org_start_training_task"]
+    },
+    "P19": {
+      "mechanism": "Reassign an owned specialist for free through MetaModel's canonical assignment checks.",
+      "canonical_effect": "Даёт постоянную возможность переставлять активных специалистов без платы.",
+      "site": "fe",
+      "actions": ["org_reassign_specialist"]
+    },
+    "P20": {
+      "mechanism": "One group task requires a real assigned team and fresh production, and grants its research-point reward once.",
+      "canonical_effect": "Открывает уникальное групповое задание с наградой в ОИ только за первое выполнение.",
+      "site": "fe",
+      "actions": ["org_start_group_task"]
+    },
+    "G08": {
+      "mechanism": "Deterministically reveal one option derived from a real report, with at most one preview attempt per report.",
+      "canonical_effect": "Даёт шанс заранее показать один выбор внутри геологического события.",
+      "site": "fe",
+      "actions": ["org_preview_geology_event"]
+    },
+    "G10": {
+      "mechanism": "Study one artifact-bearing tag in an actual report once for configured research and future scan progress.",
+      "canonical_effect": "Повышает пользу древних артефактов при изучении, без повторной награды за тот же предмет.",
+      "site": "fe",
+      "actions": ["org_study_artifact"]
+    },
+    "G12": {
+      "mechanism": "Run two normally paid geology expeditions concurrently while sharing one work capacity and issuing unique rewards.",
+      "canonical_effect": "Открывает выбор между двумя невзаимоисключающими геологическими заданиями.",
+      "site": "fe",
+      "actions": ["org_start_parallel_expedition"]
+    },
+    "G16": {
+      "mechanism": "Choose a harmless map or archive annotation tied to a known real report without touching story gates.",
+      "canonical_effect": "Открывает необязательные события выбора на геокарте без риска потери ресурсов.",
+      "site": "fe",
+      "actions": ["org_choose_geology_event"]
+    },
+    "P04": {
+      "mechanism": "Explicitly run a bounded hiring pass; each added level uses EconomyModel.quote and EconomyModel.act for a real profession and its real cost.",
+      "canonical_effect": "Открывает автоматическое распределение новых работников по незаполненным ролям.",
+      "site": "fe",
+      "actions": ["configure_hiring", "auto_distribute"]
+    },
+    "PD07": {
+      "mechanism": "Choose among the real Pd lenses, including the existing high-grade low-volume profile; sampling still spends its configured cost and uses the site's seed.",
+      "canonical_effect": "Добавляет режим отбора высокой чистоты с честно меньшим объёмом.",
+      "site": "pd",
+      "actions": ["select_purity_lens"]
+    },
+    "IR08": {
+      "mechanism": "Start the existing forced Ir strategy only after checking its real full-run forecast against current cash; SiteModel charges and seeds the campaign.",
+      "canonical_effect": "Добавляет быстрый более дорогой режим, не обязательный для A20.",
+      "site": "ir",
+      "actions": ["start_forced_campaign"]
+    },
+    "IR24": {
+      "mechanism": "Plan up to two distinct existing strategies and start them sequentially through SiteModel; planning spends nothing and each actual start is paid once.",
+      "canonical_effect": "Очередь из двух ПОСЛЕДОВАТЕЛЬНЫХ кампаний с разными схемами; одновременных дополнительных выходов нет.",
+      "site": "ir",
+      "actions": ["plan_ir_queue", "clear_ir_queue"]
+    },
+    "IR25": {
+      "mechanism": "Choose between the existing reliable and economic campaign projections; no custom cooling coefficient or free output is added.",
+      "canonical_effect": "Перед запуском фазы позволяет выбрать безопасный обмен денежного расхода охлаждения на время проходки.",
+      "site": "ir",
+      "actions": ["set_thermal_tradeoff"]
+    },
+    "FE_SK06": {
+      "mechanism": "Arm one next-tap destination and route only that real, unsold batch through the existing sale or paid recipe-queue action.",
+      "canonical_effect": "После активной серии игрок выбирает, направить новую реально добытую партию на уже работающий завод или в свободную продажу; не даёт вторую партию и не меняет открытые горизонты.",
+      "site": "fe",
+      "actions": ["route_next_batch"]
+    }
+  }
+}
