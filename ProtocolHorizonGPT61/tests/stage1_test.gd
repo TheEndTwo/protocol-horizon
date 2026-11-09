@@ -39,9 +39,9 @@ func _run() -> void:
 		check(saves.has_profile(), "Profile did not survive process restart")
 		check(state.settings["master"] == 0.0 and state.settings["fps"] == 30, "Settings lost on restart")
 		check(state.settings["reduce_motion"] and state.settings["quality"] == "low", "Accessibility/quality lost")
-		check(state.profile["route"] == "checkpoint", "Resume route lost")
+		check(state.profile["route"] == "earth", "Playable Earth route lost")
 		await click("Continue")
-		check(current_scene.name == "Checkpoint", "Continue did not restore checkpoint after restart")
+		check(current_scene.name == "Earth", "Continue did not restore Earth after restart")
 		_finish("restart + exact saved route/settings")
 		return
 	check(not saves.has_existing_files(), "Test directory must start empty")
@@ -94,11 +94,11 @@ func _run() -> void:
 	check(state.profile["profile_id"] != profile_id and state.profile["story"]["line"] == 0, "Confirmed new game did not reset profile")
 	check(state.settings["master"] == 0.0, "New Game reset preferences")
 	await click("Skip")
-	check(current_scene.name == "Checkpoint" and state.profile["story"]["intro_seen"], "Skip failed")
+	check(current_scene.name == "Earth" and state.profile["story"]["intro_seen"], "Skip failed")
 	check(state.profile["money_cents"] == 0 and state.profile["shards"] == 0, "Intro granted unapproved rewards")
 	await click("Menu")
 	await click("Continue")
-	check(current_scene.name == "Checkpoint", "Continue did not resume checkpoint")
+	check(current_scene.name == "Earth", "Continue did not resume Earth")
 	_finish("menu, settings cancel/save, audio/FPS, new/continue, dialogue, replacement cancel/confirm, skip")
 
 func _finish(summary: String) -> void:
