@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="192" height="160" viewBox="0 0 192 160">
+  <defs><linearGradient id="stone" x2="0" y2="1"><stop stop-color="#9c815e"/><stop offset="1" stop-color="#313d40"/></linearGradient></defs>
+  <path d="M14 129 24 92l30-20 28 18 25-32 27 29 34 9 8 38z" fill="#4c5148"/>
+  <path d="M40 125V81q0-39 56-39t56 39v44z" fill="url(#stone)" stroke="#d1b17b" stroke-width="5"/>
+  <path d="M54 125V83q0-27 42-27t42 27v42z" fill="#101c23"/>
+  <path d="M47 77h98M62 70h67M74 62h43" fill="none" stroke="#e4c48a" stroke-width="5"/>
+  <path d="M54 130h83" stroke="#c87843" stroke-width="7"/>
+  <circle cx="96" cy="105" r="5" fill="#f0b569"/>
+</svg>
