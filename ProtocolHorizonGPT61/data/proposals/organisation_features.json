@@ -1,0 +1,91 @@
+{
+  "version": 1,
+  "status": "Provisional numeric tuning for organisation research; canonical IDs and progression gates remain authoritative.",
+  "supported": {
+    "A11": {
+      "mechanism": "Save and apply a bounded snapshot of line priority and paid routes as settings only.",
+      "canonical_effect": "Разрешает сохранённые пресеты приоритетов без ручного перенастроя после каждого входа.",
+      "actions": ["org_save_shift_preset", "org_apply_shift_preset"]
+    },
+    "A16": {
+      "mechanism": "Unlock a factory cosmetic only after real equipment levels are installed; persist owned and active choices.",
+      "canonical_effect": "При достижении вехи техники раскрывает косметическую модернизацию производственного участка.",
+      "actions": ["org_set_factory_cosmetic"]
+    },
+    "A20": {
+      "mechanism": "Persist one future-site automation template; apply only by explicit action and retain each real route budget.",
+      "canonical_effect": "Открывает один постоянный слот шаблона автоматизации для будущих месторождений.",
+      "actions": ["org_save_automation_template", "org_apply_automation_template"]
+    },
+    "P12": {
+      "mechanism": "Start a speed-or-logistics shift task; award one capped temporary effect only after real post-start production.",
+      "canonical_effect": "Временные задачи смены дают выбор между скоростью производства и заводской логистикой.",
+      "actions": ["org_start_shift_task"]
+    },
+    "P15": {
+      "mechanism": "Save and apply up to two real specialist rosters; assignments use MetaModel ownership and slot rules.",
+      "canonical_effect": "Открывает второй настраиваемый пресет состава смены, не нанимает рабочих бесплатно.",
+      "actions": ["org_save_roster_preset", "org_apply_roster_preset", "org_reassign_specialist"]
+    },
+    "P17": {
+      "mechanism": "Train one owned, actually assigned canonical specialist through post-start production; earned XP levels that specialist only.",
+      "canonical_effect": "Специалисты получают профильный опыт на учебных заданиях; перерождение не требуется.",
+      "actions": ["org_start_training_task"]
+    },
+    "P19": {
+      "mechanism": "Reassign an owned specialist through the canonical MetaModel assignment checks without a fee.",
+      "canonical_effect": "Даёт постоянную возможность переставлять активных специалистов без платы.",
+      "actions": ["org_reassign_specialist"]
+    },
+    "P20": {
+      "mechanism": "Complete one group task with two actually assigned specialists and fresh production for one research-point reward.",
+      "canonical_effect": "Открывает уникальное групповое задание с наградой в ОИ только за первое выполнение.",
+      "actions": ["org_start_group_task"]
+    },
+    "G08": {
+      "mechanism": "Deterministically preview one option from a real geology report at most once per report.",
+      "canonical_effect": "Даёт шанс заранее показать один выбор внутри геологического события.",
+      "actions": ["org_preview_geology_event"]
+    },
+    "G10": {
+      "mechanism": "Study one artifact-bearing tag from an actual report once; grant configured research and future scan benefit.",
+      "canonical_effect": "Повышает пользу древних артефактов при изучении, без повторной награды за тот же предмет.",
+      "actions": ["org_study_artifact"]
+    },
+    "G12": {
+      "mechanism": "Run two paid existing geology expeditions concurrently on one shared work capacity, with unique reports and rewards.",
+      "canonical_effect": "Открывает выбор между двумя невзаимоисключающими геологическими заданиями.",
+      "actions": ["org_start_parallel_expedition"]
+    },
+    "G16": {
+      "mechanism": "Choose a harmless optional map/archive outcome tied to a known real report without changing story gates.",
+      "canonical_effect": "Открывает необязательные события выбора на геокарте без риска потери ресурсов.",
+      "actions": ["org_choose_geology_event"]
+    }
+  },
+  "coefficients": {
+    "shift_preset_slots": 3,
+    "roster_preset_slots": 2,
+    "factory_cosmetic_equipment_levels": {"steel": 1, "copper": 5},
+    "shift_work_units": 100,
+    "shift_effect_seconds": 300,
+    "shift_speed_per_task": 0.01,
+    "shift_logistics_per_task": 0.02,
+    "shift_total_bonus_cap": 0.05,
+    "training_work_units": 100,
+    "training_xp_per_task": 100,
+    "training_xp_per_level": 100,
+    "training_tasks_per_rank": 1,
+    "group_required_specialists": 2,
+    "group_work_units": 250,
+    "group_reward_research_points": 2,
+    "geology_preview_chance_per_level": 0.15,
+    "artifact_tags": ["STRUCTURE_01", "registry_anomaly", "old_project_record"],
+    "artifact_research_points_base": 1,
+    "artifact_research_points_per_level": 1,
+    "artifact_scan_bonus_per_level": 0.01,
+    "artifact_scan_bonus_cap": 0.1,
+    "parallel_expedition_capacity": 2,
+    "geology_choices": ["chart", "archive"]
+  }
+}
