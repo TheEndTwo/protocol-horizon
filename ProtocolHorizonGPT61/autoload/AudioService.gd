@@ -32,6 +32,16 @@ func tap() -> void:
 	if now - _last_tap_ms < 65:
 		return
 	_last_tap_ms = now
+	if _player.stream == null:
+		_player.stream = preload("res://assets/audio/ui_tap.wav")
 	_player.play()
 	if GameState.settings["vibration"] and OS.has_feature("mobile"):
 		Input.vibrate_handheld(12)
+
+func stop_all() -> void:
+	if is_instance_valid(_player):
+		_player.stop()
+		_player.stream = null
+
+func _exit_tree() -> void:
+	stop_all()
