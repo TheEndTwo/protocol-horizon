@@ -24,6 +24,13 @@ func click(name: String) -> void:
 		control.pressed.emit()
 	await settle()
 
+func return_to_menu() -> void:
+	for step in range(4):
+		if current_scene.name == "MainMenu":
+			return
+		await click("Back" if current_scene.name == "Earth" else "Menu")
+	check(current_scene.name == "MainMenu","Back navigation did not return to the main menu")
+
 func _run() -> void:
 	state = root.get_node("GameState")
 	saves = root.get_node("SaveService")
@@ -37,11 +44,14 @@ func _run() -> void:
 	await settle()
 	if "--reload" in OS.get_cmdline_user_args():
 		check(saves.has_profile(), "Profile did not survive process restart")
+		if not saves.has_profile():
+			_finish("profile reload failed")
+			return
 		check(state.settings["master"] == 0.0 and state.settings["fps"] == 30, "Settings lost on restart")
 		check(state.settings["reduce_motion"] and state.settings["quality"] == "low", "Accessibility/quality lost")
-		check(state.profile["route"] == "checkpoint", "Resume route lost")
+		check(state.profile["route"] == "earth", "Playable Earth route lost")
 		await click("Continue")
-		check(current_scene.name == "Checkpoint", "Continue did not restore checkpoint after restart")
+		check(current_scene.name == "Earth", "Continue did not restore Earth after restart")
 		_finish("restart + exact saved route/settings")
 		return
 	check(not saves.has_existing_files(), "Test directory must start empty")
@@ -77,10 +87,10 @@ func _run() -> void:
 	check(state.profile["money_cents"] == 0 and state.profile["inventory"]["iron_ore"] == 0, "Invented starter resources")
 	await click("Next")
 	check(state.profile["story"]["line"] == 1, "Dialogue progress not committed")
-	await click("Menu")
+	await return_to_menu()
 	await click("Continue")
 	check(current_scene.name == "Intro" and state.profile["story"]["line"] == 1, "Continue lost dialogue position")
-	await click("Menu")
+	await return_to_menu()
 	var before_cancel := FileAccess.get_file_as_string(state.SAVE_PATH)
 	await click("NewGame")
 	check(current_scene.has_node("ConfirmNewGame"), "Missing replacement warning")
@@ -94,11 +104,11 @@ func _run() -> void:
 	check(state.profile["profile_id"] != profile_id and state.profile["story"]["line"] == 0, "Confirmed new game did not reset profile")
 	check(state.settings["master"] == 0.0, "New Game reset preferences")
 	await click("Skip")
-	check(current_scene.name == "Checkpoint" and state.profile["story"]["intro_seen"], "Skip failed")
+	check(current_scene.name == "Earth" and state.profile["story"]["intro_seen"], "Skip failed")
 	check(state.profile["money_cents"] == 0 and state.profile["shards"] == 0, "Intro granted unapproved rewards")
-	await click("Menu")
+	await return_to_menu()
 	await click("Continue")
-	check(current_scene.name == "Checkpoint", "Continue did not resume checkpoint")
+	check(current_scene.name == "Earth", "Continue did not resume Earth")
 	_finish("menu, settings cancel/save, audio/FPS, new/continue, dialogue, replacement cancel/confirm, skip")
 
 func _finish(summary: String) -> void:
