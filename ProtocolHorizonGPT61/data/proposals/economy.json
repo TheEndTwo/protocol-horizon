@@ -1,0 +1,109 @@
+{
+  "version": 1,
+  "provenance": "Canonical sale prices, recipes, cash costs, input quantities, and outputs are read from data/canon/07_Ресурсы_19_v7.csv and 08_Рецепты_9_v7.csv. Rates, purchase curves, wages, effects, network buffers, and recipe durations below are explicit gameplay proposals because the canon does not specify them.",
+  "purchase_cost_rounding": "Each level costs ceil(raw cents / 100) * 100; each level is rounded before a multi-buy total is summed.",
+  "purchase_price_discount_cap": 0.75,
+  "network": {"balanced_keep": 25, "build_ore_keep": 250, "build_product_keep": 100},
+  "factory": {"line_count": 5, "max_queued_units_per_line": 500, "durations_seconds": {"R_INGOT": 30, "R_STEEL": 60, "R_MECHANICAL": 90, "R_HI_ALLOY": 120, "R_EXPERIMENTAL": 180, "R_PD_REFINED": 90, "R_PD_CAT": 120, "R_IR_REFINED": 120, "R_IR_CONTACT": 180}},
+  "sites": {
+    "fe": {
+      "base_rate_per_second": 0.05,
+      "tap_base": 1.0,
+      "upgrade_max_level": 1000,
+      "machine_max_level": 1000,
+      "worker_max_count": 1000,
+      "upgrades": [
+        {"id":"iron_precise_strike","name":"Точный удар","base_cost_cents":100,"growth":1.08,"effects_per_level":{"tap":0.08}},
+        {"id":"iron_weak_point","name":"Поиск слабых точек","base_cost_cents":500,"growth":1.085,"effects_per_level":{"weak":0.004}},
+        {"id":"iron_tunnel_support","name":"Укрепление штреков","base_cost_cents":800,"growth":1.10,"effects_per_level":{"output":0.006}},
+        {"id":"iron_ore_pocket","name":"Рудные карманы","base_cost_cents":1000,"growth":1.11,"effects_per_level":{"output":0.008}},
+        {"id":"iron_light","name":"Освещение","base_cost_cents":1500,"growth":1.09,"effects_per_level":{"tap":0.04}},
+        {"id":"iron_ventilation","name":"Вентиляция","base_cost_cents":2000,"growth":1.10,"effects_per_level":{"wage":0.006}},
+        {"id":"iron_sorting","name":"Рудосортировка","base_cost_cents":2500,"growth":1.10,"effects_per_level":{"storage":100}},
+        {"id":"iron_deep_drilling","name":"Глубинное бурение","base_cost_cents":4000,"growth":1.11,"effects_per_level":{"output":0.012}},
+        {"id":"iron_industrial_mining","name":"Промышленная разработка","base_cost_cents":7500,"growth":1.12,"effects_per_level":{"output":0.015,"speed":0.006}},
+        {"id":"iron_resonance","name":"Рудный резонанс","base_cost_cents":12000,"growth":1.13,"effects_per_level":{"crit":0.003,"weak":0.004}}
+      ],
+      "machines": [
+        {"id":"iron_drill","name":"Буровая","base_cost_cents":1200,"growth":1.09,"effects_per_level":{"output":0.008}},
+        {"id":"iron_ore_truck","name":"Рудовоз","base_cost_cents":1800,"growth":1.10,"effects_per_level":{"storage":60,"output":0.002}},
+        {"id":"iron_loader","name":"Погрузчик","base_cost_cents":2600,"growth":1.10,"effects_per_level":{"output":0.005,"speed":0.003}},
+        {"id":"iron_conveyor","name":"Конвейер","base_cost_cents":4000,"growth":1.11,"effects_per_level":{"speed":0.012,"storage":20}},
+        {"id":"iron_roadheader","name":"Проходческий комбайн","base_cost_cents":8000,"growth":1.12,"effects_per_level":{"output":0.018,"deep_output":0.012}}
+      ],
+      "workers": [
+        {"id":"iron_miner","name":"Шахтёры","base_cost_cents":500,"growth":1.06,"rate_per_worker":0.06,"wage_cents_per_minute":30,"effects_per_worker":{}},
+        {"id":"iron_driller","name":"Бурильщики","base_cost_cents":850,"growth":1.065,"rate_per_worker":0.08,"wage_cents_per_minute":45,"effects_per_worker":{"output":0.0005,"deep_output":0.0008}},
+        {"id":"iron_hauler","name":"Грузчики","base_cost_cents":1000,"growth":1.07,"rate_per_worker":0.02,"wage_cents_per_minute":35,"effects_per_worker":{"storage":2}},
+        {"id":"iron_operator","name":"Машинисты","base_cost_cents":1400,"growth":1.075,"rate_per_worker":0.015,"wage_cents_per_minute":60,"effects_per_worker":{"speed":0.0008}},
+        {"id":"iron_foreman","name":"Горные мастера","base_cost_cents":2200,"growth":1.08,"rate_per_worker":0.01,"wage_cents_per_minute":100,"effects_per_worker":{"wage":0.001,"output":0.0003}}
+      ]
+    },
+    "pd": {
+      "base_rate_per_second": 0.02,
+      "tap_base": 0.0,
+      "upgrade_max_level": 100,
+      "machine_max_level": 100,
+      "worker_max_count": 100,
+      "upgrades": [
+        {"id":"pd_lens_analysis","name":"Анализ линзы","base_cost_cents":1000,"growth":1.12,"effects_per_level":{"output":0.012}},
+        {"id":"pd_core_sampling","name":"Отбор кернов","base_cost_cents":1500,"growth":1.12,"effects_per_level":{"output":0.01}},
+        {"id":"pd_separation","name":"Сепарация","base_cost_cents":2200,"growth":1.13,"effects_per_level":{"speed":0.012}},
+        {"id":"pd_leaching","name":"Выщелачивание","base_cost_cents":3000,"growth":1.13,"effects_per_level":{"output":0.008}},
+        {"id":"pd_filtration","name":"Фильтрация","base_cost_cents":4000,"growth":1.14,"effects_per_level":{"storage":80}},
+        {"id":"pd_reagent_control","name":"Контроль реагентов","base_cost_cents":5200,"growth":1.14,"effects_per_level":{"wage":0.008}},
+        {"id":"pd_reservoirs","name":"Резервуары","base_cost_cents":6800,"growth":1.15,"effects_per_level":{"storage":120}},
+        {"id":"pd_assay","name":"Экспресс-анализ","base_cost_cents":8500,"growth":1.15,"effects_per_level":{"speed":0.015}},
+        {"id":"pd_refinement","name":"Тонкая очистка","base_cost_cents":11000,"growth":1.16,"effects_per_level":{"output":0.015}},
+        {"id":"pd_catalysis","name":"Каталитическая линия","base_cost_cents":14000,"growth":1.17,"effects_per_level":{"speed":0.02,"output":0.01}}
+      ],
+      "machines": [
+        {"id":"pd_georadar","name":"Георадар","base_cost_cents":5000,"growth":1.12,"effects_per_level":{"output":0.012}},
+        {"id":"pd_core_drill","name":"Керновый бур","base_cost_cents":7500,"growth":1.13,"effects_per_level":{"output":0.016}},
+        {"id":"pd_separator","name":"Обогатитель","base_cost_cents":10000,"growth":1.14,"effects_per_level":{"speed":0.02}},
+        {"id":"pd_filter_press","name":"Фильтр-пресс","base_cost_cents":13000,"growth":1.14,"effects_per_level":{"storage":200,"speed":0.008}},
+        {"id":"pd_reagent_pump","name":"Реагентный блок","base_cost_cents":17000,"growth":1.15,"effects_per_level":{"output":0.01,"wage":0.01}}
+      ],
+      "workers": [
+        {"id":"pd_geologist","name":"Геологи","base_cost_cents":2500,"growth":1.06,"rate_per_worker":0.018,"wage_cents_per_minute":50,"effects_per_worker":{"output":0.002}},
+        {"id":"pd_sampler","name":"Пробоотборщики","base_cost_cents":3500,"growth":1.065,"rate_per_worker":0.024,"wage_cents_per_minute":65,"effects_per_worker":{"speed":0.002}},
+        {"id":"pd_chemist","name":"Химики","base_cost_cents":5000,"growth":1.07,"rate_per_worker":0.01,"wage_cents_per_minute":90,"effects_per_worker":{"output":0.001,"wage":0.001}},
+        {"id":"pd_filter_crew","name":"Операторы фильтров","base_cost_cents":6500,"growth":1.075,"rate_per_worker":0.012,"wage_cents_per_minute":100,"effects_per_worker":{"storage":4,"speed":0.001}},
+        {"id":"pd_process_engineer","name":"Инженеры обогащения","base_cost_cents":8500,"growth":1.08,"rate_per_worker":0.008,"wage_cents_per_minute":150,"effects_per_worker":{"speed":0.002,"output":0.001}}
+      ]
+    },
+    "ir": {
+      "base_rate_per_second": 0.004,
+      "tap_base": 0.0,
+      "upgrade_max_level": 100,
+      "machine_max_level": 100,
+      "worker_max_count": 100,
+      "upgrades": [
+        {"id":"ir_route_survey","name":"Разведка маршрута","base_cost_cents":1500,"growth":1.12,"effects_per_level":{"output":0.01}},
+        {"id":"ir_drill_precision","name":"Точность бурения","base_cost_cents":2200,"growth":1.13,"effects_per_level":{"output":0.014}},
+        {"id":"ir_thermal_insulation","name":"Теплоизоляция","base_cost_cents":3000,"growth":1.13,"effects_per_level":{"wage":0.006}},
+        {"id":"ir_cooling_loop","name":"Контур охлаждения","base_cost_cents":4000,"growth":1.14,"effects_per_level":{"speed":0.012}},
+        {"id":"ir_ore_recovery","name":"Извлечение включений","base_cost_cents":5200,"growth":1.14,"effects_per_level":{"output":0.012}},
+        {"id":"ir_core_handling","name":"Обращение с керном","base_cost_cents":6800,"growth":1.15,"effects_per_level":{"storage":100}},
+        {"id":"ir_robotics","name":"Роботизация","base_cost_cents":8500,"growth":1.15,"effects_per_level":{"speed":0.016}},
+        {"id":"ir_material_analysis","name":"Анализ материала","base_cost_cents":11000,"growth":1.16,"effects_per_level":{"output":0.01}},
+        {"id":"ir_refinement","name":"Очистка иридия","base_cost_cents":14000,"growth":1.17,"effects_per_level":{"speed":0.018}},
+        {"id":"ir_campaign_control","name":"Контроль кампаний","base_cost_cents":18000,"growth":1.18,"effects_per_level":{"output":0.016,"wage":0.01}}
+      ],
+      "machines": [
+        {"id":"ir_campaign_bore","name":"Буровой комплекс","base_cost_cents":7000,"growth":1.12,"effects_per_level":{"output":0.018}},
+        {"id":"ir_cooling_unit","name":"Охладитель","base_cost_cents":10000,"growth":1.13,"effects_per_level":{"speed":0.02}},
+        {"id":"ir_robot_loader","name":"Роботизированный погрузчик","base_cost_cents":13500,"growth":1.14,"effects_per_level":{"output":0.01,"storage":150}},
+        {"id":"ir_thermal_separator","name":"Термосепаратор","base_cost_cents":17500,"growth":1.15,"effects_per_level":{"speed":0.015,"output":0.008}},
+        {"id":"ir_analysis_array","name":"Аналитический комплекс","base_cost_cents":22500,"growth":1.16,"effects_per_level":{"output":0.012,"wage":0.008}}
+      ],
+      "workers": [
+        {"id":"ir_route_engineer","name":"Инженеры маршрута","base_cost_cents":3500,"growth":1.06,"rate_per_worker":0.004,"wage_cents_per_minute":70,"effects_per_worker":{"output":0.002}},
+        {"id":"ir_driller","name":"Буровые бригады","base_cost_cents":5000,"growth":1.065,"rate_per_worker":0.006,"wage_cents_per_minute":100,"effects_per_worker":{"output":0.002}},
+        {"id":"ir_cooling_engineer","name":"Инженеры охлаждения","base_cost_cents":7000,"growth":1.07,"rate_per_worker":0.002,"wage_cents_per_minute":130,"effects_per_worker":{"speed":0.002,"wage":0.001}},
+        {"id":"ir_robot_operator","name":"Операторы роботов","base_cost_cents":9000,"growth":1.075,"rate_per_worker":0.003,"wage_cents_per_minute":150,"effects_per_worker":{"speed":0.001}},
+        {"id":"ir_material_engineer","name":"Инженеры материалов","base_cost_cents":12000,"growth":1.08,"rate_per_worker":0.002,"wage_cents_per_minute":220,"effects_per_worker":{"output":0.001,"wage":0.001}}
+      ]
+    }
+  }
+}
