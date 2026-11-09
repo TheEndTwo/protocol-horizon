@@ -7,10 +7,12 @@ const THEME = preload("res://assets/ui/HorizonTheme.tres")
 
 static func screen(root: Control, quiet := false) -> VBoxContainer:
 	root.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	root.theme = THEME
+	root.theme = THEME.duplicate(true)
+	for pair in [["normal","button_dark"],["hover","button_hover"],["pressed","button_pressed"],["disabled","button_disabled"],["focus","focus"]]:
+		root.theme.set_stylebox(pair[0], "Button", texture_box(pair[1]))
 	var background := TextureRect.new()
 	background.name = "Backdrop"
-	background.texture = load("res://assets/backgrounds/mine_archival_low.jpg" if GameState.settings["quality"] == "low" else "res://assets/backgrounds/mine_archival.jpg")
+	background.texture = ArtLibrary.texture_for("res://assets/backgrounds/mine_archival_low.jpg" if GameState.settings["quality"] == "low" else "res://assets/backgrounds/mine_archival.jpg")
 	background.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	background.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
 	background.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -87,13 +89,16 @@ static func button(parent: Node, text: String, name: String, action: Callable, p
 		node.add_theme_color_override("font_pressed_color", Color("f7ecd5"))
 	parent.add_child(node)
 	node.pressed.connect(func():
-		AudioService.tap()
+		if name == "Menu" or name.begins_with("Back"):
+			AudioService.play_effect("ui_back")
+		else:
+			AudioService.tap()
 		action.call())
 	return node
 
 static func texture_box(name: String) -> StyleBoxTexture:
 	var box := StyleBoxTexture.new()
-	box.texture = load("res://assets/ui/" + name + ".svg")
+	box.texture = ArtLibrary.texture_for("res://assets/ui/" + name + ".svg")
 	for side in [SIDE_LEFT, SIDE_TOP, SIDE_RIGHT, SIDE_BOTTOM]:
 		box.set_texture_margin(side, 12)
 		box.set_content_margin(side, 12)
