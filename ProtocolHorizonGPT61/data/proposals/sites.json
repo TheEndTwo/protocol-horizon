@@ -1,0 +1,169 @@
+{
+  "schema": 1,
+  "provisional": true,
+  "notice": "Операционные цены, длительности, диапазоны выхода и тепловые коэффициенты — предварительные игровые параметры. Скорость, выход и зарплаты рабочих берутся из EconomyModel.metrics. Рецепты очистки Pd/Ir и термоконтакта остаются в общей экономике.",
+  "sites": {
+    "pd": {
+      "site_id": "site_earth_pd_7",
+      "output_item": "pd_concentrate",
+      "balanced_lens_id": "pd_lens_balanced",
+      "reference_sale_price_cents_per_unit": 1200,
+      "reference_price_source": "Канон v9, C5: концентрат Pd — 12 Г; оценка не продаёт ресурс, продажей управляет общая экономика.",
+      "analysis_duration_min_s": 20,
+      "analysis_duration_max_s": 40,
+      "analysis_bonus_cap": 0.08,
+      "lenses": [
+        {
+          "id": "pd_lens_high_grade",
+          "name": "Высокосортная линза",
+          "description": "Высокая ожидаемая чистота, небольшой объём и дорогая обработка.",
+          "quality_min": 0.82,
+          "quality_max": 0.98,
+          "yield_min": 3,
+          "yield_max": 5,
+          "sample_seconds_min": 30,
+          "sample_seconds_max": 36,
+          "cycle_seconds_min": 110,
+          "cycle_seconds_max": 135,
+          "sample_cost_cents": 220,
+          "operating_cost_cents": 820
+        },
+        {
+          "id": "pd_lens_balanced",
+          "name": "Сбалансированная линза",
+          "description": "Бесплатный автоматический выбор с умеренными затратами и стабильным потоком.",
+          "quality_min": 0.68,
+          "quality_max": 0.88,
+          "yield_min": 5,
+          "yield_max": 8,
+          "sample_seconds_min": 25,
+          "sample_seconds_max": 32,
+          "cycle_seconds_min": 95,
+          "cycle_seconds_max": 120,
+          "sample_cost_cents": 120,
+          "operating_cost_cents": 540
+        },
+        {
+          "id": "pd_lens_bulk",
+          "name": "Объёмная линза",
+          "description": "Большой прогнозный объём при более низкой чистоте и длительной концентрации.",
+          "quality_min": 0.52,
+          "quality_max": 0.73,
+          "yield_min": 8,
+          "yield_max": 12,
+          "sample_seconds_min": 32,
+          "sample_seconds_max": 40,
+          "cycle_seconds_min": 135,
+          "cycle_seconds_max": 165,
+          "sample_cost_cents": 160,
+          "operating_cost_cents": 690
+        }
+      ],
+      "energy_cost_share": 0.25,
+      "energy_cost_note": "Provisional breakdown of the existing operating cash fee; already included, never a second currency or added charge."
+    },
+    "ir": {
+      "site_id": "site_earth_ir_9",
+      "output_item": "ir_core",
+      "ambient_temperature_c": 20,
+      "safe_temperature_c": 82,
+      "thermal_stress_for_max_penalty_c_seconds": 9000,
+      "max_thermal_penalty": 0.4,
+      "base_cooling_rate_c_per_second": 0.08,
+      "cooling_bonus_scale": 0.1,
+      "idle_cooling_rate_c_per_second": 0.06,
+      "cooling_action": {
+        "cost_cents": 260,
+        "temperature_drop_c": 48
+      },
+      "phases": [
+        {
+          "id": "route",
+          "name": "Маршрут",
+          "duration_s": 28,
+          "cost_cents": 180,
+          "heat_c_per_second": 0.03
+        },
+        {
+          "id": "preparation",
+          "name": "Подготовка",
+          "duration_s": 42,
+          "cost_cents": 340,
+          "heat_c_per_second": 0.1
+        },
+        {
+          "id": "drilling",
+          "name": "Проходка",
+          "duration_s": 72,
+          "cost_cents": 680,
+          "heat_c_per_second": 0.48
+        },
+        {
+          "id": "extraction",
+          "name": "Извлечение",
+          "duration_s": 68,
+          "cost_cents": 820,
+          "heat_c_per_second": 0.62
+        },
+        {
+          "id": "analysis",
+          "name": "Анализ",
+          "duration_s": 34,
+          "cost_cents": 300,
+          "heat_c_per_second": 0.12
+        },
+        {
+          "id": "refining",
+          "name": "Обработка",
+          "duration_s": 46,
+          "cost_cents": 560,
+          "heat_c_per_second": 0.2
+        }
+      ],
+      "strategies": [
+        {
+          "id": "reliable",
+          "name": "Надёжная",
+          "description": "Дольше и дороже, но прохладнее и с меньшим разбросом результата.",
+          "duration_multiplier": 1.25,
+          "cost_multiplier": 1.25,
+          "yield_multiplier": 0.9,
+          "yield_min": 6,
+          "yield_max": 8,
+          "quality_min": 0.84,
+          "quality_max": 0.97,
+          "heat_multiplier": 0.62,
+          "cooling_rate_c_per_second": 0.16
+        },
+        {
+          "id": "economic",
+          "name": "Экономная",
+          "description": "Самая низкая стоимость и тепловая нагрузка, но скромный выход.",
+          "duration_multiplier": 1.0,
+          "cost_multiplier": 0.78,
+          "yield_multiplier": 0.76,
+          "yield_min": 5,
+          "yield_max": 8,
+          "quality_min": 0.68,
+          "quality_max": 0.88,
+          "heat_multiplier": 0.76,
+          "cooling_rate_c_per_second": 0.14
+        },
+        {
+          "id": "forced",
+          "name": "Форсированная",
+          "description": "Быстрый высокий прогноз с повышенной стоимостью и перегревом.",
+          "duration_multiplier": 0.72,
+          "cost_multiplier": 1.55,
+          "yield_multiplier": 1.32,
+          "yield_min": 7,
+          "yield_max": 11,
+          "quality_min": 0.58,
+          "quality_max": 0.86,
+          "heat_multiplier": 1.48,
+          "cooling_rate_c_per_second": 0.06
+        }
+      ]
+    }
+  }
+}
