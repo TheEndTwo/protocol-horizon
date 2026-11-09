@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="180" viewBox="0 0 1200 180">
+  <defs>
+    <linearGradient id="gravel" x2="0" y2="1"><stop stop-color="#80715d" stop-opacity=".12"/><stop offset=".46" stop-color="#8f806b" stop-opacity=".85"/><stop offset="1" stop-color="#192831" stop-opacity=".2"/></linearGradient>
+    <linearGradient id="steel" x2="0" y2="1"><stop stop-color="#d2c19c"/><stop offset=".28" stop-color="#697b7d"/><stop offset="1" stop-color="#27363e"/></linearGradient>
+  </defs>
+  <path d="M20 30q280-42 570 0t590-1v116q-305 20-592-2t-568 3z" fill="url(#gravel)" opacity=".86"/>
+  <path d="M24 73q278-23 574 1t575-1M24 124q278-23 574 1t575-1" fill="none" stroke="url(#steel)" stroke-width="12"/>
+  <path d="M25 80q278-23 573 1t575-1M25 131q278-23 573 1t575-1" fill="none" stroke="#171f24" stroke-width="4"/>
+  <g stroke="#554d42" stroke-width="12" opacity=".9">
+    <path d="m80 60 6 75M164 56l4 75M248 54l2 75M332 54v75M416 55l-2 75M500 57l-4 75M584 59l-5 75M668 61l-6 75M752 61l-7 75M836 60l-7 75M920 58l-7 75M1004 56l-7 75M1088 53l-7 75"/>
+  </g>
+  <path d="M0 48q279-28 599 0t601-2M0 145q279-28 599 0t601-2" fill="none" stroke="#e3d0a7" stroke-opacity=".3" stroke-width="3"/>
+</svg>
