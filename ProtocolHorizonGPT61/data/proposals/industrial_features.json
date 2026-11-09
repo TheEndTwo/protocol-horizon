@@ -1,0 +1,66 @@
+{
+  "version": 1,
+  "provenance": "Optional industrial-feature balance values only. Canonical recipes, inputs, output quantities, base Pd lens definitions, and ordinary campaign profiles remain unchanged.",
+  "pd": {
+    "extra_lenses": [
+      {
+        "id": "pd_lens_survey",
+        "name": "Разведочная линза",
+        "description": "Дополнительный добровольный геопласт с умеренным выходом и подробной выборкой.",
+        "quality_min": 0.74,
+        "quality_max": 0.91,
+        "yield_min": 4,
+        "yield_max": 7,
+        "sample_seconds_min": 32,
+        "sample_seconds_max": 38,
+        "cycle_seconds_min": 108,
+        "cycle_seconds_max": 132,
+        "sample_cost_cents": 180,
+        "operating_cost_cents": 620
+      }
+    ],
+    "contract_profile": {"bulk_need_units": 8, "small_lens_id": "pd_lens_high_grade", "bulk_lens_id": "pd_lens_bulk"},
+    "second_sample": {"fee_cents": 240, "duration_s": 36},
+    "repeat_analysis": {"fee_cents": 180, "duration_s": 28},
+    "filter_prep": {"fee_cents": 160, "duration_s": 24, "next_cycle_cost_reduction": 0.06, "next_cycle_duration_multiplier": 0.96},
+    "forecast": {
+      "max_lines": 2,
+      "base_capacity": 1,
+      "capacity_per_georadar": 1,
+      "fee_cents": 120,
+      "duration_s": 32,
+      "targets": [
+        {"id": "sulfide_band", "label": "Сульфидный пояс"},
+        {"id": "silicate_pocket", "label": "Силикатная линза"},
+        {"id": "fracture_zone", "label": "Зона трещиноватости"}
+      ]
+    },
+    "impurity_report": {
+      "fee_cents": 220,
+      "duration_s": 30,
+      "targets": [
+        {"id": "sulfide", "label": "Сульфидные примеси"},
+        {"id": "silicate", "label": "Силикатные включения"},
+        {"id": "oxide", "label": "Оксидные включения"}
+      ]
+    },
+    "distant_analysis": {"fee_cents": 360, "duration_s": 54, "note_id": "pd_distant_geology"}
+  },
+  "ir": {
+    "deep_route": {"cost_multiplier": 1.22, "duration_multiplier": 1.18},
+    "support_prep": {"fee_cents": 420, "duration_s": 42, "next_campaign_cost_multiplier": 0.97, "next_campaign_duration_multiplier": 0.98},
+    "safe_program": {"max_campaigns": 3, "safe_strategies": ["economic", "reliable"]},
+    "contract_route": {"large_order_units": 8, "small_order_strategy": "economic", "large_order_strategy": "reliable"},
+    "cold_pause": {"description": "Pause after the current paid phase; the next phase is paid once on resume."},
+    "ancient_expedition": {"fee_cents": 680, "duration_s": 96, "report_id": "ancient_geological_markers"},
+    "manipulator_prep": {"fee_cents": 520, "duration_s": 48, "next_campaign_cost_multiplier": 1.0, "next_campaign_duration_multiplier": 0.95}
+  },
+  "contact_assembly": {
+    "recipe_ids": ["R_IR_CONTACT"],
+    "preparation_fee_cents": 300,
+    "profiles": {
+      "speed": {"label": "Скоростной", "duration_multiplier": 0.88},
+      "careful": {"label": "Экономный по времени цеха", "duration_multiplier": 1.08}
+    }
+  }
+}
