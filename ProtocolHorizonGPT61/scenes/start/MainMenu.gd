@@ -4,6 +4,8 @@ var _notice: Label
 var _busy := false
 
 func _ready() -> void:
+	if SaveService.has_profile() and GameState.profile.has("game"):
+		GameSession.prepare()
 	var items := HorizonUI.screen(self)
 	HorizonUI.label(items, "ГЕЛИОС  /  ЗЕМНОЙ КОНТУР", 12, HorizonUI.GOLD)
 	var emblem := TextureRect.new()
@@ -25,7 +27,7 @@ func _ready() -> void:
 		_notice.text = "Сохранение восстановлено из резервной копии."
 	elif not SaveService.has_profile() and SaveService.requires_reset_confirmation():
 		_notice.text = "Сохранение недоступно. Для новой игры нужно подтверждение."
-	var footer := HorizonUI.label(items, "ЭТАП 1  ·  ОФЛАЙН  ·  БЕЗ АККАУНТА", 11, HorizonUI.MUTED)
+	var footer := HorizonUI.label(items, "ЗЕМНАЯ ФАЗА  ·  ОФЛАЙН  ·  БЕЗ АККАУНТА", 11, HorizonUI.MUTED)
 	footer.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 
 func _request_new() -> void:
