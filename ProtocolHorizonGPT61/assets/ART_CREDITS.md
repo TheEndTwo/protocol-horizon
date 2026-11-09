@@ -8,6 +8,8 @@
 - Wikimedia licensing: https://commons.wikimedia.org/wiki/File:Bingham_Canyon_mine_1942.jpg — US federal FSA/OWI photograph, public domain in the United States.
 - Changes: removed film frame; reduced saturation and adjusted brightness. Text and buttons are separate Godot nodes, not baked into this image.
 
-This real historical copper mine is an atmospheric stand-in, not the canonical Fe site or final commissioned illustration. No image-generation tool is available in this workspace; final bespoke industrial artwork remains subject to owner approval. Stage 1 visual status is PARTIAL for that reason.
+This real historical copper mine is an atmospheric stand-in, not the canonical Fe site or final commissioned illustration. No image-generation tool is available in this workspace; the owner will add final bespoke artwork later. This placeholder is not an approved visual match to the references.
 
 UI SVG emblem, gradients and nine-slice textures were newly authored for this project, not extracted from reference screenshots. Runtime theme uses StyleBoxTexture; reference images remain excluded from runtime.
+
+Gameplay SVG placeholders in `placeholders/` are original simple project-authored assets with no external textures. Replace them and named portraits/items through `data/art_overrides.json`; see `docs/TEXTURE_GUIDE.md`.
