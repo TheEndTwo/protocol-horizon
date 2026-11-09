@@ -6,6 +6,7 @@ const ROUTES := {
 	&"settings": "res://scenes/start/Settings.tscn",
 	&"intro": "res://scenes/start/Intro.tscn",
 	&"checkpoint": "res://scenes/start/Checkpoint.tscn",
+	&"earth": "res://scenes/world/Earth.tscn",
 }
 var _changing := false
 
